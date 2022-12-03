@@ -3204,7 +3204,7 @@
           "Core.Persistence": "1.0.0",
           "Microsoft.Extensions.Configuration.Abstractions": "6.0.0",
           "Microsoft.Extensions.Configuration.Binder": "6.0.0",
-          "Microsoft.IdentityModel.Tokens": "6.15.1",
+          "Microsoft.IdentityModel.Tokens": "6.23.0",
           "Otp.NET": "1.2.2",
           "System.IdentityModel.Tokens.Jwt": "6.8.0"
         },
@@ -3219,6 +3219,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
+          "Entities": "1.0.0",
           "Microsoft.EntityFrameworkCore": "6.0.10",
           "Microsoft.EntityFrameworkCore.SqlServer": "6.0.10"
         },
@@ -3227,6 +3228,19 @@
         },
         "runtime": {
           "bin/placeholder/DataAccess.dll": {}
+        }
+      },
+      "Entities/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Core": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Entities.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Entities.dll": {}
         }
       }
     }
@@ -9307,6 +9321,11 @@
       "type": "project",
       "path": "../DataAccess/DataAccess.csproj",
       "msbuildProject": "../DataAccess/DataAccess.csproj"
+    },
+    "Entities/1.0.0": {
+      "type": "project",
+      "path": "../Entities/Entities.csproj",
+      "msbuildProject": "../Entities/Entities.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -9317,7 +9336,6 @@
       "Core >= 1.0.0",
       "Core.Security >= 1.0.0",
       "DataAccess >= 1.0.0",
-      "MediatR >= 10.0.1",
       "Microsoft.AspNetCore.Authentication.JwtBearer >= 6.0.10",
       "Microsoft.AspNetCore.Hosting >= 2.2.7",
       "Microsoft.EntityFrameworkCore.Tools >= 6.0.0",
@@ -9391,10 +9409,6 @@
           "Autofac.Extensions.DependencyInjection": {
             "target": "Package",
             "version": "[8.0.0, )"
-          },
-          "MediatR": {
-            "target": "Package",
-            "version": "[10.0.1, )"
           },
           "Microsoft.AspNetCore.Authentication.JwtBearer": {
             "target": "Package",

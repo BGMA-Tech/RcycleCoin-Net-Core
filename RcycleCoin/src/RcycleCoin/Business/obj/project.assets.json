@@ -2585,7 +2585,7 @@
           "Core.Persistence": "1.0.0",
           "Microsoft.Extensions.Configuration.Abstractions": "6.0.0",
           "Microsoft.Extensions.Configuration.Binder": "6.0.0",
-          "Microsoft.IdentityModel.Tokens": "6.15.1",
+          "Microsoft.IdentityModel.Tokens": "6.23.0",
           "Otp.NET": "1.2.2",
           "System.IdentityModel.Tokens.Jwt": "6.8.0"
         },

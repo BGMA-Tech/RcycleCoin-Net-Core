@@ -9,9 +9,9 @@ namespace DataAccess
     {
         public static IServiceCollection AddDataAccessServices(this IServiceCollection services, IConfiguration configuration)
         {
-            services.AddDbContext<RcycleCoinContext>(options =>
+            services.AddDbContext<RecycleCoinContext>(options =>
             {
-                options.UseSqlServer(configuration.GetConnectionString("AutomationSystemConnectionString"));
+                options.UseSqlServer(configuration.GetConnectionString("RecycleCoinConnectionString"));
             });
 
             //services.AddScoped<IUserDal, EfUserDal>();
