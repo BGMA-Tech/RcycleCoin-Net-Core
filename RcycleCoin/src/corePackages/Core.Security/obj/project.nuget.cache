@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "/cvOWATuqVgx+1jfWjJxufB76FKuC9JvQyK4XKgcKO56XWa4LlrgE0QOA8Y3zQ7pqB8ayNOvAvQ1RzgPVfi0cQ==",
+  "dgSpecHash": "w/FIHgQKXHoNqyCFUJTs57kGzb9i/QdhAvRjJV7qVAVOE9WltZTY6YY20L8CTPh36o4CPIoB33UeFhfHRro9DQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\Alp\\Desktop\\RcycleCoin-Net-Core\\RcycleCoin\\src\\corePackages\\Core.Security\\Core.Security.csproj",
   "expectedPackageFiles": [
@@ -18,9 +18,10 @@
     "C:\\Users\\Alp\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\6.0.0\\microsoft.extensions.logging.abstractions.6.0.0.nupkg.sha512",
     "C:\\Users\\Alp\\.nuget\\packages\\microsoft.extensions.options\\6.0.0\\microsoft.extensions.options.6.0.0.nupkg.sha512",
     "C:\\Users\\Alp\\.nuget\\packages\\microsoft.extensions.primitives\\6.0.0\\microsoft.extensions.primitives.6.0.0.nupkg.sha512",
+    "C:\\Users\\Alp\\.nuget\\packages\\microsoft.identitymodel.abstractions\\6.23.0\\microsoft.identitymodel.abstractions.6.23.0.nupkg.sha512",
     "C:\\Users\\Alp\\.nuget\\packages\\microsoft.identitymodel.jsonwebtokens\\6.8.0\\microsoft.identitymodel.jsonwebtokens.6.8.0.nupkg.sha512",
-    "C:\\Users\\Alp\\.nuget\\packages\\microsoft.identitymodel.logging\\6.15.1\\microsoft.identitymodel.logging.6.15.1.nupkg.sha512",
-    "C:\\Users\\Alp\\.nuget\\packages\\microsoft.identitymodel.tokens\\6.15.1\\microsoft.identitymodel.tokens.6.15.1.nupkg.sha512",
+    "C:\\Users\\Alp\\.nuget\\packages\\microsoft.identitymodel.logging\\6.23.0\\microsoft.identitymodel.logging.6.23.0.nupkg.sha512",
+    "C:\\Users\\Alp\\.nuget\\packages\\microsoft.identitymodel.tokens\\6.23.0\\microsoft.identitymodel.tokens.6.23.0.nupkg.sha512",
     "C:\\Users\\Alp\\.nuget\\packages\\otp.net\\1.2.2\\otp.net.1.2.2.nupkg.sha512",
     "C:\\Users\\Alp\\.nuget\\packages\\system.collections.immutable\\6.0.0\\system.collections.immutable.6.0.0.nupkg.sha512",
     "C:\\Users\\Alp\\.nuget\\packages\\system.diagnostics.diagnosticsource\\6.0.0\\system.diagnostics.diagnosticsource.6.0.0.nupkg.sha512",

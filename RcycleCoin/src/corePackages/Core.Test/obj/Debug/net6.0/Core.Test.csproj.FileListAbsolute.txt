@@ -1,0 +1,15 @@
+C:\Users\Alp\Desktop\RcycleCoin-Net-Core\RcycleCoin\src\corePackages\Core.Test\bin\Debug\net6.0\Core.Test.deps.json
+C:\Users\Alp\Desktop\RcycleCoin-Net-Core\RcycleCoin\src\corePackages\Core.Test\bin\Debug\net6.0\Core.Test.dll
+C:\Users\Alp\Desktop\RcycleCoin-Net-Core\RcycleCoin\src\corePackages\Core.Test\bin\Debug\net6.0\Core.Test.pdb
+C:\Users\Alp\Desktop\RcycleCoin-Net-Core\RcycleCoin\src\corePackages\Core.Test\bin\Debug\net6.0\Core.Persistence.dll
+C:\Users\Alp\Desktop\RcycleCoin-Net-Core\RcycleCoin\src\corePackages\Core.Test\bin\Debug\net6.0\Core.Persistence.pdb
+C:\Users\Alp\Desktop\RcycleCoin-Net-Core\RcycleCoin\src\corePackages\Core.Test\obj\Debug\net6.0\Core.Test.csproj.AssemblyReference.cache
+C:\Users\Alp\Desktop\RcycleCoin-Net-Core\RcycleCoin\src\corePackages\Core.Test\obj\Debug\net6.0\Core.Test.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Alp\Desktop\RcycleCoin-Net-Core\RcycleCoin\src\corePackages\Core.Test\obj\Debug\net6.0\Core.Test.AssemblyInfoInputs.cache
+C:\Users\Alp\Desktop\RcycleCoin-Net-Core\RcycleCoin\src\corePackages\Core.Test\obj\Debug\net6.0\Core.Test.AssemblyInfo.cs
+C:\Users\Alp\Desktop\RcycleCoin-Net-Core\RcycleCoin\src\corePackages\Core.Test\obj\Debug\net6.0\Core.Test.csproj.CoreCompileInputs.cache
+C:\Users\Alp\Desktop\RcycleCoin-Net-Core\RcycleCoin\src\corePackages\Core.Test\obj\Debug\net6.0\Core.Test.csproj.CopyComplete
+C:\Users\Alp\Desktop\RcycleCoin-Net-Core\RcycleCoin\src\corePackages\Core.Test\obj\Debug\net6.0\Core.Test.dll
+C:\Users\Alp\Desktop\RcycleCoin-Net-Core\RcycleCoin\src\corePackages\Core.Test\obj\Debug\net6.0\refint\Core.Test.dll
+C:\Users\Alp\Desktop\RcycleCoin-Net-Core\RcycleCoin\src\corePackages\Core.Test\obj\Debug\net6.0\Core.Test.pdb
+C:\Users\Alp\Desktop\RcycleCoin-Net-Core\RcycleCoin\src\corePackages\Core.Test\obj\Debug\net6.0\ref\Core.Test.dll
