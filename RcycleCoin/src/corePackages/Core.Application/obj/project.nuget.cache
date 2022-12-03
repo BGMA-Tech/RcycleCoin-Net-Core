@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "jYJ8oHLumXS1wfG6k76kkSHIEfZc44S0z4xULjtyKqhOXUbtBGAvBQ6VT9nwe08EZbX3ZuwPHpDPNm4LpzvsWg==",
+  "dgSpecHash": "/rb0Gyqyml2ZIwQ9GdYenrN7jSX2hLsxeUUWeDw38fVjkQCWEiqc8i08P2BdBTozWlnK4Jq2+4xF/4w+3G0MHA==",
   "success": true,
   "projectFilePath": "C:\\Users\\Alp\\Desktop\\RcycleCoin-Net-Core\\RcycleCoin\\src\\corePackages\\Core.Application\\Core.Application.csproj",
   "expectedPackageFiles": [
@@ -43,9 +43,10 @@
     "C:\\Users\\Alp\\.nuget\\packages\\microsoft.extensions.objectpool\\2.2.0\\microsoft.extensions.objectpool.2.2.0.nupkg.sha512",
     "C:\\Users\\Alp\\.nuget\\packages\\microsoft.extensions.options\\6.0.0\\microsoft.extensions.options.6.0.0.nupkg.sha512",
     "C:\\Users\\Alp\\.nuget\\packages\\microsoft.extensions.primitives\\6.0.0\\microsoft.extensions.primitives.6.0.0.nupkg.sha512",
+    "C:\\Users\\Alp\\.nuget\\packages\\microsoft.identitymodel.abstractions\\6.23.0\\microsoft.identitymodel.abstractions.6.23.0.nupkg.sha512",
     "C:\\Users\\Alp\\.nuget\\packages\\microsoft.identitymodel.jsonwebtokens\\6.8.0\\microsoft.identitymodel.jsonwebtokens.6.8.0.nupkg.sha512",
-    "C:\\Users\\Alp\\.nuget\\packages\\microsoft.identitymodel.logging\\6.15.1\\microsoft.identitymodel.logging.6.15.1.nupkg.sha512",
-    "C:\\Users\\Alp\\.nuget\\packages\\microsoft.identitymodel.tokens\\6.15.1\\microsoft.identitymodel.tokens.6.15.1.nupkg.sha512",
+    "C:\\Users\\Alp\\.nuget\\packages\\microsoft.identitymodel.logging\\6.23.0\\microsoft.identitymodel.logging.6.23.0.nupkg.sha512",
+    "C:\\Users\\Alp\\.nuget\\packages\\microsoft.identitymodel.tokens\\6.23.0\\microsoft.identitymodel.tokens.6.23.0.nupkg.sha512",
     "C:\\Users\\Alp\\.nuget\\packages\\microsoft.net.http.headers\\2.2.0\\microsoft.net.http.headers.2.2.0.nupkg.sha512",
     "C:\\Users\\Alp\\.nuget\\packages\\microsoft.netcore.platforms\\1.0.1\\microsoft.netcore.platforms.1.0.1.nupkg.sha512",
     "C:\\Users\\Alp\\.nuget\\packages\\microsoft.netcore.targets\\1.0.1\\microsoft.netcore.targets.1.0.1.nupkg.sha512",

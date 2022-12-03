@@ -127,7 +127,7 @@
             },
             "Microsoft.IdentityModel.Tokens": {
               "target": "Package",
-              "version": "[6.15.1, )"
+              "version": "[6.23.0, )"
             },
             "Otp.NET": {
               "target": "Package",

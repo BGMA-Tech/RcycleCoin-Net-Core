@@ -14,7 +14,6 @@
           "Core": "1.0.0",
           "Core.Security": "1.0.0",
           "DataAccess": "1.0.0",
-          "MediatR": "10.0.1",
           "Microsoft.AspNetCore.Authentication.JwtBearer": "6.0.10",
           "Microsoft.AspNetCore.Hosting": "2.2.7",
           "Microsoft.EntityFrameworkCore.Tools": "6.0.0",
@@ -1730,11 +1729,20 @@
       },
       "DataAccess/1.0.0": {
         "dependencies": {
+          "Entities": "1.0.0",
           "Microsoft.EntityFrameworkCore": "6.0.10",
           "Microsoft.EntityFrameworkCore.SqlServer": "6.0.10"
         },
         "runtime": {
           "DataAccess.dll": {}
+        }
+      },
+      "Entities/1.0.0": {
+        "dependencies": {
+          "Core": "1.0.0"
+        },
+        "runtime": {
+          "Entities.dll": {}
         }
       }
     }
@@ -3022,6 +3030,11 @@
       "sha512": ""
     },
     "DataAccess/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Entities/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

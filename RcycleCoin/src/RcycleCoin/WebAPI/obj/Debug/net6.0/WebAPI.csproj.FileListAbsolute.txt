@@ -99,3 +99,6 @@ C:\Users\Alp\Desktop\RcycleCoin-Net-Core\RcycleCoin\src\RcycleCoin\WebAPI\bin\De
 C:\Users\Alp\Desktop\RcycleCoin-Net-Core\RcycleCoin\src\RcycleCoin\WebAPI\bin\Debug\net6.0\Core.Application.pdb
 C:\Users\Alp\Desktop\RcycleCoin-Net-Core\RcycleCoin\src\RcycleCoin\WebAPI\bin\Debug\net6.0\Core.CrossCuttingConcerns.pdb
 C:\Users\Alp\Desktop\RcycleCoin-Net-Core\RcycleCoin\src\RcycleCoin\WebAPI\bin\Debug\net6.0\Core.Persistence.pdb
+C:\Users\Alp\Desktop\RcycleCoin-Net-Core\RcycleCoin\src\RcycleCoin\WebAPI\bin\Debug\net6.0\Entities.dll
+C:\Users\Alp\Desktop\RcycleCoin-Net-Core\RcycleCoin\src\RcycleCoin\WebAPI\bin\Debug\net6.0\Entities.pdb
+C:\Users\Alp\Desktop\RcycleCoin-Net-Core\RcycleCoin\src\RcycleCoin\WebAPI\obj\Debug\net6.0\WebAPI.MvcApplicationPartsAssemblyInfo.cs
