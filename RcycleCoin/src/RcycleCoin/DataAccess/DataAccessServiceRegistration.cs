@@ -1,4 +1,6 @@
-﻿using DataAccess.Concrete.Contexts;
+﻿using DataAccess.Abstract;
+using DataAccess.Concrete.Contexts;
+using DataAccess.Concrete.EntityFramework;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -14,7 +16,9 @@ namespace DataAccess
                 options.UseSqlServer(configuration.GetConnectionString("RecycleCoinConnectionString"));
             });
 
-            //services.AddScoped<IUserDal, EfUserDal>();
+            services.AddScoped<IRecycleProductDal, EfRecycleProductDal>();
+            services.AddScoped<IRecycleTypeDal, EfRecycleTypeDal>();
+            services.AddScoped<IUserRecycleProductDal, EfUserRecycleProductDal>();
 
             return services;
         }
