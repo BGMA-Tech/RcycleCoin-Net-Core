@@ -22,8 +22,12 @@ namespace Business.Features.RecycleProducts.Profiles
             CreateMap<RecycleProduct, UpdatedRecycleProductDto>().ReverseMap();
             CreateMap<RecycleProduct, UpdateRecycleProductCommand>().ReverseMap();
 
-            CreateMap<RecycleProduct, RecycleProductDto>().ReverseMap();
-            CreateMap<RecycleProduct, RecycleProductListDto>().ReverseMap();
+            CreateMap<RecycleProduct, RecycleProductDto>()
+                .ForMember(u => u.RecycleTypeName , opt => opt.MapFrom( u=> u.RecycleType.RecycleTypeName))
+                .ReverseMap();
+            CreateMap<RecycleProduct, RecycleProductListDto>()
+                .ForMember(u => u.RecycleTypeName, opt => opt.MapFrom(u => u.RecycleType.RecycleTypeName))
+                .ReverseMap();
             CreateMap<IPaginate<RecycleProduct>, RecycleProductListModel>().ReverseMap();
         }
     }

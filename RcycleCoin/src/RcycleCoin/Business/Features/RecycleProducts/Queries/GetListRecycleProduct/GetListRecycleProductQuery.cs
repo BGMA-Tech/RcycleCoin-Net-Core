@@ -6,6 +6,7 @@ using DataAccess.Abstract;
 using Entities.Concrete;
 using MediatR;
 using Core.DataAccess.EntityFramework.Paging;
+using Microsoft.EntityFrameworkCore;
 
 namespace Business.Features.RecycleProducts.Queries.GetListRecycleProduct
 {
@@ -30,6 +31,7 @@ namespace Business.Features.RecycleProducts.Queries.GetListRecycleProduct
             {
                 IPaginate<RecycleProduct> recycleProducts = await _recycleProductDal.GetListAsync
                     (
+                        include: r => r.Include(r => r.RecycleType),
                         index: request.PageRequest.Page,
                         size: request.PageRequest.PageSize
                     );
