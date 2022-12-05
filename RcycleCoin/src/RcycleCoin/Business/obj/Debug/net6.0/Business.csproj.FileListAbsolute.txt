@@ -19,3 +19,9 @@ C:\Users\Alp\Desktop\RcycleCoin-Net-Core\RcycleCoin\src\RcycleCoin\Business\obj\
 C:\Users\Alp\Desktop\RcycleCoin-Net-Core\RcycleCoin\src\RcycleCoin\Business\obj\Debug\net6.0\refint\Business.dll
 C:\Users\Alp\Desktop\RcycleCoin-Net-Core\RcycleCoin\src\RcycleCoin\Business\obj\Debug\net6.0\Business.pdb
 C:\Users\Alp\Desktop\RcycleCoin-Net-Core\RcycleCoin\src\RcycleCoin\Business\obj\Debug\net6.0\ref\Business.dll
+C:\Users\Alp\Desktop\RcycleCoin-Net-Core\RcycleCoin\src\RcycleCoin\Business\bin\Debug\net6.0\Core.dll
+C:\Users\Alp\Desktop\RcycleCoin-Net-Core\RcycleCoin\src\RcycleCoin\Business\bin\Debug\net6.0\DataAccess.dll
+C:\Users\Alp\Desktop\RcycleCoin-Net-Core\RcycleCoin\src\RcycleCoin\Business\bin\Debug\net6.0\Entities.dll
+C:\Users\Alp\Desktop\RcycleCoin-Net-Core\RcycleCoin\src\RcycleCoin\Business\bin\Debug\net6.0\DataAccess.pdb
+C:\Users\Alp\Desktop\RcycleCoin-Net-Core\RcycleCoin\src\RcycleCoin\Business\bin\Debug\net6.0\Entities.pdb
+C:\Users\Alp\Desktop\RcycleCoin-Net-Core\RcycleCoin\src\RcycleCoin\Business\bin\Debug\net6.0\Core.pdb
