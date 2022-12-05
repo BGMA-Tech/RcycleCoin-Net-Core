@@ -35,7 +35,8 @@ namespace Business.Features.RecycleProducts.Commands.UpdateRecycleProduct
             public async Task<UpdatedRecycleProductDto> Handle(UpdateRecycleProductCommand request, CancellationToken cancellationToken)
             {
                 await _recycleProductBusinessRules.RecycleProductIdMustBeAvailable(request.Id);
-                //await _recycleProductBusinessRules.RecycleTypeIdMustBeAvailable(request.RecycleTypeId);
+                if(request.RecycleTypeId > 0)
+                    await _recycleProductBusinessRules.RecycleTypeIdMustBeAvailable(request.RecycleTypeId);
 
                 RecycleProduct mappedRecycleProduct = _mapper.Map<RecycleProduct>(request);
                 RecycleProduct updatedRecycleProduct = await _recycleProductDal.UpdateAsync(mappedRecycleProduct);

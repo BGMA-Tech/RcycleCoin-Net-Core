@@ -3,7 +3,6 @@ using Business.Features.RecycleTypes.Constants;
 using Core.Application.Rules;
 using Core.CrossCuttingConcerns.Exceptions;
 using DataAccess.Abstract;
-using DataAccess.Concrete.EntityFramework;
 using Entities.Concrete;
 
 namespace Business.Features.RecycleProducts.Rules
