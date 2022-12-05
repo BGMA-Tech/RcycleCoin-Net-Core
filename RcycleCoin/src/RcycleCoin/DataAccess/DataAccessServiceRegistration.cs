@@ -13,7 +13,8 @@ namespace DataAccess
         {
             services.AddDbContext<RecycleCoinContext>(options =>
             {
-                options.UseSqlServer(configuration.GetConnectionString("RecycleCoinConnectionString"));
+                options.UseSqlServer(configuration.GetConnectionString("RecycleCoinConnectionString")); 
+                options.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
             });
 
             services.AddScoped<IRecycleProductDal, EfRecycleProductDal>();

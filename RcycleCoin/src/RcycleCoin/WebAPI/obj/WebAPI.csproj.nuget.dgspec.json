@@ -357,6 +357,12 @@
             "projectReferences": {
               "C:\\Users\\Alp\\Desktop\\RcycleCoin-Net-Core\\RcycleCoin\\src\\corePackages\\Core.Application\\Core.Application.csproj": {
                 "projectPath": "C:\\Users\\Alp\\Desktop\\RcycleCoin-Net-Core\\RcycleCoin\\src\\corePackages\\Core.Application\\Core.Application.csproj"
+              },
+              "C:\\Users\\Alp\\Desktop\\RcycleCoin-Net-Core\\RcycleCoin\\src\\RcycleCoin\\DataAccess\\DataAccess.csproj": {
+                "projectPath": "C:\\Users\\Alp\\Desktop\\RcycleCoin-Net-Core\\RcycleCoin\\src\\RcycleCoin\\DataAccess\\DataAccess.csproj"
+              },
+              "C:\\Users\\Alp\\Desktop\\RcycleCoin-Net-Core\\RcycleCoin\\src\\RcycleCoin\\Entities\\Entities.csproj": {
+                "projectPath": "C:\\Users\\Alp\\Desktop\\RcycleCoin-Net-Core\\RcycleCoin\\src\\RcycleCoin\\Entities\\Entities.csproj"
               }
             }
           }
