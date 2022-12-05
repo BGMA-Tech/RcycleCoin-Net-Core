@@ -4,6 +4,7 @@ using Business.Features.RecycleProducts.Rules;
 using DataAccess.Abstract;
 using Entities.Concrete;
 using MediatR;
+using Microsoft.EntityFrameworkCore;
 
 namespace Business.Features.RecycleProducts.Queries.GetByIdRecycleProduct
 {
@@ -28,7 +29,11 @@ namespace Business.Features.RecycleProducts.Queries.GetByIdRecycleProduct
             {
                 await _recycleProductBusinessRules.RecycleProductIdMustBeAvailable(request.Id);
 
-                RecycleProduct? recycleProduct = await _recycleProductDal.GetAsync(r => r.Id == request.Id);
+                RecycleProduct? recycleProduct = await _recycleProductDal.GetAsync
+                    (
+                        r => r.Id == request.Id,
+                        include: r => r.Include(r => r.RecycleType)
+                    );
                 RecycleProductDto recycleProductDto = _mapper.Map<RecycleProductDto>(recycleProduct);
 
                 return recycleProductDto;
