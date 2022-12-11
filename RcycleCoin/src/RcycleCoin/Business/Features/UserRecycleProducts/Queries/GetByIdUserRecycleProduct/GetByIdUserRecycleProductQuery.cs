@@ -2,7 +2,6 @@
 using Business.Features.UserRecycleProducts.Dtos;
 using Business.Features.UserRecycleProducts.Rules;
 using DataAccess.Abstract;
-using DataAccess.Concrete.EntityFramework;
 using Entities.Concrete;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
