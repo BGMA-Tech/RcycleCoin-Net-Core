@@ -1,8 +1,5 @@
 ﻿using AutoMapper;
-using Business.Features.RecycleProducts.Models;
-using Business.Features.UserRecycleProducts.Dtos;
 using Business.Features.UserRecycleProducts.Models;
-using Business.Features.UserRecycleProducts.Rules;
 using Core.Application.Requests;
 using Core.DataAccess.EntityFramework.Paging;
 using DataAccess.Abstract;

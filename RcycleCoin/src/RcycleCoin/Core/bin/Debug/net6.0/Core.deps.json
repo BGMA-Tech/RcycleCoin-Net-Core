@@ -18,7 +18,8 @@
           "Microsoft.Extensions.Configuration": "6.0.1",
           "Microsoft.Extensions.Configuration.Binder": "6.0.0",
           "Newtonsoft.Json": "13.0.1",
-          "System.IdentityModel.Tokens.Jwt": "6.23.0"
+          "System.IdentityModel.Tokens.Jwt": "6.23.0",
+          "System.Linq.Dynamic.Core": "1.2.23"
         },
         "runtime": {
           "Core.dll": {}
@@ -729,6 +730,14 @@
           "System.Resources.ResourceManager": "4.3.0",
           "System.Runtime": "4.3.0",
           "System.Runtime.Extensions": "4.3.0"
+        }
+      },
+      "System.Linq.Dynamic.Core/1.2.23": {
+        "runtime": {
+          "lib/net6.0/System.Linq.Dynamic.Core.dll": {
+            "assemblyVersion": "1.2.23.0",
+            "fileVersion": "1.2.23.0"
+          }
         }
       },
       "System.Linq.Expressions/4.3.0": {
@@ -1689,6 +1698,13 @@
       "sha512": "sha512-5DbqIUpsDp0dFftytzuMmc0oeMdQwjcP/EWxsksIz/w1TcFRkZ3yKKz0PqiYFMmEwPSWw+qNVqD7PJ889JzHbw==",
       "path": "system.linq/4.3.0",
       "hashPath": "system.linq.4.3.0.nupkg.sha512"
+    },
+    "System.Linq.Dynamic.Core/1.2.23": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ZaHyxSnaLeEXqxon8nU9tiCqJX9Io3LkVFMjGpA7IiXdgX6QKNcouVkfSvTRl2QieM21uwafPpvRQ2Aof4Ce7A==",
+      "path": "system.linq.dynamic.core/1.2.23",
+      "hashPath": "system.linq.dynamic.core.1.2.23.nupkg.sha512"
     },
     "System.Linq.Expressions/4.3.0": {
       "type": "package",

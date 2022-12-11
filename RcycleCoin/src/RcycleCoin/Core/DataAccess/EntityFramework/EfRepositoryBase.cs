@@ -1,4 +1,5 @@
-﻿using Core.DataAccess.EntityFramework.Paging;
+﻿using Core.DataAccess.EntityFramework.Dynamic;
+using Core.DataAccess.EntityFramework.Paging;
 using Core.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Query;
@@ -104,6 +105,21 @@ namespace Core.DataAccess.EntityFramework
             if (!enableTracking) queryable = queryable.AsNoTracking();
             if (include != null) queryable = include(queryable);
             return await queryable.FirstOrDefaultAsync(predicate, cancellationToken);
+        }
+
+        public async Task<IPaginate<TEntity>> GetListByDynamicAsync(Dynamic.Dynamic dynamic, 
+                                                            Func<IQueryable<TEntity>, 
+                                                                IIncludableQueryable<TEntity, object>>? 
+                                                            include = null, 
+                                                            int index = 0, 
+                                                            int size = 10, 
+                                                            bool enableTracking = true, 
+                                                            CancellationToken cancellationToken = default)
+        {
+            IQueryable<TEntity> queryable = Query().AsQueryable().ToDynamic(dynamic);
+            if (!enableTracking) queryable = queryable.AsNoTracking();
+            if (include != null) queryable = include(queryable);
+            return await queryable.ToPaginateAsync(index, size, 0, cancellationToken);
         }
     }
 }
