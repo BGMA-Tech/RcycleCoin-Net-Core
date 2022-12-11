@@ -5,8 +5,9 @@ using Business.Features.RecycleProducts.Dtos;
 using Business.Features.RecycleProducts.Models;
 using Business.Features.RecycleProducts.Queries.GetByIdRecycleProduct;
 using Business.Features.RecycleProducts.Queries.GetListRecycleProduct;
+using Business.Features.RecycleProducts.Queries.GetListRecycleProductByDynamic;
 using Core.Application.Requests;
-using Microsoft.AspNetCore.Http;
+using Core.DataAccess.EntityFramework.Dynamic;
 using Microsoft.AspNetCore.Mvc;
 
 namespace WebAPI.Controllers
@@ -44,6 +45,14 @@ namespace WebAPI.Controllers
         public async Task<IActionResult> GetById([FromRoute] GetByIdRecycleProductQuery getByIdRecycleProductQuery)
         {
             RecycleProductDto result = await Mediator.Send(getByIdRecycleProductQuery);
+            return Ok(result);
+        }
+        [HttpPost("GetList/ByDynamic")]
+        public async Task<IActionResult> GetListByDynamic([FromQuery] PageRequest pageRequest,
+                                                      [FromBody] Dynamic? dynamic = null)
+        {
+            GetListRecycleProductByDynamicQuery getListRecycleProductByDynamicQuery = new() { PageRequest = pageRequest, Dynamic = dynamic };
+            RecycleProductListModel result = await Mediator.Send(getListRecycleProductByDynamicQuery);
             return Ok(result);
         }
     }

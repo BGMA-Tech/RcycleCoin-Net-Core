@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "Acx81C1RrtfDKR2Tf74aXBYDNK1Hg0y/XishCU/X/6Z+054gRz1X5vOIAWDmCs93VWut+g8EFRZfEYDfRWOQEQ==",
+  "dgSpecHash": "RwDuZnywbpS5DZK8wefCky26HrCkpRaSYIRGAR0No+k2oqTy93yUCAxoonP5vHLUAB0/d4XI5CamuBpqV1AQ2Q==",
   "success": true,
   "projectFilePath": "C:\\Users\\Alp\\Desktop\\RcycleCoin-Net-Core\\RcycleCoin\\src\\RcycleCoin\\Entities\\Entities.csproj",
   "expectedPackageFiles": [
@@ -83,6 +83,7 @@
     "C:\\Users\\Alp\\.nuget\\packages\\system.io.filesystem.primitives\\4.3.0\\system.io.filesystem.primitives.4.3.0.nupkg.sha512",
     "C:\\Users\\Alp\\.nuget\\packages\\system.io.pipelines\\5.0.2\\system.io.pipelines.5.0.2.nupkg.sha512",
     "C:\\Users\\Alp\\.nuget\\packages\\system.linq\\4.3.0\\system.linq.4.3.0.nupkg.sha512",
+    "C:\\Users\\Alp\\.nuget\\packages\\system.linq.dynamic.core\\1.2.23\\system.linq.dynamic.core.1.2.23.nupkg.sha512",
     "C:\\Users\\Alp\\.nuget\\packages\\system.linq.expressions\\4.3.0\\system.linq.expressions.4.3.0.nupkg.sha512",
     "C:\\Users\\Alp\\.nuget\\packages\\system.net.http\\4.3.0\\system.net.http.4.3.0.nupkg.sha512",
     "C:\\Users\\Alp\\.nuget\\packages\\system.net.primitives\\4.3.0\\system.net.primitives.4.3.0.nupkg.sha512",

@@ -1,13 +1,9 @@
 ﻿using Core.DataAccess.EntityFramework;
+using Core.DataAccess.EntityFramework.Dynamic;
 using Core.DataAccess.EntityFramework.Paging;
 using Core.Entities;
 using Microsoft.EntityFrameworkCore.Query;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Core.DataAccess
 {
@@ -23,10 +19,10 @@ namespace Core.DataAccess
                                     int index = 0, int size = 10, bool enableTracking = true,
                                     CancellationToken cancellationToken = default);
 
-        /*Task<IPaginate<T>> GetListByDynamicAsync(Dynamic.Dynamic dynamic,
-                                                 Func<IQueryable<T>, IIncludableQueryable<T, object>>? include = null,
-                                                 int index = 0, int size = 10, bool enableTracking = true,
-                                                 CancellationToken cancellationToken = default);*/
+        Task<IPaginate<T>> GetListByDynamicAsync(Dynamic dynamic,
+                                             Func<IQueryable<T>, IIncludableQueryable<T, object>>? include = null,
+                                             int index = 0, int size = 10, bool enableTracking = true,
+                                             CancellationToken cancellationToken = default);
 
         Task<T> AddAsync(T entity);
         Task<T> UpdateAsync(T entity);

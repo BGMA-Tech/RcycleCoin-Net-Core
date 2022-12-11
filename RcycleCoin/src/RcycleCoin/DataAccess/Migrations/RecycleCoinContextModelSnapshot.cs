@@ -84,7 +84,7 @@ namespace DataAccess.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2022, 12, 3, 0, 0, 0, 0, DateTimeKind.Unspecified))
+                        .HasDefaultValue(new DateTime(2022, 12, 11, 0, 0, 0, 0, DateTimeKind.Unspecified))
                         .HasColumnName("CreatedAt");
 
                     b.Property<int>("Quantity")
@@ -95,8 +95,9 @@ namespace DataAccess.Migrations
                         .HasColumnType("int")
                         .HasColumnName("RecycleProductId");
 
-                    b.Property<int>("UserId")
-                        .HasColumnType("int")
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)")
                         .HasColumnName("UserId");
 
                     b.HasKey("Id");
@@ -120,17 +121,12 @@ namespace DataAccess.Migrations
             modelBuilder.Entity("Entities.Concrete.UserRecycleProduct", b =>
                 {
                     b.HasOne("Entities.Concrete.RecycleProduct", "RecycleProduct")
-                        .WithMany("UserRecycleProducts")
+                        .WithMany()
                         .HasForeignKey("RecycleProductId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("RecycleProduct");
-                });
-
-            modelBuilder.Entity("Entities.Concrete.RecycleProduct", b =>
-                {
-                    b.Navigation("UserRecycleProducts");
                 });
 #pragma warning restore 612, 618
         }
