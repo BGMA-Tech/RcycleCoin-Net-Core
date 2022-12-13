@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Alp\\Desktop\\RcycleCoin-Net-Core\\RcycleCoin\\src\\corePackages\\Core.ElasticSearch\\Core.ElasticSearch.csproj": {}
+    "C:\\Users\\Alp\\Desktop\\Yeni klasör (2)\\RcycleCoin-Net-Core\\RcycleCoin\\src\\corePackages\\Core.ElasticSearch\\Core.ElasticSearch.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Alp\\Desktop\\RcycleCoin-Net-Core\\RcycleCoin\\src\\corePackages\\Core.ElasticSearch\\Core.ElasticSearch.csproj": {
+    "C:\\Users\\Alp\\Desktop\\Yeni klasör (2)\\RcycleCoin-Net-Core\\RcycleCoin\\src\\corePackages\\Core.ElasticSearch\\Core.ElasticSearch.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Alp\\Desktop\\RcycleCoin-Net-Core\\RcycleCoin\\src\\corePackages\\Core.ElasticSearch\\Core.ElasticSearch.csproj",
+        "projectUniqueName": "C:\\Users\\Alp\\Desktop\\Yeni klasör (2)\\RcycleCoin-Net-Core\\RcycleCoin\\src\\corePackages\\Core.ElasticSearch\\Core.ElasticSearch.csproj",
         "projectName": "Core.ElasticSearch",
-        "projectPath": "C:\\Users\\Alp\\Desktop\\RcycleCoin-Net-Core\\RcycleCoin\\src\\corePackages\\Core.ElasticSearch\\Core.ElasticSearch.csproj",
+        "projectPath": "C:\\Users\\Alp\\Desktop\\Yeni klasör (2)\\RcycleCoin-Net-Core\\RcycleCoin\\src\\corePackages\\Core.ElasticSearch\\Core.ElasticSearch.csproj",
         "packagesPath": "C:\\Users\\Alp\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Alp\\Desktop\\RcycleCoin-Net-Core\\RcycleCoin\\src\\corePackages\\Core.ElasticSearch\\obj\\",
+        "outputPath": "C:\\Users\\Alp\\Desktop\\Yeni klasör (2)\\RcycleCoin-Net-Core\\RcycleCoin\\src\\corePackages\\Core.ElasticSearch\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

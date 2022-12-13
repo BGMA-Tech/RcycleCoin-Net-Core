@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "oAdgSvTpA8wIphG0eaIwHsPLTWFLZ1eDzISUM8BWQwbpMBerfKbY395oVON0sH8Aestgphx++gnnBG2XCZRCog==",
+  "dgSpecHash": "Wcdhdk3n+orJmzLqxAUIErwQDI/LXMU8vtAurWPXhY+Glta63Occ5ZnuZebkAksxEpuAf72MjGq/CiOAGuJMWQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Alp\\Desktop\\RcycleCoin-Net-Core\\RcycleCoin\\src\\RcycleCoin\\Core\\Core.csproj",
+  "projectFilePath": "C:\\Users\\Alp\\Desktop\\Yeni klasör (2)\\RcycleCoin-Net-Core\\RcycleCoin\\src\\RcycleCoin\\Core\\Core.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Alp\\.nuget\\packages\\autofac\\6.4.0\\autofac.6.4.0.nupkg.sha512",
     "C:\\Users\\Alp\\.nuget\\packages\\autofac.extensions.dependencyinjection\\8.0.0\\autofac.extensions.dependencyinjection.8.0.0.nupkg.sha512",
