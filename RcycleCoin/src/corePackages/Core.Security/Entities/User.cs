@@ -11,6 +11,7 @@ public class User : Entity
     public byte[] PasswordSalt { get; set; }
     public byte[] PasswordHash { get; set; }
     public bool Status { get; set; }
+    public string PersonelId { get; set; }
     public AuthenticatorType AuthenticatorType { get; set; }
 
     public virtual ICollection<UserOperationClaim> UserOperationClaims { get; set; }
@@ -23,7 +24,7 @@ public class User : Entity
     }
 
     public User(int id, string firstName, string lastName, string email, byte[] passwordSalt, byte[] passwordHash,
-                bool status, AuthenticatorType authenticatorType) : this()
+                bool status, AuthenticatorType authenticatorType, string personelId) : this()
     {
         Id = id;
         FirstName = firstName;
@@ -33,5 +34,6 @@ public class User : Entity
         PasswordHash = passwordHash;
         Status = status;
         AuthenticatorType = authenticatorType;
+        PersonelId = personelId;
     }
 }

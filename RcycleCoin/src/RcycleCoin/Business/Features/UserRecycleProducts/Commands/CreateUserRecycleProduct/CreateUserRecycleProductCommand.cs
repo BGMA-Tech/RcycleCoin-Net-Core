@@ -18,6 +18,7 @@ namespace Business.Features.UserRecycleProducts.Commands.CreateUserRecycleProduc
 
         public string[] Roles => new[] {Admin,UserRecycleProductAdd};
 
+
         public class CreateUserRecycleProductCommandHandler : IRequestHandler<CreateUserRecycleProductCommand, CreatedUserRecycleProductDto>
         {
             private readonly IUserRecycleProductDal _userRecycleProductDal;

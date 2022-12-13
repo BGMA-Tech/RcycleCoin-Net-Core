@@ -28,4 +28,9 @@ public static class ClaimExtensions
     {
         roles.ToList().ForEach(role => claims.Add(new Claim(ClaimTypes.Role, role)));
     }
+
+    public static void AddPersonelId(this ICollection<Claim> claims, string personelId)
+    {
+        claims.Add(new Claim("personelId", personelId));
+    }
 }
