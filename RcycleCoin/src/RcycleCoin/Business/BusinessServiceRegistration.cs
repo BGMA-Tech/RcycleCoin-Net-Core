@@ -1,4 +1,8 @@
-﻿using Core.Application.Pipelines.Authorization;
+﻿using Business.Services.CoinServices;
+using Business.Services.InfoServices;
+using Business.Services.TransactionServices;
+using Business.Services.UserServices;
+using Core.Application.Pipelines.Authorization;
 using Core.Application.Pipelines.Caching;
 using Core.Application.Pipelines.Logging;
 using Core.Application.Pipelines.Transaction;
@@ -21,6 +25,11 @@ namespace Business
             services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
 
             //services.AddScoped<IOperationClaimService, OperationClaimManager>();
+            
+            services.AddScoped<IUserService, UserManager>();
+            services.AddScoped<ICoinService, CoinManager>();
+            services.AddScoped<ITransactionService, TransactionManager>();
+            services.AddScoped<IInfoService, InfoManager>();
 
 
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(AuthorizationBehavior<,>));

@@ -10,3 +10,15 @@ C:\Users\Alp\Desktop\RcycleCoin-Net-Core\RcycleCoin\src\corePackages\Core.CrossC
 C:\Users\Alp\Desktop\RcycleCoin-Net-Core\RcycleCoin\src\corePackages\Core.CrossCuttingConcerns\obj\Debug\net6.0\refint\Core.CrossCuttingConcerns.dll
 C:\Users\Alp\Desktop\RcycleCoin-Net-Core\RcycleCoin\src\corePackages\Core.CrossCuttingConcerns\obj\Debug\net6.0\Core.CrossCuttingConcerns.pdb
 C:\Users\Alp\Desktop\RcycleCoin-Net-Core\RcycleCoin\src\corePackages\Core.CrossCuttingConcerns\obj\Debug\net6.0\ref\Core.CrossCuttingConcerns.dll
+C:\Users\Alp\Desktop\Yeni klasör (2)\RcycleCoin-Net-Core\RcycleCoin\src\corePackages\Core.CrossCuttingConcerns\bin\Debug\net6.0\Core.CrossCuttingConcerns.deps.json
+C:\Users\Alp\Desktop\Yeni klasör (2)\RcycleCoin-Net-Core\RcycleCoin\src\corePackages\Core.CrossCuttingConcerns\bin\Debug\net6.0\Core.CrossCuttingConcerns.dll
+C:\Users\Alp\Desktop\Yeni klasör (2)\RcycleCoin-Net-Core\RcycleCoin\src\corePackages\Core.CrossCuttingConcerns\bin\Debug\net6.0\Core.CrossCuttingConcerns.pdb
+C:\Users\Alp\Desktop\Yeni klasör (2)\RcycleCoin-Net-Core\RcycleCoin\src\corePackages\Core.CrossCuttingConcerns\obj\Debug\net6.0\Core.CrossCuttingConcerns.csproj.AssemblyReference.cache
+C:\Users\Alp\Desktop\Yeni klasör (2)\RcycleCoin-Net-Core\RcycleCoin\src\corePackages\Core.CrossCuttingConcerns\obj\Debug\net6.0\Core.CrossCuttingConcerns.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Alp\Desktop\Yeni klasör (2)\RcycleCoin-Net-Core\RcycleCoin\src\corePackages\Core.CrossCuttingConcerns\obj\Debug\net6.0\Core.CrossCuttingConcerns.AssemblyInfoInputs.cache
+C:\Users\Alp\Desktop\Yeni klasör (2)\RcycleCoin-Net-Core\RcycleCoin\src\corePackages\Core.CrossCuttingConcerns\obj\Debug\net6.0\Core.CrossCuttingConcerns.AssemblyInfo.cs
+C:\Users\Alp\Desktop\Yeni klasör (2)\RcycleCoin-Net-Core\RcycleCoin\src\corePackages\Core.CrossCuttingConcerns\obj\Debug\net6.0\Core.CrossCuttingConcerns.csproj.CoreCompileInputs.cache
+C:\Users\Alp\Desktop\Yeni klasör (2)\RcycleCoin-Net-Core\RcycleCoin\src\corePackages\Core.CrossCuttingConcerns\obj\Debug\net6.0\Core.CrossCuttingConcerns.dll
+C:\Users\Alp\Desktop\Yeni klasör (2)\RcycleCoin-Net-Core\RcycleCoin\src\corePackages\Core.CrossCuttingConcerns\obj\Debug\net6.0\refint\Core.CrossCuttingConcerns.dll
+C:\Users\Alp\Desktop\Yeni klasör (2)\RcycleCoin-Net-Core\RcycleCoin\src\corePackages\Core.CrossCuttingConcerns\obj\Debug\net6.0\Core.CrossCuttingConcerns.pdb
+C:\Users\Alp\Desktop\Yeni klasör (2)\RcycleCoin-Net-Core\RcycleCoin\src\corePackages\Core.CrossCuttingConcerns\obj\Debug\net6.0\ref\Core.CrossCuttingConcerns.dll

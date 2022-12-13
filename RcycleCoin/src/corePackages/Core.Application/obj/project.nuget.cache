@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "/rb0Gyqyml2ZIwQ9GdYenrN7jSX2hLsxeUUWeDw38fVjkQCWEiqc8i08P2BdBTozWlnK4Jq2+4xF/4w+3G0MHA==",
+  "dgSpecHash": "o2WWCUzas7Mx2shJu77fognDdCwbTL6SsIZuH3xv9Z9qxbYPtR0YS99YSWOtYGS0bN72KHabOihGy5vX6AKdXA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Alp\\Desktop\\RcycleCoin-Net-Core\\RcycleCoin\\src\\corePackages\\Core.Application\\Core.Application.csproj",
+  "projectFilePath": "C:\\Users\\Alp\\Desktop\\Yeni klasör (2)\\RcycleCoin-Net-Core\\RcycleCoin\\src\\corePackages\\Core.Application\\Core.Application.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Alp\\.nuget\\packages\\fluentvalidation\\10.3.6\\fluentvalidation.10.3.6.nupkg.sha512",
     "C:\\Users\\Alp\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\10.3.6\\fluentvalidation.dependencyinjectionextensions.10.3.6.nupkg.sha512",
