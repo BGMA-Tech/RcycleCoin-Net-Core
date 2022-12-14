@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "xuPqJ5FM6Qb2WVMLcRfn1uD4VRBMLN9Jn3DlKRp5o63Efq3FeLRLOgvFpTG5kp0Ey8bvOMZw60ov1ly/oAR4tQ==",
+  "dgSpecHash": "DjuBuCSs3d3pS3yvQk1Fpn07m3wmZfJcauf1W5ju+sS02enDTBWJi0LH8/V/AZxigFwCyC4l2qLdlihrO+9Lww==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Alp\\Desktop\\RcycleCoin-Net-Core\\RcycleCoin\\src\\corePackages\\Core.Test\\Core.Test.csproj",
+  "projectFilePath": "C:\\Users\\Alp\\Desktop\\Yeni klasör (2)\\RcycleCoin-Net-Core\\RcycleCoin\\src\\corePackages\\Core.Test\\Core.Test.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Alp\\.nuget\\packages\\castle.core\\5.1.0\\castle.core.5.1.0.nupkg.sha512",
     "C:\\Users\\Alp\\.nuget\\packages\\microsoft.entityframeworkcore\\6.0.1\\microsoft.entityframeworkcore.6.0.1.nupkg.sha512",

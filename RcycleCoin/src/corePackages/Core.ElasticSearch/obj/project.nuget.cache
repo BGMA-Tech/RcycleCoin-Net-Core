@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "GZiTiEJPMGo6n7gRTUsDe3MySIb0ytmmnpqvquLrxSXo8mGsT4Ly2afsYp5M/l2uQIWsdvDOU/88U4GX9lh0PQ==",
+  "dgSpecHash": "yHui8t5pKJwVwQ5anrQ5Tau/FGbAmUvMEqJihh17YVbYzilgp+PvZIDJLzrXJnuBBvbPyi8wifJm2LTMvfMWFw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Alp\\Desktop\\RcycleCoin-Net-Core\\RcycleCoin\\src\\corePackages\\Core.ElasticSearch\\Core.ElasticSearch.csproj",
+  "projectFilePath": "C:\\Users\\Alp\\Desktop\\Yeni klasör (2)\\RcycleCoin-Net-Core\\RcycleCoin\\src\\corePackages\\Core.ElasticSearch\\Core.ElasticSearch.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Alp\\.nuget\\packages\\elasticsearch.net\\7.17.0\\elasticsearch.net.7.17.0.nupkg.sha512",
     "C:\\Users\\Alp\\.nuget\\packages\\microsoft.csharp\\4.6.0\\microsoft.csharp.4.6.0.nupkg.sha512",
