@@ -11,7 +11,7 @@ using static Entities.Constants.OperationClaims;
 
 namespace Business.Features.RecycleProducts.Commands.CreateRecycleProduct
 {
-    public class CreateRecycleProductCommand : IRequest<CreatedRecycleProductDto>//, ISecuredRequest
+    public class CreateRecycleProductCommand : IRequest<CreatedRecycleProductDto>, ISecuredRequest
     {
         public string RecycleName { get; set; }
         public int RecyclePoint { get; set; }
