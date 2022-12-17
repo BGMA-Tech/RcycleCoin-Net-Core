@@ -1,15 +1,15 @@
 ﻿using Business.Services.CoinServices.Dtos;
 using Core.Entities;
-using Core.Utilities.Abstract;
-using Core.Utilities.Concrete;
+using Core.Utilities.JsonResults.Abstract;
 using Core.Utilities.JsonResults.Concrete;
+using Newtonsoft.Json;
 using System.Net.Http.Json;
 
 namespace Business.Services.CoinServices
 {
     public class CoinManager : ICoinService
     {
-        public async Task<IDataResult<ResultDataJson<CoinDto>>> GetById(string id)
+        public async Task<IJsonDataResult<ResultDataJson<CoinDto>>> GetById(string id)
         {
             using (var client = new HttpClient())
             {
@@ -20,20 +20,24 @@ namespace Business.Services.CoinServices
                         string data = await content.ReadAsStringAsync();
                         if (data != null)
                         {
-                            IDataResult<ResultDataJson<CoinDto>> result = new ConvertJsonDataResult<CoinDto>().JsonToData(data);
-                            if (result.Success)
+                            ResultDataJson<CoinDto>? result = JsonConvert.DeserializeObject<ResultDataJson<CoinDto>>(data);
+                            if(result?.Data != null)
                             {
-                                return new SuccessDataResult<ResultDataJson<CoinDto>>(result.Data);
+                                return new SuccessJsonDataResult<ResultDataJson<CoinDto>>(result);
                             }
-                            return new ErrorDataResult<ResultDataJson<CoinDto>>(result.Data);
+                            else
+                            {
+                                ResultJson? resultError = JsonConvert.DeserializeObject<ResultJson>(data);
+                                return new ErrorJsonDataResult<ResultDataJson<CoinDto>>(resultError.Error);
+                            }
                         }
                     }
                 }
             }
-            return new ErrorDataResult<ResultDataJson<CoinDto>>(string.Empty);
+            return new ErrorJsonDataResult<ResultDataJson<CoinDto>>();
         }
 
-        public async Task<IDataResult<ResultDataJson<CoinDto>>> Delete(string id)
+        public async Task<IJsonDataResult<ResultDataJson<CoinDto>>> Delete(string id)
         {
             using (var client = new HttpClient())
             {
@@ -44,21 +48,24 @@ namespace Business.Services.CoinServices
                         string data = await content.ReadAsStringAsync();
                         if (data != null)
                         {
-                            IDataResult<ResultDataJson<CoinDto>> result = new ConvertJsonDataResult<CoinDto>().JsonToData(data);
-
-                            if (result.Success)
+                            ResultDataJson<CoinDto>? result = JsonConvert.DeserializeObject<ResultDataJson<CoinDto>>(data);
+                            if (result?.Data != null)
                             {
-                                return new SuccessDataResult<ResultDataJson<CoinDto>>(result.Data);
+                                return new SuccessJsonDataResult<ResultDataJson<CoinDto>>(result);
                             }
-                            return new ErrorDataResult<ResultDataJson<CoinDto>>(result.Data);
+                            else
+                            {
+                                ResultJson? resultError = JsonConvert.DeserializeObject<ResultJson>(data);
+                                return new ErrorJsonDataResult<ResultDataJson<CoinDto>>(resultError.Error);
+                            }
                         }
                     }
                 }
             }
-            return new ErrorDataResult<ResultDataJson<CoinDto>>(string.Empty);
+            return new ErrorJsonDataResult<ResultDataJson<CoinDto>>();
         }
 
-        public async Task<IDataResult<ResultDataJson<UpdatedCoinDto>>> Update(UpdatedCoinDto updatedCoinDto)
+        public async Task<IJsonDataResult<ResultDataJson<UpdatedCoinDto>>> Update(UpdatedCoinDto updatedCoinDto)
         {
             using (var client = new HttpClient())
             {
@@ -69,20 +76,21 @@ namespace Business.Services.CoinServices
                         string data = await content.ReadAsStringAsync();
                         if (data != null)
                         {
-                            IDataResult<ResultDataJson<UpdatedCoinDto>> result = new ConvertJsonDataResult<UpdatedCoinDto>().JsonToData(data);
-
-                            if (result.Success)
+                            ResultDataJson<UpdatedCoinDto>? result = JsonConvert.DeserializeObject<ResultDataJson<UpdatedCoinDto>>(data);
+                            if (result?.Data != null)
                             {
-                                return new SuccessDataResult<ResultDataJson<UpdatedCoinDto>>(result.Data);
+                                return new SuccessJsonDataResult<ResultDataJson<UpdatedCoinDto>>(result);
                             }
-                            return new ErrorDataResult<ResultDataJson<UpdatedCoinDto>>(result.Data);
+                            else
+                            {
+                                ResultJson? resultError = JsonConvert.DeserializeObject<ResultJson>(data);
+                                return new ErrorJsonDataResult<ResultDataJson<UpdatedCoinDto>>(resultError.Error);
+                            }
                         }
                     }
                 }
-
             }
-            return new ErrorDataResult<ResultDataJson<UpdatedCoinDto>>(string.Empty);
+            return new ErrorJsonDataResult<ResultDataJson<UpdatedCoinDto>>();
         }
-
     }
 }

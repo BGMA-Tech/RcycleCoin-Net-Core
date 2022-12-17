@@ -2,6 +2,7 @@
 using Business.Services.CoinServices.Dtos;
 using Business.Services.UserServices;
 using Core.Utilities.Abstract;
+using Core.Utilities.JsonResults.Abstract;
 using Core.Utilities.JsonResults.Concrete;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -22,34 +23,34 @@ namespace WebAPI.Controllers
         [HttpGet("getbyid")]
         public async Task<IActionResult> GetById([FromRoute] int id)
         {
-            IDataResult<ResultDataJson<CoinDto>> resut = await _coinService.GetById(id.ToString());
-            if (resut.Success)
+            IJsonDataResult<ResultDataJson<CoinDto>> result = await _coinService.GetById(id.ToString());
+            if (result.Data != null)
             {
-                return Ok(resut);
+                return Ok(result);
             }
-            return BadRequest("Hatalı işlem");
+            return BadRequest(result);
         }
 
         [HttpDelete("delete")]
         public async Task<IActionResult> Delete([FromRoute] int id)
         {
-            IDataResult<ResultDataJson<CoinDto>> resut = await _coinService.Delete(id.ToString());
-            if (resut.Success)
+            IJsonDataResult<ResultDataJson<CoinDto>> result = await _coinService.Delete(id.ToString());
+            if (result.Data != null)
             {
-                return Ok(resut);
+                return Ok(result);
             }
-            return BadRequest("Hatalı işlem");
+            return BadRequest(result);
         }
 
         [HttpPatch("update")]
         public async Task<IActionResult> Update([FromBody] UpdatedCoinDto updatedCoinDto)
         {
-            IDataResult<ResultDataJson<UpdatedCoinDto>> resut = await _coinService.Update(updatedCoinDto);
-            if (resut.Success)
+            IJsonDataResult<ResultDataJson<UpdatedCoinDto>> result = await _coinService.Update(updatedCoinDto);
+            if (result.Data != null)
             {
-                return Ok(resut);
+                return Ok(result);
             }
-            return BadRequest("Hatalı işlem");
+            return BadRequest(result);
         }
     }
 }
