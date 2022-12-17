@@ -37,6 +37,9 @@
               },
               "C:\\Users\\Alp\\Desktop\\RcycleCoin-Net-Core\\RcycleCoin\\src\\corePackages\\Core.Security\\Core.Security.csproj": {
                 "projectPath": "C:\\Users\\Alp\\Desktop\\RcycleCoin-Net-Core\\RcycleCoin\\src\\corePackages\\Core.Security\\Core.Security.csproj"
+              },
+              "C:\\Users\\Alp\\Desktop\\RcycleCoin-Net-Core\\RcycleCoin\\src\\RcycleCoin\\Core\\Core.csproj": {
+                "projectPath": "C:\\Users\\Alp\\Desktop\\RcycleCoin-Net-Core\\RcycleCoin\\src\\RcycleCoin\\Core\\Core.csproj"
               }
             }
           }
@@ -492,7 +495,11 @@
             },
             "FluentValidation": {
               "target": "Package",
-              "version": "[11.2.2, )"
+              "version": "[10.3.6, )"
+            },
+            "FluentValidation.DependencyInjectionExtensions": {
+              "target": "Package",
+              "version": "[10.3.6, )"
             },
             "Microsoft.AspNetCore.Http": {
               "target": "Package",

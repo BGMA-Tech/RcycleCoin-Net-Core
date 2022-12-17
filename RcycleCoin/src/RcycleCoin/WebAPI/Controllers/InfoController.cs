@@ -14,16 +14,20 @@ namespace WebAPI.Controllers
     public class InfoController : BaseController
     {
         private readonly IInfoService _ınfoService;
+        private readonly IHttpContextAccessor _httpContextAccessor;
+        private string _token;
 
-        public InfoController(IInfoService ınfoService)
+        public InfoController(IInfoService ınfoService, IHttpContextAccessor httpContextAccessor)
         {
             _ınfoService = ınfoService;
+            _httpContextAccessor = httpContextAccessor;
+            _token = _httpContextAccessor.HttpContext.Request.Headers["Authorization"];
         }
 
         [HttpGet("getbyid")]
         public async Task<IActionResult> GetById([FromRoute] int id)
         {
-            IJsonDataResult<ResultDataJson<InfoDto>> result = await _ınfoService.GetById(id.ToString());
+            IJsonDataResult<ResultDataJson<InfoDto>> result = await _ınfoService.GetById(id.ToString(),_token);
             if (result.Data != null)
             {
                 return Ok(result);
@@ -34,7 +38,7 @@ namespace WebAPI.Controllers
         [HttpPatch("update")]
         public async Task<IActionResult> Update([FromBody] UpdateInfoDto updateInfoDto)
         {
-            IJsonDataResult<ResultDataJson<UpdateInfoDto>> result = await _ınfoService.Update(updateInfoDto);
+            IJsonDataResult<ResultDataJson<UpdateInfoDto>> result = await _ınfoService.Update(updateInfoDto,_token);
             if (result.Data != null)
             {
                 return Ok(result);
@@ -45,7 +49,7 @@ namespace WebAPI.Controllers
         [HttpPost("add")]
         public async Task<IActionResult> Add([FromBody] CreatedInfoDto createdInfoDto)
         {
-            IJsonDataResult<ResultDataJson<CreatedInfoDto>> result = await _ınfoService.Add(createdInfoDto);
+            IJsonDataResult<ResultDataJson<CreatedInfoDto>> result = await _ınfoService.Add(createdInfoDto,_token);
             if (result.Data != null)
             {
                 return Ok(result);
