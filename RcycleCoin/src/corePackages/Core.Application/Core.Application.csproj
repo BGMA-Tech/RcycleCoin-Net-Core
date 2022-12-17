@@ -15,6 +15,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <ProjectReference Include="..\..\RcycleCoin\Core\Core.csproj" />
 	  <ProjectReference Include="..\Core.CrossCuttingConcerns\Core.CrossCuttingConcerns.csproj" />
 	  <ProjectReference Include="..\Core.Security\Core.Security.csproj" />
 	</ItemGroup>

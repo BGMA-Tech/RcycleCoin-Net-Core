@@ -7,8 +7,8 @@ namespace Business.Services.CoinServices
 {
     public interface ICoinService
     {
-        public Task<IJsonDataResult<ResultDataJson<CoinDto>>> GetById(string id);
-        public Task<IJsonDataResult<ResultDataJson<CoinDto>>> Delete(string id);
-        public Task<IJsonDataResult<ResultDataJson<UpdatedCoinDto>>> Update(UpdatedCoinDto updatedCoinDto);
+        public Task<IJsonDataResult<ResultDataJson<CoinDto>>> GetById(string id,string token);
+        public Task<IJsonDataResult<ResultDataJson<CoinDto>>> Delete(string id, string token);
+        public Task<IJsonDataResult<ResultDataJson<UpdatedCoinDto>>> Update(UpdatedCoinDto updatedCoinDto, string token);
     }
 }

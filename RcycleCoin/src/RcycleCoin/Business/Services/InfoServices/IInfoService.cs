@@ -8,8 +8,8 @@ namespace Business.Services.InfoServices
 {
     public interface IInfoService
     {
-        public Task<IJsonDataResult<ResultDataJson<CreatedInfoDto>>> Add(CreatedInfoDto createdInfoDto);
-        public Task<IJsonDataResult<ResultDataJson<UpdateInfoDto>>> Update(UpdateInfoDto updateInfoDto);
-        public Task<IJsonDataResult<ResultDataJson<InfoDto>>> GetById(string id);
+        public Task<IJsonDataResult<ResultDataJson<CreatedInfoDto>>> Add(CreatedInfoDto createdInfoDto,string token);
+        public Task<IJsonDataResult<ResultDataJson<UpdateInfoDto>>> Update(UpdateInfoDto updateInfoDto, string token);
+        public Task<IJsonDataResult<ResultDataJson<InfoDto>>> GetById(string id,string token);
     }
 }

@@ -1,6 +1,7 @@
 ﻿using Business.Services.CoinServices.Dtos;
 using Business.Services.InfoServices.Dtos;
 using Core.Entities;
+using Core.Helper;
 using Core.Utilities.Abstract;
 using Core.Utilities.Concrete;
 using Core.Utilities.JsonResults.Abstract;
@@ -13,13 +14,14 @@ namespace Business.Services.InfoServices
 {
     public class InfoManager : IInfoService
     {
-        public async Task<IJsonDataResult<ResultDataJson<CreatedInfoDto>>> Add(CreatedInfoDto createdInfoDto)
+        public async Task<IJsonDataResult<ResultDataJson<CreatedInfoDto>>> Add(CreatedInfoDto createdInfoDto, string token)
         {
-            using (var client = new HttpClient())
+            using (HttpClient client = new HttpClient())
             {
                 client.DefaultRequestHeaders.Accept.Clear();
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
+                client.DefaultRequestHeaders.Add("Authorization", token);
                 using (HttpResponseMessage res = await client.PostAsJsonAsync(new BaseUrl().HostUrl + "info/", createdInfoDto))
                 {
                     using (HttpContent content = res.Content)
@@ -44,10 +46,11 @@ namespace Business.Services.InfoServices
             return new ErrorJsonDataResult<ResultDataJson<CreatedInfoDto>>();
         }
 
-        public async Task<IJsonDataResult<ResultDataJson<InfoDto>>> GetById(string id)
+        public async Task<IJsonDataResult<ResultDataJson<InfoDto>>> GetById(string id, string token)
         {
-            using (var client = new HttpClient())
+            using (HttpClient client = new HttpClient())
             {
+                client.DefaultRequestHeaders.Add("Authorization", token);
                 using (HttpResponseMessage res = await client.GetAsync(new BaseUrl().HostUrl + "Info/getbyid?id=" + id))
                 {
                     using (HttpContent content = res.Content)
@@ -72,10 +75,11 @@ namespace Business.Services.InfoServices
             return new ErrorJsonDataResult<ResultDataJson<InfoDto>>();
         }
 
-        public async Task<IJsonDataResult<ResultDataJson<UpdateInfoDto>>> Update(UpdateInfoDto updateInfoDto)
+        public async Task<IJsonDataResult<ResultDataJson<UpdateInfoDto>>> Update(UpdateInfoDto updateInfoDto, string token)
         {
-            using (var client = new HttpClient())
+            using (HttpClient client = new HttpClient())
             {
+                client.DefaultRequestHeaders.Add("Authorization", token);
                 using (HttpResponseMessage res = await client.PutAsJsonAsync(new BaseUrl().HostUrl + "Info/update", updateInfoDto))
                 {
                     using (HttpContent content = res.Content)

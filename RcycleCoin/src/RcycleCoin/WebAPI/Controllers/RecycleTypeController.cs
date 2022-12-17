@@ -17,6 +17,7 @@ namespace WebAPI.Controllers
     [ApiController]
     public class RecycleTypeController : BaseController
     {
+
         [HttpPost("add")]
         public async Task<IActionResult> Add([FromBody] CreateRecycleTypeCommand createRecycleTypeCommand)
         {

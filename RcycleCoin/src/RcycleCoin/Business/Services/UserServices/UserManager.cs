@@ -1,10 +1,12 @@
 ﻿using Business.Services.TransactionServices.Dtos;
 using Business.Services.UserServices.Dtos;
 using Core.Entities;
+using Core.Helper;
 using Core.Utilities.Abstract;
 using Core.Utilities.Concrete;
 using Core.Utilities.JsonResults.Abstract;
 using Core.Utilities.JsonResults.Concrete;
+using Microsoft.Extensions.Primitives;
 using Newtonsoft.Json;
 using System.Net.Http.Headers;
 using System.Net.Http.Json;
@@ -76,10 +78,11 @@ namespace Business.Services.UserServices
             return new ErrorJsonDataResult<ResultDataJson<AccessTokenDto>>();
         }
 
-        public async Task<IJsonDataResult<ResultDataJson<UserDto>>> GetById(string userId)
+        public async Task<IJsonDataResult<ResultDataJson<UserDto>>> GetById(string userId,string token)
         {
-            using (var client = new HttpClient())
+            using (HttpClient client = new HttpClient())
             {
+                client.DefaultRequestHeaders.Add("Authorization", token);
                 using (HttpResponseMessage res = await client.GetAsync(new BaseUrl().HostUrl + "user/getVerifyId?userId=" + userId))
                 {
                     using (HttpContent content = res.Content)
