@@ -8,6 +8,7 @@ using Business.Features.RecycleProducts.Queries.GetListRecycleProduct;
 using Business.Features.RecycleProducts.Queries.GetListRecycleProductByDynamic;
 using Core.Application.Requests;
 using Core.DataAccess.EntityFramework.Dynamic;
+using Core.Helper;
 using Microsoft.AspNetCore.Mvc;
 
 namespace WebAPI.Controllers
@@ -16,6 +17,7 @@ namespace WebAPI.Controllers
     [ApiController]
     public class RecycleProductController : BaseController
     {
+
         [HttpPost("add")]
         public async Task<IActionResult> Add([FromBody] CreateRecycleProductCommand createRecycleProductCommand)
         {
