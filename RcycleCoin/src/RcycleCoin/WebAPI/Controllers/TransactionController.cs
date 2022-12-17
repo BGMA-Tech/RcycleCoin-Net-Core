@@ -2,6 +2,7 @@
 using Business.Services.TransactionServices.Dtos;
 using Business.Services.UserServices.Dtos;
 using Core.Utilities.Abstract;
+using Core.Utilities.JsonResults.Abstract;
 using Core.Utilities.JsonResults.Concrete;
 using Microsoft.AspNetCore.Mvc;
 
@@ -21,8 +22,8 @@ namespace WebAPI.Controllers
         [HttpPost("add")]
         public async Task<IActionResult> GetById([FromBody] CreatedTransactionDto createdTransactionDto)
         {
-            IDataResult<ResultDataJson<TransactionDto>> resut = await _transactionService.Add(createdTransactionDto);
-            if (resut.Success)
+            IJsonDataResult<ResultDataJson<CreatedTransactionDto>> resut = await _transactionService.Add(createdTransactionDto);
+            if (resut != null)
             {
                 return Ok(resut);
             }
@@ -32,8 +33,8 @@ namespace WebAPI.Controllers
         [HttpGet("getbyid")]
         public async Task<IActionResult> GetById([FromRoute] int id)
         {
-            IDataResult<ResultDataJson<TransactionDto>> resut = await _transactionService.GetById(id.ToString());
-            if (resut.Success)
+            IJsonDataResult<ResultDataJson<TransactionDto>> resut = await _transactionService.GetById(id.ToString());
+            if (resut.Data != null)
             {
                 return Ok(resut);
             }
@@ -43,8 +44,8 @@ namespace WebAPI.Controllers
         [HttpGet("getall")]
         public async Task<IActionResult> GetAll()
         {
-            IDataResult<ResultDataJson<List<TransactionDto>>> resut = await _transactionService.GetAll();
-            if (resut.Success)
+            IJsonDataResult<ResultDataJson<List<TransactionDto>>> resut = await _transactionService.GetAll();
+            if (resut.Data != null)
             {
                 return Ok(resut);
             }
@@ -54,8 +55,8 @@ namespace WebAPI.Controllers
         [HttpGet("getallbyid")]
         public async Task<IActionResult> GetAll([FromRoute] int id)
         {
-            IDataResult<ResultDataJson<List<TransactionDto>>> resut = await _transactionService.GetAllById(id.ToString());
-            if (resut.Success)
+            IJsonDataResult<ResultDataJson<List<TransactionDto>>> resut = await _transactionService.GetAllById(id.ToString());
+            if (resut.Data != null)
             {
                 return Ok(resut);
             }

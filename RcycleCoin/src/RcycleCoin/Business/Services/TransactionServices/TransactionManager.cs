@@ -1,8 +1,11 @@
-﻿using Business.Services.TransactionServices.Dtos;
+﻿using Business.Services.InfoServices.Dtos;
+using Business.Services.TransactionServices.Dtos;
 using Core.Entities;
 using Core.Utilities.Abstract;
 using Core.Utilities.Concrete;
+using Core.Utilities.JsonResults.Abstract;
 using Core.Utilities.JsonResults.Concrete;
+using Newtonsoft.Json;
 using System.Net.Http.Headers;
 using System.Net.Http.Json;
 
@@ -10,7 +13,7 @@ namespace Business.Services.TransactionServices
 {
     public class TransactionManager : ITransactionService
     {
-        public async Task<IDataResult<ResultDataJson<TransactionDto>>> Add(CreatedTransactionDto createdTransactionDto)
+        public async Task<IJsonDataResult<ResultDataJson<CreatedTransactionDto>>> Add(CreatedTransactionDto createdTransactionDto)
         {
             using (var client = new HttpClient())
             {
@@ -24,20 +27,24 @@ namespace Business.Services.TransactionServices
                         string data = await content.ReadAsStringAsync();
                         if (data != null)
                         {
-                            IDataResult<ResultDataJson<TransactionDto>> result = new ConvertJsonDataResult<TransactionDto>().JsonToData(data);
-                            if (result.Success)
+                            ResultDataJson<CreatedTransactionDto>? result = JsonConvert.DeserializeObject<ResultDataJson<CreatedTransactionDto>>(data);
+                            if (result?.Data != null)
                             {
-                                return new SuccessDataResult<ResultDataJson<TransactionDto>>(result.Data);
+                                return new SuccessJsonDataResult<ResultDataJson<CreatedTransactionDto>>(result);
                             }
-                            return new ErrorDataResult<ResultDataJson<TransactionDto>>(result.Data);
+                            else
+                            {
+                                ResultJson? resultError = JsonConvert.DeserializeObject<ResultJson>(data);
+                                return new ErrorJsonDataResult<ResultDataJson<CreatedTransactionDto>>(resultError.Error);
+                            }
                         }
                     }
                 }
             }
-            return new ErrorDataResult<ResultDataJson<TransactionDto>>(string.Empty);
+            return new ErrorJsonDataResult<ResultDataJson<CreatedTransactionDto>>();
         }
 
-        public async Task<IDataResult<ResultDataJson<List<TransactionDto>>>> GetAll()
+        public async Task<IJsonDataResult<ResultDataJson<List<TransactionDto>>>> GetAll()
         {
             using (var client = new HttpClient())
             {
@@ -48,20 +55,24 @@ namespace Business.Services.TransactionServices
                         string data = await content.ReadAsStringAsync();
                         if (data != null)
                         {
-                            var result = new ConvertJsonDataResult<List<TransactionDto>>().JsonToData(data);
-                            if (result.Success)
+                            ResultDataJson<List<TransactionDto>>? result = JsonConvert.DeserializeObject<ResultDataJson<List<TransactionDto>>>(data);
+                            if (result?.Data != null)
                             {
-                                return new SuccessDataResult<ResultDataJson<List<TransactionDto>>>(result.Data);
+                                return new SuccessJsonDataResult<ResultDataJson<List<TransactionDto>>>(result);
                             }
-                            return new ErrorDataResult<ResultDataJson<List<TransactionDto>>>(result.Data);
+                            else
+                            {
+                                ResultJson? resultError = JsonConvert.DeserializeObject<ResultJson>(data);
+                                return new ErrorJsonDataResult<ResultDataJson<List<TransactionDto>>>(resultError.Error);
+                            }
                         }
                     }
                 }
             }
-            return new ErrorDataResult<ResultDataJson<List<TransactionDto>>>(string.Empty);
+            return new ErrorJsonDataResult<ResultDataJson<List<TransactionDto>>>();
         }
 
-        public async Task<IDataResult<ResultDataJson<List<TransactionDto>>>> GetAllById(string id)
+        public async Task<IJsonDataResult<ResultDataJson<List<TransactionDto>>>> GetAllById(string id)
         {
             using (var client = new HttpClient())
             {
@@ -72,20 +83,24 @@ namespace Business.Services.TransactionServices
                         string data = await content.ReadAsStringAsync();
                         if (data != null)
                         {
-                            IDataResult<ResultDataJson<List<TransactionDto>>> result = new ConvertJsonDataResult<List<TransactionDto>>().JsonToData(data);
-                            if (result.Success)
+                            ResultDataJson<List<TransactionDto>>? result = JsonConvert.DeserializeObject<ResultDataJson<List<TransactionDto>>>(data);
+                            if (result?.Data != null)
                             {
-                                return new SuccessDataResult<ResultDataJson<List<TransactionDto>>>(result.Data);
+                                return new SuccessJsonDataResult<ResultDataJson<List<TransactionDto>>>(result);
                             }
-                            return new ErrorDataResult<ResultDataJson<List<TransactionDto>>>(result.Data);
+                            else
+                            {
+                                ResultJson? resultError = JsonConvert.DeserializeObject<ResultJson>(data);
+                                return new ErrorJsonDataResult<ResultDataJson<List<TransactionDto>>>(resultError.Error);
+                            }
                         }
                     }
                 }
             }
-            return new ErrorDataResult<ResultDataJson<List<TransactionDto>>>(string.Empty);
+            return new ErrorJsonDataResult<ResultDataJson<List<TransactionDto>>>();
         }
 
-        public async Task<IDataResult<ResultDataJson<TransactionDto>>> GetById(string id)
+        public async Task<IJsonDataResult<ResultDataJson<TransactionDto>>> GetById(string id)
         {
             using (var client = new HttpClient())
             {
@@ -96,17 +111,21 @@ namespace Business.Services.TransactionServices
                         string data = await content.ReadAsStringAsync();
                         if (data != null)
                         {
-                            IDataResult<ResultDataJson<TransactionDto>> result = new ConvertJsonDataResult<TransactionDto>().JsonToData(data);
-                            if (result.Success)
+                            ResultDataJson<TransactionDto>? result = JsonConvert.DeserializeObject<ResultDataJson<TransactionDto>>(data);
+                            if (result?.Data != null)
                             {
-                                return new SuccessDataResult<ResultDataJson<TransactionDto>>(result.Data);
+                                return new SuccessJsonDataResult<ResultDataJson<TransactionDto>>(result);
                             }
-                            return new ErrorDataResult<ResultDataJson<TransactionDto>>(result.Data);
+                            else
+                            {
+                                ResultJson? resultError = JsonConvert.DeserializeObject<ResultJson>(data);
+                                return new ErrorJsonDataResult<ResultDataJson<TransactionDto>>(resultError.Error);
+                            }
                         }
                     }
                 }
             }
-            return new ErrorDataResult<ResultDataJson<TransactionDto>>(string.Empty);
+            return new ErrorJsonDataResult<ResultDataJson<TransactionDto>>();
         }
     }
 }

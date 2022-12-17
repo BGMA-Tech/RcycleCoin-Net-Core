@@ -1,8 +1,11 @@
-﻿using Business.Services.InfoServices.Dtos;
+﻿using Business.Services.CoinServices.Dtos;
+using Business.Services.InfoServices.Dtos;
 using Core.Entities;
 using Core.Utilities.Abstract;
 using Core.Utilities.Concrete;
+using Core.Utilities.JsonResults.Abstract;
 using Core.Utilities.JsonResults.Concrete;
+using Newtonsoft.Json;
 using System.Net.Http.Headers;
 using System.Net.Http.Json;
 
@@ -10,7 +13,7 @@ namespace Business.Services.InfoServices
 {
     public class InfoManager : IInfoService
     {
-        public async Task<IDataResult<ResultDataJson<CreatedInfoDto>>> Add(CreatedInfoDto createdInfoDto)
+        public async Task<IJsonDataResult<ResultDataJson<CreatedInfoDto>>> Add(CreatedInfoDto createdInfoDto)
         {
             using (var client = new HttpClient())
             {
@@ -24,67 +27,77 @@ namespace Business.Services.InfoServices
                         string data = await content.ReadAsStringAsync();
                         if (data != null)
                         {
-                            IDataResult<ResultDataJson<CreatedInfoDto>> result = new ConvertJsonDataResult<CreatedInfoDto>().JsonToData(data);
-                            if (result.Success)
+                            ResultDataJson<CreatedInfoDto>? result = JsonConvert.DeserializeObject<ResultDataJson<CreatedInfoDto>>(data);
+                            if (result?.Data != null)
                             {
-                                return new SuccessDataResult<ResultDataJson<CreatedInfoDto>>(result.Data);
+                                return new SuccessJsonDataResult<ResultDataJson<CreatedInfoDto>>(result);
                             }
-                            return new ErrorDataResult<ResultDataJson<CreatedInfoDto>>(result.Data);
+                            else
+                            {
+                                ResultJson? resultError = JsonConvert.DeserializeObject<ResultJson>(data);
+                                return new ErrorJsonDataResult<ResultDataJson<CreatedInfoDto>>(resultError.Error);
+                            }
                         }
                     }
                 }
             }
-            return new ErrorDataResult<ResultDataJson<CreatedInfoDto>>(string.Empty);
+            return new ErrorJsonDataResult<ResultDataJson<CreatedInfoDto>>();
         }
 
-        public async Task<IDataResult<ResultDataJson<InfoDto>>> GetById(string id)
+        public async Task<IJsonDataResult<ResultDataJson<InfoDto>>> GetById(string id)
         {
             using (var client = new HttpClient())
             {
-                using (HttpResponseMessage res = await client.GetAsync(new BaseUrl().HostUrl + "info/getbyid?id=" + id))
+                using (HttpResponseMessage res = await client.GetAsync(new BaseUrl().HostUrl + "Info/getbyid?id=" + id))
                 {
                     using (HttpContent content = res.Content)
                     {
                         string data = await content.ReadAsStringAsync();
                         if (data != null)
                         {
-                            IDataResult<ResultDataJson<InfoDto>> result = new ConvertJsonDataResult<InfoDto>().JsonToData(data);
-                            if (result.Success)
+                            ResultDataJson<InfoDto>? result = JsonConvert.DeserializeObject<ResultDataJson<InfoDto>>(data);
+                            if (result?.Data != null)
                             {
-                                return new SuccessDataResult<ResultDataJson<InfoDto>>(result.Data);
+                                return new SuccessJsonDataResult<ResultDataJson<InfoDto>>(result);
                             }
-                            return new ErrorDataResult<ResultDataJson<InfoDto>>(result.Data);
+                            else
+                            {
+                                ResultJson? resultError = JsonConvert.DeserializeObject<ResultJson>(data);
+                                return new ErrorJsonDataResult<ResultDataJson<InfoDto>>(resultError.Error);
+                            }
                         }
                     }
                 }
             }
-            return new ErrorDataResult<ResultDataJson<InfoDto>>(string.Empty);
+            return new ErrorJsonDataResult<ResultDataJson<InfoDto>>();
         }
 
-        public async Task<IDataResult<ResultDataJson<UpdateInfoDto>>> Update(UpdateInfoDto updateInfoDto)
+        public async Task<IJsonDataResult<ResultDataJson<UpdateInfoDto>>> Update(UpdateInfoDto updateInfoDto)
         {
             using (var client = new HttpClient())
             {
-                using (HttpResponseMessage res = await client.PutAsJsonAsync(new BaseUrl().HostUrl + "info/update", updateInfoDto))
+                using (HttpResponseMessage res = await client.PutAsJsonAsync(new BaseUrl().HostUrl + "Info/update", updateInfoDto))
                 {
                     using (HttpContent content = res.Content)
                     {
                         string data = await content.ReadAsStringAsync();
                         if (data != null)
                         {
-                            IDataResult<ResultDataJson<UpdateInfoDto>> result = new ConvertJsonDataResult<UpdateInfoDto>().JsonToData(data);
-
-                            if (result.Success)
+                            ResultDataJson<UpdateInfoDto>? result = JsonConvert.DeserializeObject<ResultDataJson<UpdateInfoDto>>(data);
+                            if (result?.Data != null)
                             {
-                                return new SuccessDataResult<ResultDataJson<UpdateInfoDto>>(result.Data);
+                                return new SuccessJsonDataResult<ResultDataJson<UpdateInfoDto>>(result);
                             }
-                            return new ErrorDataResult<ResultDataJson<UpdateInfoDto>>(result.Data);
+                            else
+                            {
+                                ResultJson? resultError = JsonConvert.DeserializeObject<ResultJson>(data);
+                                return new ErrorJsonDataResult<ResultDataJson<UpdateInfoDto>>(resultError.Error);
+                            }
                         }
                     }
                 }
-
             }
-            return new ErrorDataResult<ResultDataJson<UpdateInfoDto>>(string.Empty);
+            return new ErrorJsonDataResult<ResultDataJson<UpdateInfoDto>>();
         }
     }
 }

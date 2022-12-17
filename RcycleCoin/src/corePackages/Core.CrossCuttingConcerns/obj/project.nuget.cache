@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "laPGoj6mvY5kUG13N3UxHN3d7xG6oy0oqAsKmepdy1g9f71V5MTWEfhv+t8r4JB/A5NYz0zQmRh+eATi5Qu11A==",
+  "dgSpecHash": "6ZL8Obl4xm/kHhjRYLOYrOL9Mh0gBW0pgGM8ty8LhbI+kajG9MZzS7tfsNxl/IT8AO8HQIazrAXJ24vak5A91g==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Alp\\Desktop\\Yeni klasör (2)\\RcycleCoin-Net-Core\\RcycleCoin\\src\\corePackages\\Core.CrossCuttingConcerns\\Core.CrossCuttingConcerns.csproj",
+  "projectFilePath": "C:\\Users\\Alp\\Desktop\\RcycleCoin-Net-Core\\RcycleCoin\\src\\corePackages\\Core.CrossCuttingConcerns\\Core.CrossCuttingConcerns.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Alp\\.nuget\\packages\\fluentvalidation\\10.3.6\\fluentvalidation.10.3.6.nupkg.sha512",
     "C:\\Users\\Alp\\.nuget\\packages\\microsoft.aspnetcore.authentication.abstractions\\2.2.0\\microsoft.aspnetcore.authentication.abstractions.2.2.0.nupkg.sha512",
