@@ -11,58 +11,54 @@ namespace WebAPI.Controllers
     public class TransactionController : BaseController
     {
         private readonly ITransactionService _transactionService;
-        private readonly IHttpContextAccessor _httpContextAccessor;
-        private string _token;
 
-        public TransactionController(ITransactionService transactionService, IHttpContextAccessor httpContextAccessor)
+        public TransactionController(ITransactionService transactionService)
         {
             _transactionService = transactionService;
-            _httpContextAccessor = httpContextAccessor;
-            _token = _httpContextAccessor.HttpContext.Request.Headers["Authorization"];
         }
 
         [HttpPost("add")]
         public async Task<IActionResult> GetById([FromBody] CreatedTransactionDto createdTransactionDto)
         {
-            IJsonDataResult<ResultDataJson<CreatedTransactionDto>> result = await _transactionService.Add(createdTransactionDto,_token);
+            IJsonDataResult<ResultDataJson<TransactionDto>> result = await _transactionService.Add(createdTransactionDto);
             if (result != null)
             {
-                return Ok(result);
+                return Ok(result.Data);
             }
-            return BadRequest(result);
+            return BadRequest(result.Data);
         }
 
         [HttpGet("getbyid")]
-        public async Task<IActionResult> GetById([FromRoute] int id)
+        public async Task<IActionResult> GetById(string id)
         {
-            IJsonDataResult<ResultDataJson<TransactionDto>> result = await _transactionService.GetById(id.ToString(),_token);
+            IJsonDataResult<ResultDataJson<TransactionDto>> result = await _transactionService.GetById(id);
             if (result.Data != null)
             {
-                return Ok(result);
+                return Ok(result.Data);
             }
-            return BadRequest(result);
+            return BadRequest(result.Data);
         }
 
-        [HttpGet("/")]
+        [HttpGet("getall")]
         public async Task<IActionResult> GetAll()
         {
-            IJsonDataResult<ResultDataJson<List<TransactionDto>>> result = await _transactionService.GetAll(_token);
+            IJsonDataResult<ResultDataJson<List<TransactionDto>>> result = await _transactionService.GetAll();
             if (result.Data != null)
             {
-                return Ok(result);
+                return Ok(result.Data);
             }
-            return BadRequest(result);
+            return BadRequest(result.Data);
         }
 
         [HttpGet("getallbyid")]
-        public async Task<IActionResult> GetAll([FromRoute] int id)
+        public async Task<IActionResult> GetAllById(string id)
         {
-            IJsonDataResult<ResultDataJson<List<TransactionDto>>> result = await _transactionService.GetAllById(id.ToString(), _token);
+            IJsonDataResult<ResultDataJson<List<TransactionDto>>> result = await _transactionService.GetAllById(id);
             if (result.Data != null)
             {
-                return Ok(result);
+                return Ok(result.Data);
             }
-            return BadRequest(result);
+            return BadRequest(result.Data);
         }
     }
 }

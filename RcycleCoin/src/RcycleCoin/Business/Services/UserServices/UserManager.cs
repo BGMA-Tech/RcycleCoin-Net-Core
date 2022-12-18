@@ -78,12 +78,11 @@ namespace Business.Services.UserServices
             return new ErrorJsonDataResult<ResultDataJson<AccessTokenDto>>();
         }
 
-        public async Task<IJsonDataResult<ResultDataJson<UserDto>>> GetById(string userId,string token)
+        public async Task<IJsonDataResult<ResultDataJson<UserDto>>> GetById(string userId)
         {
-            using (HttpClient client = new HttpClient())
+            using (HttpClient client = BaseHttpClient.CreateHttpClient())
             {
-                client.DefaultRequestHeaders.Add("Authorization", token);
-                using (HttpResponseMessage res = await client.GetAsync(new BaseUrl().HostUrl + "user/getVerifyId?userId=" + userId))
+                using (HttpResponseMessage res = await client.GetAsync(new BaseUrl().HostUrl + "user/" + userId))
                 {
                     using (HttpContent content = res.Content)
                     {
@@ -106,5 +105,29 @@ namespace Business.Services.UserServices
             }
             return new ErrorJsonDataResult<ResultDataJson<UserDto>>();
         }
+
+        public async Task<IJsonDataResult<GetVerifyIdJson>> GetVerifyId(GetVerifyIdDto getVerifyIdDto)
+        {
+            using (HttpClient client = BaseHttpClient.CreateHttpClient())
+            {
+                client.DefaultRequestHeaders.Accept.Clear();
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+                using (HttpResponseMessage res = await client.PostAsJsonAsync(new BaseUrl().HostUrl + "user/getVerifyId", getVerifyIdDto))
+                {
+                    using (HttpContent content = res.Content)
+                    {
+                        string data = await content.ReadAsStringAsync();
+                        if (data != null)
+                        {
+                            GetVerifyIdJson result = JsonConvert.DeserializeObject<GetVerifyIdJson>(data);
+                            return new SuccessJsonDataResult<GetVerifyIdJson>(result);
+                        }
+                    }
+                }
+            }
+            return new ErrorJsonDataResult<GetVerifyIdJson>();
+        }
+
     }
 }

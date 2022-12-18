@@ -17,7 +17,7 @@ namespace Business.Features.RecycleProducts.Commands.CreateRecycleProduct
         public int RecyclePoint { get; set; }
         public int RecycleTypeId { get; set; }
 
-        public string[] Roles => new[] {Admin, RecycleProductAdd};
+        public string[] Roles => new[] {Admin, RecycleProductAdd,"Personel"};
 
         public class CreateRecycleProductCommandHandler : IRequestHandler<CreateRecycleProductCommand, CreatedRecycleProductDto>
         {

@@ -1,17 +1,20 @@
 ﻿using AutoMapper;
 using Business.Features.UserRecycleProducts.Models;
+using Core.Application.Pipelines.Authorization;
 using Core.Application.Requests;
 using Core.DataAccess.EntityFramework.Paging;
 using DataAccess.Abstract;
 using Entities.Concrete;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
+using static Entities.Constants.OperationClaims;
 
 namespace Business.Features.UserRecycleProducts.Queries.GetListUserRecycleProduct
 {
-    public class GetListUserRecycleProductQuery:IRequest<UserRecycleProductListModel>
+    public class GetListUserRecycleProductQuery:IRequest<UserRecycleProductListModel>,ISecuredRequest
     {
         public PageRequest PageRequest { get; set; }
+        public string[] Roles => new[] { Admin, Personel };
 
         public class GetListUserRecycleProductQueryHandler : IRequestHandler<GetListUserRecycleProductQuery, UserRecycleProductListModel>
         {

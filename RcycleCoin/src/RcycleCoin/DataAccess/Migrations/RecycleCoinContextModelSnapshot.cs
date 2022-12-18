@@ -82,9 +82,7 @@ namespace DataAccess.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<DateTime>("CreatedAt")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2022, 12, 11, 0, 0, 0, 0, DateTimeKind.Unspecified))
                         .HasColumnName("CreatedAt");
 
                     b.Property<int>("Quantity")

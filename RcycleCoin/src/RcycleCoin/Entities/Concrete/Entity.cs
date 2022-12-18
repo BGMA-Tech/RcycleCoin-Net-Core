@@ -1,4 +1,4 @@
-﻿namespace Core.Entities
+﻿namespace Entities.Concrete
 {
     public class Entity
     {
@@ -9,9 +9,9 @@
 
         }
 
-        public Entity(int id):this()
+        public Entity(int id) : this()
         {
-            Id= id;
+            Id = id;
         }
     }
 }

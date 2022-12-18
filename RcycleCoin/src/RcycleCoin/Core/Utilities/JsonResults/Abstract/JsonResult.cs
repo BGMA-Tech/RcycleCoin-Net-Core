@@ -10,9 +10,9 @@ namespace Core.Utilities.JsonResults.Abstract
         }
         public JsonResult(bool success)
         {
-            this.Success = success;
+            this.Status = success;
         }
-        public bool Success { get; }
+        public bool Status { get; }
 
         public Error ErrorMessage { get; }
     }

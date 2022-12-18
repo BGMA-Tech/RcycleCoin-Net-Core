@@ -19,10 +19,10 @@ namespace WebAPI.Controllers
             return HttpContext.Connection.RemoteIpAddress?.MapToIPv4().ToString();
         }
 
-        protected int getUserIdFromRequest() //todo authentication behavior?
+        /*protected int getUserIdFromRequest() //todo authentication behavior?
         {
             int userId = HttpContext.User.GetUserId();
             return userId;
-        }
+        }*/
     }
 }

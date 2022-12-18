@@ -9,17 +9,6 @@ namespace Core.Utilities.JsonResults.Concrete
 {
     public class ConvertJsonResult
     {
-        //public IResult JsonResult(string responce)
-        //{
-        //    JsonDataBeautify jsonDataBeautify = new JsonDataBeautify();
-        //    jsonDataBeautify.BeautifyJson(responce);
-        //    ResultJson? result = JsonConvert.DeserializeObject<ResultJson>(responce);
-        //    if (result.Success)
-        //    {
-        //        return new SuccessResult(result.ErrorMessage.Message);
-        //    }
-        //    return new ErrorResult(JsonMessages.JsonDataNotFound);
-        //}
         public IResult JsonResult(string responce)
         {
             JsonDataBeautify jsonDataBeautify = new JsonDataBeautify();

@@ -7,12 +7,15 @@ using Entities.Concrete;
 using MediatR;
 using Core.DataAccess.EntityFramework.Paging;
 using Microsoft.EntityFrameworkCore;
+using Core.Application.Pipelines.Authorization;
+using static Entities.Constants.OperationClaims;
 
 namespace Business.Features.RecycleProducts.Queries.GetListRecycleProduct
 {
-    public class GetListRecycleProductQuery:IRequest<RecycleProductListModel>
+    public class GetListRecycleProductQuery:IRequest<RecycleProductListModel>,ISecuredRequest
     {
         public PageRequest PageRequest { get; set; }
+        public string[] Roles => new[] { Admin, Personel };
 
         public class GetListRecycleProductQueryHanlder : IRequestHandler<GetListRecycleProductQuery, RecycleProductListModel>
         {
