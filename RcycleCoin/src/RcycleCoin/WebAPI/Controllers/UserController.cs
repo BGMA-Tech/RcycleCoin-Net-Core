@@ -37,35 +37,23 @@ namespace WebAPI.Controllers
         [HttpPost("login")]
         public async Task<IActionResult> Login([FromBody] UserForLoginDto userForLoginDto)
         {
-            IJsonDataResult<ResultDataJson<AccessTokenDto>> result = await _userService.Login(userForLoginDto);
-            if(result.Data == null)
+            IJsonDataResult<ResultDataJson<AccessToken>> result = await _userService.Login(userForLoginDto);
+            if(result.Data.Data.Token == null)
             {
-                return BadRequest(result.Data);
+                return BadRequest(result.Data.Data);
             }
-            AccessToken accessToken = await _authService.CreateAccessToken(new User
-            {
-                Email= userForLoginDto.Email,
-                Password= userForLoginDto.Password,
-                UserId = "639e331d8f8868685db37e70",
-                FirstName = "Alp",
-                LastName = "Yanıkoğlu",
-                Id = 1,
-                PersonelId = "00e7f401eaf8cdd4a34238f4251b332370cd9fa26e4f788d90951e562a012817",
-                Rol = "Personel"
-            });
-            BaseHttpClient.Token = result.Data.Data.Token;
-            return Ok(accessToken);
+            return Ok(result.Data.Data);
         }
 
         [HttpPost("register")]
         public async Task<IActionResult> Register([FromBody] UserForRegisterDto userForRegisterDto)
         {
-            IJsonDataResult<ResultDataJson<AccessTokenDto>> result = await _userService.Register(userForRegisterDto);
+            IJsonDataResult<ResultDataJson<UserDto>> result = await _userService.Register(userForRegisterDto);
             if (result.Data != null)
             {
-                return Ok(result);
+                return Ok(result.Data.Data);
             }
-            return BadRequest(result);
+            return BadRequest(result.Data.Data);
         }
 
         [HttpPost("getverifyid")]

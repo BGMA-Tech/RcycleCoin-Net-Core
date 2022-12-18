@@ -1,12 +1,11 @@
-﻿using Business.Services.TransactionServices.Dtos;
+﻿using Business.Services.AuthServices;
 using Business.Services.UserServices.Dtos;
 using Core.Entities;
 using Core.Helper;
-using Core.Utilities.Abstract;
-using Core.Utilities.Concrete;
 using Core.Utilities.JsonResults.Abstract;
 using Core.Utilities.JsonResults.Concrete;
-using Microsoft.Extensions.Primitives;
+using Core.Utilities.Security.Jwt;
+using Entities.Concrete;
 using Newtonsoft.Json;
 using System.Net.Http.Headers;
 using System.Net.Http.Json;
@@ -15,7 +14,14 @@ namespace Business.Services.UserServices
 {
     public class UserManager : IUserService
     {
-        public async Task<IJsonDataResult<ResultDataJson<AccessTokenDto>>> Login(UserForLoginDto userForLoginDto)
+        private readonly IAuthService _authService;
+
+        public UserManager(IAuthService authService)
+        {
+            _authService = authService;
+        }
+
+        public async Task<IJsonDataResult<ResultDataJson<AccessToken>>> Login(UserForLoginDto userForLoginDto)
         {
             using (var client = new HttpClient())
             {
@@ -32,21 +38,33 @@ namespace Business.Services.UserServices
                             ResultDataJson<AccessTokenDto>? result = JsonConvert.DeserializeObject<ResultDataJson<AccessTokenDto>>(data);
                             if (result?.Data != null)
                             {
-                                return new SuccessJsonDataResult<ResultDataJson<AccessTokenDto>>(result);
+                                AccessToken accessToken = await _authService.CreateAccessToken(new User
+                                {
+                                    Email = result.Data.User.Email,
+                                    UserId = result.Data.User._id,
+                                    FirstName = result.Data.User.Info.FirstName,
+                                    LastName = result.Data.User.Info.LastName,
+                                    PersonelId = result.Data.User.PersonelId,
+                                    Rol = result.Data.User.Info.Role
+                                });
+                                BaseHttpClient.Token = result.Data.Token;
+                                ResultDataJson<AccessToken> resultDataJson = new ResultDataJson<AccessToken>();
+                                resultDataJson.Data = accessToken;
+                                return new SuccessJsonDataResult<ResultDataJson<AccessToken>>(resultDataJson);
                             }
                             else
                             {
                                 ResultJson? resultError = JsonConvert.DeserializeObject<ResultJson>(data);
-                                return new ErrorJsonDataResult<ResultDataJson<AccessTokenDto>>(resultError.Error);
+                                return new ErrorJsonDataResult<ResultDataJson<AccessToken>>(resultError.Error);
                             }
                         }
                     }
                 }
             }
-            return new ErrorJsonDataResult<ResultDataJson<AccessTokenDto>>();
+            return new ErrorJsonDataResult<ResultDataJson<AccessToken>>();
         }
 
-        public async Task<IJsonDataResult<ResultDataJson<AccessTokenDto>>> Register(UserForRegisterDto userForRegisterDto)
+        public async Task<IJsonDataResult<ResultDataJson<UserDto>>> Register(UserForRegisterDto userForRegisterDto)
         {
             using (var client = new HttpClient())
             {
@@ -61,21 +79,21 @@ namespace Business.Services.UserServices
 
                         if (data != null)
                         {
-                            ResultDataJson<AccessTokenDto>? result = JsonConvert.DeserializeObject<ResultDataJson<AccessTokenDto>>(data);
+                            ResultDataJson<UserDto>? result = JsonConvert.DeserializeObject<ResultDataJson<UserDto>>(data);
                             if (result?.Data != null)
                             {
-                                return new SuccessJsonDataResult<ResultDataJson<AccessTokenDto>>(result);
+                                return new SuccessJsonDataResult<ResultDataJson<UserDto>>(result);
                             }
                             else
                             {
                                 ResultJson? resultError = JsonConvert.DeserializeObject<ResultJson>(data);
-                                return new ErrorJsonDataResult<ResultDataJson<AccessTokenDto>>(resultError.Error);
+                                return new ErrorJsonDataResult<ResultDataJson<UserDto>>(resultError.Error);
                             }
                         }
                     }
                 }
             }
-            return new ErrorJsonDataResult<ResultDataJson<AccessTokenDto>>();
+            return new ErrorJsonDataResult<ResultDataJson<UserDto>>();
         }
 
         public async Task<IJsonDataResult<ResultDataJson<UserDto>>> GetById(string userId)
