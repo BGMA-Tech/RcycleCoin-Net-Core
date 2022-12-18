@@ -36,6 +36,8 @@ namespace Business.Features.UserRecycleProducts.Commands.CreateUserRecycleProduc
                 await _userRecycleProductBusinessRules.RecycleProductIdMustBeAvailable(request.RecycleProductId);
 
                 UserRecycleProduct mappedUserRecycleProduct = _mapper.Map<UserRecycleProduct>(request);
+                mappedUserRecycleProduct.CreatedAt = Convert.ToDateTime(DateTime.Now.ToString("F"));
+
                 UserRecycleProduct createdUserRecycleProduct = await _userRecycleProductDal.AddAsync(mappedUserRecycleProduct);
                 CreatedUserRecycleProductDto createdUserRecycleProductDto = _mapper.Map<CreatedUserRecycleProductDto>(createdUserRecycleProduct);
 

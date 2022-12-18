@@ -16,21 +16,17 @@ namespace WebAPI.Controllers
     {
         private readonly IUserService _userService;
         private readonly IAuthService _authService;
-        private readonly IHttpContextAccessor _httpContextAccessor;
-        private string _token;
 
-        public UserController(IUserService userService, IAuthService authService, IHttpContextAccessor httpContextAccessor)
+        public UserController(IUserService userService, IAuthService authService)
         {
             _userService = userService;
             _authService = authService;
-            _httpContextAccessor = httpContextAccessor;
-            _token = _httpContextAccessor.HttpContext.Request.Headers["Authorization"];
         }
 
         [HttpGet("getbyid")]
         public async Task<IActionResult> GetById(string userId)
         {
-            IJsonDataResult<ResultDataJson<UserDto>> resut = await _userService.GetById(userId.ToString(),_token);
+            IJsonDataResult<ResultDataJson<UserDto>> resut = await _userService.GetById(userId.ToString());
             if(resut.Data != null)
             {
                 return Ok(resut);
@@ -75,7 +71,7 @@ namespace WebAPI.Controllers
         [HttpPost("getverifyid")]
         public async Task<IActionResult> GetVerifyId([FromBody] GetVerifyIdDto getVerifyIdDto)
         {
-            IJsonDataResult<GetVerifyIdJson> result = await _userService.GetVerifyId(getVerifyIdDto,_token);
+            IJsonDataResult<GetVerifyIdJson> result = await _userService.GetVerifyId(getVerifyIdDto);
             return Ok(result.Data);
         }
     }

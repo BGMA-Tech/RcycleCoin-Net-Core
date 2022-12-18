@@ -14,7 +14,7 @@ namespace DataAccess.Concrete.EntityConfiguration
             builder.Property(u => u.RecycleProductId).HasColumnName("RecycleProductId").IsRequired();
             builder.Property(u => u.UserId).HasColumnName("UserId").IsRequired();
             builder.Property(u => u.Quantity).HasColumnName("Quantity").IsRequired();
-            builder.Property(u => u.CreatedAt).HasColumnName("CreatedAt").IsRequired().HasDefaultValue(Convert.ToDateTime(DateTime.Now.ToString("yyyy-MM-dd")));
+            builder.Property(u => u.CreatedAt).HasColumnName("CreatedAt").IsRequired();
 
             builder.HasOne(u => u.RecycleProduct);
             #endregion

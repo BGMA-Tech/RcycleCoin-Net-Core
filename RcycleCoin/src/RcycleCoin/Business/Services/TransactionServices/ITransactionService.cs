@@ -8,9 +8,9 @@ namespace Business.Services.TransactionServices
 {
     public interface ITransactionService
     {
-        public Task<IJsonDataResult<ResultDataJson<TransactionDto>>> GetById(string id, string token);
-        public Task<IJsonDataResult<ResultDataJson<List<TransactionDto>>>> GetAll(string token);
-        public Task<IJsonDataResult<ResultDataJson<List<TransactionDto>>>> GetAllById(string id, string token);
-        public Task<IJsonDataResult<ResultDataJson<TransactionDto>>> Add(CreatedTransactionDto createdTransactionDto,string token);
+        public Task<IJsonDataResult<ResultDataJson<TransactionDto>>> GetById(string id);
+        public Task<IJsonDataResult<ResultDataJson<List<TransactionDto>>>> GetAll();
+        public Task<IJsonDataResult<ResultDataJson<List<TransactionDto>>>> GetAllById(string id);
+        public Task<IJsonDataResult<ResultDataJson<TransactionDto>>> Add(CreatedTransactionDto createdTransactionDto);
     }
 }

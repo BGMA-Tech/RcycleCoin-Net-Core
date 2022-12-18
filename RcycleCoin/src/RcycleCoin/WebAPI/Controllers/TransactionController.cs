@@ -11,20 +11,16 @@ namespace WebAPI.Controllers
     public class TransactionController : BaseController
     {
         private readonly ITransactionService _transactionService;
-        private readonly IHttpContextAccessor _httpContextAccessor;
-        private string _token;
 
-        public TransactionController(ITransactionService transactionService, IHttpContextAccessor httpContextAccessor)
+        public TransactionController(ITransactionService transactionService)
         {
             _transactionService = transactionService;
-            _httpContextAccessor = httpContextAccessor;
-            _token = _httpContextAccessor.HttpContext.Request.Headers["Authorization"];
         }
 
         [HttpPost("add")]
         public async Task<IActionResult> GetById([FromBody] CreatedTransactionDto createdTransactionDto)
         {
-            IJsonDataResult<ResultDataJson<TransactionDto>> result = await _transactionService.Add(createdTransactionDto,_token);
+            IJsonDataResult<ResultDataJson<TransactionDto>> result = await _transactionService.Add(createdTransactionDto);
             if (result != null)
             {
                 return Ok(result.Data);
@@ -35,7 +31,7 @@ namespace WebAPI.Controllers
         [HttpGet("getbyid")]
         public async Task<IActionResult> GetById(string id)
         {
-            IJsonDataResult<ResultDataJson<TransactionDto>> result = await _transactionService.GetById(id,_token);
+            IJsonDataResult<ResultDataJson<TransactionDto>> result = await _transactionService.GetById(id);
             if (result.Data != null)
             {
                 return Ok(result.Data);
@@ -46,7 +42,7 @@ namespace WebAPI.Controllers
         [HttpGet("getall")]
         public async Task<IActionResult> GetAll()
         {
-            IJsonDataResult<ResultDataJson<List<TransactionDto>>> result = await _transactionService.GetAll(_token);
+            IJsonDataResult<ResultDataJson<List<TransactionDto>>> result = await _transactionService.GetAll();
             if (result.Data != null)
             {
                 return Ok(result.Data);
@@ -57,7 +53,7 @@ namespace WebAPI.Controllers
         [HttpGet("getallbyid")]
         public async Task<IActionResult> GetAllById(string id)
         {
-            IJsonDataResult<ResultDataJson<List<TransactionDto>>> result = await _transactionService.GetAllById(id, _token);
+            IJsonDataResult<ResultDataJson<List<TransactionDto>>> result = await _transactionService.GetAllById(id);
             if (result.Data != null)
             {
                 return Ok(result.Data);

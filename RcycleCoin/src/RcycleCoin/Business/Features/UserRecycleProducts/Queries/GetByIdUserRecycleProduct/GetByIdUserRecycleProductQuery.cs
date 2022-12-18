@@ -10,12 +10,12 @@ using static Entities.Constants.OperationClaims;
 
 namespace Business.Features.UserRecycleProducts.Queries.GetByIdUserRecycleProduct
 {
-    public class GetByIdUserRecycleProductQuery:IRequest<UserRecycleProductDto>
+    public class GetByIdUserRecycleProductQuery:IRequest<UserRecycleProductDto>, ISecuredRequest
     {
         public int Id { get; set; }
         public string[] Roles => new[] { Admin, Personel };
 
-        public class GetByIdUserRecycleProductQueryHandler : IRequestHandler<GetByIdUserRecycleProductQuery, UserRecycleProductDto>,ISecuredRequest
+        public class GetByIdUserRecycleProductQueryHandler : IRequestHandler<GetByIdUserRecycleProductQuery, UserRecycleProductDto>
         {
             private readonly IUserRecycleProductDal _userRecycleProductDal;
             private readonly IMapper _mapper;

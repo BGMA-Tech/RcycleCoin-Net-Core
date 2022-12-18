@@ -14,14 +14,12 @@ namespace Business.Services.InfoServices
 {
     public class InfoManager : IInfoService
     {
-        public async Task<IJsonDataResult<ResultDataJson<InfoDto>>> Add(CreatedInfoDto createdInfoDto, string token)
+        public async Task<IJsonDataResult<ResultDataJson<InfoDto>>> Add(CreatedInfoDto createdInfoDto)
         {
-            using (HttpClient client = new HttpClient())
+            using (HttpClient client = BaseHttpClient.CreateHttpClient())
             {
                 client.DefaultRequestHeaders.Accept.Clear();
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-
-                client.DefaultRequestHeaders.Add("Authorization", token);
                 using (HttpResponseMessage res = await client.PostAsJsonAsync(new BaseUrl().HostUrl + "info/", createdInfoDto))
                 {
                     using (HttpContent content = res.Content)
@@ -46,11 +44,10 @@ namespace Business.Services.InfoServices
             return new ErrorJsonDataResult<ResultDataJson<InfoDto>>();
         }
 
-        public async Task<IJsonDataResult<ResultDataJson<InfoDto>>> GetById(string id, string token)
+        public async Task<IJsonDataResult<ResultDataJson<InfoDto>>> GetById(string id)
         {
-            using (HttpClient client = new HttpClient())
+            using (HttpClient client = BaseHttpClient.CreateHttpClient())
             {
-                client.DefaultRequestHeaders.Add("Authorization", token);
                 using (HttpResponseMessage res = await client.GetAsync(new BaseUrl().HostUrl + "info/" + id))
                 {
                     using (HttpContent content = res.Content)
@@ -75,12 +72,11 @@ namespace Business.Services.InfoServices
             return new ErrorJsonDataResult<ResultDataJson<InfoDto>>();
         }
 
-        public async Task<IJsonDataResult<ResultDataJson<InfoDto>>> Update(string id, UpdateInfoDto updateInfoDto, string token)
+        public async Task<IJsonDataResult<ResultDataJson<InfoDto>>> Update(string id, UpdateInfoDto updateInfoDto)
         {
-            using (HttpClient client = new HttpClient())
+            using (HttpClient client = BaseHttpClient.CreateHttpClient())
             {
-                client.DefaultRequestHeaders.Add("Authorization", token);
-                using (HttpResponseMessage res = await client.PutAsJsonAsync(new BaseUrl().HostUrl + "info/", id))
+                using (HttpResponseMessage res = await client.PutAsJsonAsync(new BaseUrl().HostUrl + "info/"+ id,updateInfoDto))
                 {
                     using (HttpContent content = res.Content)
                     {
