@@ -23,9 +23,12 @@ public static class ClaimExtensions
     {
         claims.Add(new Claim(ClaimTypes.Name, userName));
     }
-
-    public static void AddRoles(this ICollection<Claim> claims, string[] roles)
+    public static void AddPersonelId(this ICollection<Claim> claims, string personelId)
     {
-        roles.ToList().ForEach(role => claims.Add(new Claim(ClaimTypes.Role, role)));
+        claims.Add(new Claim("personelId", personelId));
+    }
+    public static void AddRoles(this ICollection<Claim> claims, string role)
+    {
+        claims.Add(new Claim(ClaimTypes.Role, role));
     }
 }

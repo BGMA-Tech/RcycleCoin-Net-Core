@@ -22,4 +22,9 @@
 		<PackageReference Include="System.Linq.Dynamic.Core" Version="1.2.23" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <ProjectReference Include="..\..\corePackages\Core.Security\Core.Security.csproj" />
+	  <ProjectReference Include="..\Entities\Entities.csproj" />
+	</ItemGroup>
+
 </Project>

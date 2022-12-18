@@ -15,7 +15,6 @@ public class AuthorizationBehavior<TRequest, TResponse> : IPipelineBehavior<TReq
     public AuthorizationBehavior(IHttpContextAccessor httpContextAccessor)
     {
         _httpContextAccessor = httpContextAccessor;
-        _httpContextAccessor.HttpContext.Request.Headers.Add("Authorization","Bearer "+BaseHttpClient.Token);
     }
 
 
@@ -23,6 +22,8 @@ public class AuthorizationBehavior<TRequest, TResponse> : IPipelineBehavior<TReq
                                         RequestHandlerDelegate<TResponse> next)
     {
         List<string>? roleClaims = _httpContextAccessor.HttpContext.User.ClaimRoles();
+        string? personelId = _httpContextAccessor.HttpContext.User.ClaimPersonelId();
+        string? userId = _httpContextAccessor.HttpContext.User.GetUserId();
         var a = _httpContextAccessor.HttpContext.Request.Headers["Authorization"];
 
         if (roleClaims == null) throw new AuthorizationException("Claims not found.");

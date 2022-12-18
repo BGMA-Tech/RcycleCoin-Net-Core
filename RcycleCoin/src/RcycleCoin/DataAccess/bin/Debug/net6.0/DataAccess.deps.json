@@ -8,6 +8,7 @@
     ".NETCoreApp,Version=v6.0": {
       "DataAccess/1.0.0": {
         "dependencies": {
+          "Core": "1.0.0",
           "Entities": "1.0.0",
           "Microsoft.EntityFrameworkCore": "6.0.10",
           "Microsoft.EntityFrameworkCore.SqlServer": "6.0.10"
@@ -561,6 +562,14 @@
           "lib/netstandard2.0/Newtonsoft.Json.dll": {
             "assemblyVersion": "13.0.0.0",
             "fileVersion": "13.0.1.25517"
+          }
+        }
+      },
+      "Otp.NET/1.2.2": {
+        "runtime": {
+          "lib/netstandard2.0/Otp.NET.dll": {
+            "assemblyVersion": "1.2.2.0",
+            "fileVersion": "1.2.2.0"
           }
         }
       },
@@ -1401,6 +1410,8 @@
           "Autofac": "6.4.0",
           "Autofac.Extensions.DependencyInjection": "8.0.0",
           "Autofac.Extras.DynamicProxy": "6.0.1",
+          "Core.Security": "1.0.0",
+          "Entities": "1.0.0",
           "FluentValidation": "10.3.6",
           "FluentValidation.DependencyInjectionExtensions": "10.3.6",
           "Microsoft.AspNetCore.Http": "2.2.2",
@@ -1416,10 +1427,29 @@
           "Core.dll": {}
         }
       },
-      "Entities/1.0.0": {
+      "Core.Persistence/1.0.0": {
         "dependencies": {
-          "Core": "1.0.0"
+          "Microsoft.EntityFrameworkCore": "6.0.10",
+          "System.Linq.Dynamic.Core": "1.2.23"
         },
+        "runtime": {
+          "Core.Persistence.dll": {}
+        }
+      },
+      "Core.Security/1.0.0": {
+        "dependencies": {
+          "Core.Persistence": "1.0.0",
+          "Microsoft.Extensions.Configuration.Abstractions": "6.0.0",
+          "Microsoft.Extensions.Configuration.Binder": "6.0.0",
+          "Microsoft.IdentityModel.Tokens": "6.23.0",
+          "Otp.NET": "1.2.2",
+          "System.IdentityModel.Tokens.Jwt": "6.23.0"
+        },
+        "runtime": {
+          "Core.Security.dll": {}
+        }
+      },
+      "Entities/1.0.0": {
         "runtime": {
           "Entities.dll": {}
         }
@@ -1746,6 +1776,13 @@
       "sha512": "sha512-ppPFpBcvxdsfUonNcvITKqLl3bqxWbDCZIzDWHzjpdAHRFfZe0Dw9HmA0+za13IdyrgJwpkDTDA9fHaxOrt20A==",
       "path": "newtonsoft.json/13.0.1",
       "hashPath": "newtonsoft.json.13.0.1.nupkg.sha512"
+    },
+    "Otp.NET/1.2.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-2hrZfkbzeWJ3tNXXt/1beg4IY+nS4F3gIfh4NVFvW0f6Pj51hGpiJ4prBz7Dmrr4ZYrA96rTERVGieZ4xYm7jA==",
+      "path": "otp.net/1.2.2",
+      "hashPath": "otp.net.1.2.2.nupkg.sha512"
     },
     "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {
       "type": "package",
@@ -2399,6 +2436,16 @@
       "hashPath": "system.xml.xmldocument.4.3.0.nupkg.sha512"
     },
     "Core/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Core.Persistence/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Core.Security/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

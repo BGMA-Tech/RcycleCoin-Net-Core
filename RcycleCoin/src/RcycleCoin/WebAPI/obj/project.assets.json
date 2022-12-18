@@ -3133,6 +3133,8 @@
           "Autofac": "6.4.0",
           "Autofac.Extensions.DependencyInjection": "8.0.0",
           "Autofac.Extras.DynamicProxy": "6.0.1",
+          "Core.Security": "1.0.0",
+          "Entities": "1.0.0",
           "FluentValidation": "10.3.6",
           "FluentValidation.DependencyInjectionExtensions": "10.3.6",
           "Microsoft.AspNetCore.Http": "2.2.2",
@@ -3224,6 +3226,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
+          "Core": "1.0.0",
           "Entities": "1.0.0",
           "Microsoft.EntityFrameworkCore": "6.0.10",
           "Microsoft.EntityFrameworkCore.SqlServer": "6.0.10"
@@ -3238,9 +3241,6 @@
       "Entities/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
-        "dependencies": {
-          "Core": "1.0.0"
-        },
         "compile": {
           "bin/placeholder/Entities.dll": {}
         },

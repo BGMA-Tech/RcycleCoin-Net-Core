@@ -1,8 +1,11 @@
-﻿using Business.Services.UserServices;
+﻿using Business.Services.AuthServices;
+using Business.Services.UserServices;
 using Business.Services.UserServices.Dtos;
 using Core.Helper;
 using Core.Utilities.JsonResults.Abstract;
 using Core.Utilities.JsonResults.Concrete;
+using Core.Utilities.Security.Jwt;
+using Entities.Concrete;
 using Microsoft.AspNetCore.Mvc;
 
 namespace WebAPI.Controllers
@@ -12,12 +15,14 @@ namespace WebAPI.Controllers
     public class UserController : BaseController
     {
         private readonly IUserService _userService;
+        private readonly IAuthService _authService;
         private readonly IHttpContextAccessor _httpContextAccessor;
         private string _token;
 
-        public UserController(IUserService userService, IHttpContextAccessor httpContextAccessor)
+        public UserController(IUserService userService, IAuthService authService, IHttpContextAccessor httpContextAccessor)
         {
             _userService = userService;
+            _authService = authService;
             _httpContextAccessor = httpContextAccessor;
             _token = _httpContextAccessor.HttpContext.Request.Headers["Authorization"];
         }
@@ -41,8 +46,19 @@ namespace WebAPI.Controllers
             {
                 return BadRequest(result.Data);
             }
+            AccessToken accessToken = await _authService.CreateAccessToken(new User
+            {
+                Email= userForLoginDto.Email,
+                Password= userForLoginDto.Password,
+                UserId = "asdasd",
+                FirstName = "Alp",
+                LastName = "Yanıkoğlu",
+                Id = 1,
+                PersonelId = "asedasdas",
+                Rol = "Admin"
+            });
             BaseHttpClient.Token = result.Data.Data.Token;
-            return Ok(result.Data);
+            return Ok(accessToken);
         }
 
         [HttpPost("register")]

@@ -1668,6 +1668,8 @@
           "Autofac": "6.4.0",
           "Autofac.Extensions.DependencyInjection": "8.0.0",
           "Autofac.Extras.DynamicProxy": "6.0.1",
+          "Core.Security": "1.0.0",
+          "Entities": "1.0.0",
           "FluentValidation": "11.2.2",
           "FluentValidation.DependencyInjectionExtensions": "10.3.6",
           "Microsoft.AspNetCore.Http": "2.2.2",
@@ -1734,6 +1736,7 @@
       },
       "DataAccess/1.0.0": {
         "dependencies": {
+          "Core": "1.0.0",
           "Entities": "1.0.0",
           "Microsoft.EntityFrameworkCore": "6.0.10",
           "Microsoft.EntityFrameworkCore.SqlServer": "6.0.10"
@@ -1743,9 +1746,6 @@
         }
       },
       "Entities/1.0.0": {
-        "dependencies": {
-          "Core": "1.0.0"
-        },
         "runtime": {
           "Entities.dll": {}
         }

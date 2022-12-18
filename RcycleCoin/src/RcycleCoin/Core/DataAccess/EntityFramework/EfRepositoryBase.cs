@@ -1,6 +1,6 @@
 ﻿using Core.DataAccess.EntityFramework.Dynamic;
 using Core.DataAccess.EntityFramework.Paging;
-using Core.Entities;
+using Entities.Concrete;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Query;
 using System.Linq.Expressions;

@@ -1,13 +1,12 @@
-﻿using Business.Services.CoinServices;
+﻿using Business.Services.AuthServices;
+using Business.Services.CoinServices;
 using Business.Services.InfoServices;
 using Business.Services.TransactionServices;
 using Business.Services.UserServices;
 using Core.Application.Pipelines.Authorization;
-using Core.Application.Pipelines.Caching;
-using Core.Application.Pipelines.Logging;
-using Core.Application.Pipelines.Transaction;
 using Core.Application.Pipelines.Validation;
 using Core.Application.Rules;
+using Core.Utilities.Security.Jwt;
 using FluentValidation;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
@@ -30,6 +29,8 @@ namespace Business
             services.AddScoped<ICoinService, CoinManager>();
             services.AddScoped<ITransactionService, TransactionManager>();
             services.AddScoped<IInfoService, InfoManager>();
+            services.AddScoped<IAuthService, AuthManager>();
+            services.AddScoped<ITokenHelper, JwtHelper>();
 
 
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(AuthorizationBehavior<,>));

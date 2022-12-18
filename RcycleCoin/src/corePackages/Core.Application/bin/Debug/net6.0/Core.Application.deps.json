@@ -1412,6 +1412,8 @@
           "Autofac": "6.4.0",
           "Autofac.Extensions.DependencyInjection": "8.0.0",
           "Autofac.Extras.DynamicProxy": "6.0.1",
+          "Core.Security": "1.0.0",
+          "Entities": "1.0.0",
           "FluentValidation": "10.3.6",
           "FluentValidation.DependencyInjectionExtensions": "10.3.6",
           "Microsoft.AspNetCore.Http": "2.2.2",
@@ -1459,6 +1461,11 @@
         },
         "runtime": {
           "Core.Security.dll": {}
+        }
+      },
+      "Entities/1.0.0": {
+        "runtime": {
+          "Entities.dll": {}
         }
       }
     }
@@ -2472,6 +2479,11 @@
       "sha512": ""
     },
     "Core.Security/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Entities/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
