@@ -10,13 +10,13 @@ using static Entities.Constants.OperationClaims;
 
 namespace Business.Features.UserRecycleProducts.Commands.CreateUserRecycleProduct
 {
-    public class CreateUserRecycleProductCommand : IRequest<CreatedUserRecycleProductDto>//, ISecuredRequest
+    public class CreateUserRecycleProductCommand : IRequest<CreatedUserRecycleProductDto>, ISecuredRequest
     {
         public string UserId { get; set; }
         public int RecycleProductId { get; set; }
         public int Quantity { get; set; }
 
-        public string[] Roles => new[] {Admin,UserRecycleProductAdd};
+        public string[] Roles => new[] {Admin, Personel,UserRecycleProductAdd};
 
         public class CreateUserRecycleProductCommandHandler : IRequestHandler<CreateUserRecycleProductCommand, CreatedUserRecycleProductDto>
         {
@@ -36,6 +36,8 @@ namespace Business.Features.UserRecycleProducts.Commands.CreateUserRecycleProduc
                 await _userRecycleProductBusinessRules.RecycleProductIdMustBeAvailable(request.RecycleProductId);
 
                 UserRecycleProduct mappedUserRecycleProduct = _mapper.Map<UserRecycleProduct>(request);
+                mappedUserRecycleProduct.CreatedAt = Convert.ToDateTime(DateTime.Now.ToString("F"));
+
                 UserRecycleProduct createdUserRecycleProduct = await _userRecycleProductDal.AddAsync(mappedUserRecycleProduct);
                 CreatedUserRecycleProductDto createdUserRecycleProductDto = _mapper.Map<CreatedUserRecycleProductDto>(createdUserRecycleProduct);
 

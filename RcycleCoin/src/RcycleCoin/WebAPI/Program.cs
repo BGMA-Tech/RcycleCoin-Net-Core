@@ -1,5 +1,6 @@
 using Application;
 using Business;
+using Core.CrossCuttingConcerns.Exceptions;
 using Core.Utilities.Security.Encyrption;
 using Core.Utilities.Security.Jwt;
 using DataAccess;
@@ -67,7 +68,7 @@ if (app.Environment.IsDevelopment())
 }
 
 if (app.Environment.IsProduction())
-    //app.ConfigureCustomExceptionMiddleware();
+    app.ConfigureCustomExceptionMiddleware();
 
 app.UseAuthentication();
 app.UseAuthorization();

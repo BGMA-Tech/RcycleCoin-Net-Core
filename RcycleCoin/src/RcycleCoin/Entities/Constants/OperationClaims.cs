@@ -2,6 +2,7 @@
 {
     public static class OperationClaims
     {
-        public const string Admin = "admin";
+        public const string Admin = "Admin";
+        public const string Personel = "Personel";
     }
 }

@@ -10,11 +10,11 @@ using static Entities.Constants.OperationClaims;
 
 namespace Business.Features.UserRecycleProducts.Commands.DeleteUserRecycleProduct
 {
-    public class DeleteUserRecycleProductCommand : IRequest<DeletedUserRecycleProductDto>//, ISecuredRequest
+    public class DeleteUserRecycleProductCommand : IRequest<DeletedUserRecycleProductDto>, ISecuredRequest
     {
         public int Id { get; set; }
 
-        public string[] Roles => new[] {Admin, UserRecycleProductDelete};
+        public string[] Roles => new[] {Admin, Personel, UserRecycleProductDelete};
 
         public class DeleteUserRecycleProductCommandHanlder : IRequestHandler<DeleteUserRecycleProductCommand, DeletedUserRecycleProductDto>
         {

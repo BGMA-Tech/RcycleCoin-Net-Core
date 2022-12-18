@@ -10,12 +10,12 @@ using static Entities.Constants.OperationClaims;
 
 namespace Business.Features.RecycleTypes.Commands.UpdateRecycleType
 {
-    public class UpdateRecycleTypeCommand:IRequest<UpdatedRecycleTypeDto>//,ISecuredRequest
+    public class UpdateRecycleTypeCommand:IRequest<UpdatedRecycleTypeDto>,ISecuredRequest
     {
         public int Id { get; set; }
         public string RecycleTypeName { get; set; }
 
-        //public string[] Roles => new[] { Admin, RecycleTypeDelete };
+        public string[] Roles => new[] { Admin, Personel, RecycleTypeDelete };
 
         public class UpdateRecycleTypeCommandHandler : IRequestHandler<UpdateRecycleTypeCommand, UpdatedRecycleTypeDto>
         {

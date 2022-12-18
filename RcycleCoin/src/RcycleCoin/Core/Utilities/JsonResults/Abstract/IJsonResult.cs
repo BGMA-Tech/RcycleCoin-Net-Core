@@ -9,7 +9,7 @@ namespace Core.Utilities.JsonResults.Abstract
 {
     public interface IJsonResult
     {
-        bool Success { get; }
-        Error ErrorMessage { get; }
+        public bool Status { get; }
+        public Error ErrorMessage { get; }
     }
 }

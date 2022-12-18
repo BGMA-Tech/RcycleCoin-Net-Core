@@ -14,9 +14,18 @@ public static class ClaimsPrincipalExtensions
     {
         return claimsPrincipal?.Claims(ClaimTypes.Role);
     }
-
-    public static int GetUserId(this ClaimsPrincipal claimsPrincipal)
+    public static string? ClaimEmail(this ClaimsPrincipal claimsPrincipal)
     {
-        return Convert.ToInt32(claimsPrincipal?.Claims(ClaimTypes.NameIdentifier)?.FirstOrDefault());
+        return claimsPrincipal?.Claims(ClaimTypes.Email).FirstOrDefault();
+    }
+
+    public static string? ClaimPersonelId(this ClaimsPrincipal claimsPrincipal)
+    {
+        return claimsPrincipal?.Claims("personelId").FirstOrDefault();
+    }
+
+    public static string? GetUserId(this ClaimsPrincipal claimsPrincipal)
+    {
+        return claimsPrincipal?.Claims(ClaimTypes.NameIdentifier)?.FirstOrDefault();
     }
 }

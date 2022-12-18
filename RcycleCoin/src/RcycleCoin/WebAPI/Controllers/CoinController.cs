@@ -1,10 +1,7 @@
 ﻿using Business.Services.CoinServices;
 using Business.Services.CoinServices.Dtos;
-using Business.Services.UserServices;
-using Core.Utilities.Abstract;
 using Core.Utilities.JsonResults.Abstract;
 using Core.Utilities.JsonResults.Concrete;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace WebAPI.Controllers
@@ -14,47 +11,43 @@ namespace WebAPI.Controllers
     public class CoinController : BaseController
     {
         private readonly ICoinService _coinService;
-        private readonly IHttpContextAccessor _httpContextAccessor;
-        private string _token;
 
-        public CoinController(ICoinService coinService, IHttpContextAccessor httpContextAccessor)
+        public CoinController(ICoinService coinService)
         {
             _coinService = coinService;
-            _httpContextAccessor = httpContextAccessor;
-            _token = _httpContextAccessor.HttpContext.Request.Headers["Authorization"];
         } 
 
         [HttpGet("getbyid")]
-        public async Task<IActionResult> GetById([FromRoute] int id)
+        public async Task<IActionResult> GetById(string id)
         {
-            IJsonDataResult<ResultDataJson<CoinDto>> result = await _coinService.GetById(id.ToString(),_token);
+            IJsonDataResult<ResultDataJson<CoinDto>> result = await _coinService.GetById(id);
             if (result.Data != null)
             {
-                return Ok(result);
+                return Ok(result.Data);
             }
-            return BadRequest(result);
+            return BadRequest(result.Data);
         }
 
         [HttpDelete("delete")]
-        public async Task<IActionResult> Delete([FromRoute] int id)
+        public async Task<IActionResult> Delete(string id)
         {
-            IJsonDataResult<ResultDataJson<CoinDto>> result = await _coinService.Delete(id.ToString(),_token);
+            IJsonDataResult<ResultDataJson<CoinDto>> result = await _coinService.Delete(id);
             if (result.Data != null)
             {
-                return Ok(result);
+                return Ok(result.Data);
             }
-            return BadRequest(result);
+            return BadRequest(result.Data);
         }
 
-        [HttpPatch("update")]
-        public async Task<IActionResult> Update([FromBody] UpdatedCoinDto updatedCoinDto)
+        [HttpPut("update")]
+        public async Task<IActionResult> Update([FromBody] UpdatedCoinDto updatedCoinDto,string id)
         {
-            IJsonDataResult<ResultDataJson<UpdatedCoinDto>> result = await _coinService.Update(updatedCoinDto,_token);
+            IJsonDataResult<ResultDataJson<CoinDto>> result = await _coinService.Update(id,updatedCoinDto);
             if (result.Data != null)
             {
-                return Ok(result);
+                return Ok(result.Data);
             }
-            return BadRequest(result);
+            return BadRequest(result.Data);
         }
     }
 }

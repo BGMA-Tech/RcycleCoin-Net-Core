@@ -1,16 +1,19 @@
 ﻿using AutoMapper;
 using Business.Features.UserRecycleProducts.Dtos;
 using Business.Features.UserRecycleProducts.Rules;
+using Core.Application.Pipelines.Authorization;
 using DataAccess.Abstract;
 using Entities.Concrete;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
+using static Entities.Constants.OperationClaims;
 
 namespace Business.Features.UserRecycleProducts.Queries.GetByIdUserRecycleProduct
 {
-    public class GetByIdUserRecycleProductQuery:IRequest<UserRecycleProductDto>
+    public class GetByIdUserRecycleProductQuery:IRequest<UserRecycleProductDto>, ISecuredRequest
     {
         public int Id { get; set; }
+        public string[] Roles => new[] { Admin, Personel };
 
         public class GetByIdUserRecycleProductQueryHandler : IRequestHandler<GetByIdUserRecycleProductQuery, UserRecycleProductDto>
         {

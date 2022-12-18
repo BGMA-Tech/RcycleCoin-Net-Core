@@ -4,20 +4,17 @@ using Core.Helper;
 using Core.Utilities.JsonResults.Abstract;
 using Core.Utilities.JsonResults.Concrete;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-using System.Linq.Dynamic.Core.Tokenizer;
 using System.Net.Http.Json;
 
 namespace Business.Services.CoinServices
 {
     public class CoinManager : ICoinService
     {
-        public async Task<IJsonDataResult<ResultDataJson<CoinDto>>> GetById(string id,string token)
+        public async Task<IJsonDataResult<ResultDataJson<CoinDto>>> GetById(string id)
         {
-            using (HttpClient client = new HttpClient())
+            using (HttpClient client = BaseHttpClient.CreateHttpClient())
             {
-                client.DefaultRequestHeaders.Add("Authorization", token);
-                using (HttpResponseMessage res = await client.GetAsync(new BaseUrl().HostUrl + "Coin/getbyid?id=" + id))
+                using (HttpResponseMessage res = await client.GetAsync(new BaseUrl().HostUrl + "coin/" + id))
                 {
                     using (HttpContent content = res.Content)
                     {
@@ -41,12 +38,11 @@ namespace Business.Services.CoinServices
             return new ErrorJsonDataResult<ResultDataJson<CoinDto>>();
         }
 
-        public async Task<IJsonDataResult<ResultDataJson<CoinDto>>> Delete(string id,string token)
+        public async Task<IJsonDataResult<ResultDataJson<CoinDto>>> Delete(string id)
         {
-            using (HttpClient client = new HttpClient())
+            using (HttpClient client = BaseHttpClient.CreateHttpClient())
             {
-                client.DefaultRequestHeaders.Add("Authorization", token);
-                using (HttpResponseMessage res = await client.DeleteAsync(new BaseUrl().HostUrl + "Coin/delete?id=" + id))
+                using (HttpResponseMessage res = await client.DeleteAsync(new BaseUrl().HostUrl + "coin/" + id))
                 {
                     using (HttpContent content = res.Content)
                     {
@@ -70,33 +66,32 @@ namespace Business.Services.CoinServices
             return new ErrorJsonDataResult<ResultDataJson<CoinDto>>();
         }
 
-        public async Task<IJsonDataResult<ResultDataJson<UpdatedCoinDto>>> Update(UpdatedCoinDto updatedCoinDto,string token)
+        public async Task<IJsonDataResult<ResultDataJson<CoinDto>>> Update(string id,UpdatedCoinDto updatedCoinDto)
         {
-            using (HttpClient client = new HttpClient())
+            using (HttpClient client = BaseHttpClient.CreateHttpClient())
             {
-                client.DefaultRequestHeaders.Add("Authorization", token);
-                using (HttpResponseMessage res = await client.PostAsJsonAsync(new BaseUrl().HostUrl + "Coin/update", updatedCoinDto))
+                using (HttpResponseMessage res = await client.PutAsJsonAsync(new BaseUrl().HostUrl + "Coin/"+id, updatedCoinDto))
                 {
                     using (HttpContent content = res.Content)
                     {
                         string data = await content.ReadAsStringAsync();
                         if (data != null)
                         {
-                            ResultDataJson<UpdatedCoinDto>? result = JsonConvert.DeserializeObject<ResultDataJson<UpdatedCoinDto>>(data);
+                            ResultDataJson<CoinDto>? result = JsonConvert.DeserializeObject<ResultDataJson<CoinDto>>(data);
                             if (result?.Data != null)
                             {
-                                return new SuccessJsonDataResult<ResultDataJson<UpdatedCoinDto>>(result);
+                                return new SuccessJsonDataResult<ResultDataJson<CoinDto>>(result);
                             }
                             else
                             {
                                 ResultJson? resultError = JsonConvert.DeserializeObject<ResultJson>(data);
-                                return new ErrorJsonDataResult<ResultDataJson<UpdatedCoinDto>>(resultError.Error);
+                                return new ErrorJsonDataResult<ResultDataJson<CoinDto>>(resultError.Error);
                             }
                         }
                     }
                 }
             }
-            return new ErrorJsonDataResult<ResultDataJson<UpdatedCoinDto>>();
+            return new ErrorJsonDataResult<ResultDataJson<CoinDto>>();
         }
     }
 }
