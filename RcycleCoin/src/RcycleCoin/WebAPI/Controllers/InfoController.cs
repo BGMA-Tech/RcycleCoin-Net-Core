@@ -25,36 +25,36 @@ namespace WebAPI.Controllers
         }
 
         [HttpGet("getbyid")]
-        public async Task<IActionResult> GetById([FromRoute] int id)
+        public async Task<IActionResult> GetById(string id)
         {
             IJsonDataResult<ResultDataJson<InfoDto>> result = await _ınfoService.GetById(id.ToString(),_token);
             if (result.Data != null)
             {
-                return Ok(result);
+                return Ok(result.Data);
             }
-            return BadRequest(result);
+            return BadRequest(result.Data);
         }
 
         [HttpPatch("update")]
-        public async Task<IActionResult> Update([FromBody] UpdateInfoDto updateInfoDto)
+        public async Task<IActionResult> Update([FromBody] UpdateInfoDto updateInfoDto,string id)
         {
-            IJsonDataResult<ResultDataJson<UpdateInfoDto>> result = await _ınfoService.Update(updateInfoDto,_token);
+            IJsonDataResult<ResultDataJson<InfoDto>> result = await _ınfoService.Update(id,updateInfoDto,_token);
             if (result.Data != null)
             {
-                return Ok(result);
+                return Ok(result.Data);
             }
-            return BadRequest(result);
+            return BadRequest(result.Data);
         }
 
         [HttpPost("add")]
         public async Task<IActionResult> Add([FromBody] CreatedInfoDto createdInfoDto)
         {
-            IJsonDataResult<ResultDataJson<CreatedInfoDto>> result = await _ınfoService.Add(createdInfoDto,_token);
+            IJsonDataResult<ResultDataJson<InfoDto>> result = await _ınfoService.Add(createdInfoDto,_token);
             if (result.Data != null)
             {
-                return Ok(result);
+                return Ok(result.Data);
             }
-            return BadRequest(result);
+            return BadRequest(result.Data);
         }
     }
 }

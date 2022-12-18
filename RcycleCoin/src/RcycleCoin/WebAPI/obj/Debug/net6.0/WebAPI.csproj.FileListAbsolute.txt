@@ -206,3 +206,4 @@ C:\Users\Alp\Desktop\Yeni klasör (2)\RcycleCoin-Net-Core\RcycleCoin\src\RcycleC
 C:\Users\Alp\Desktop\Yeni klasör (2)\RcycleCoin-Net-Core\RcycleCoin\src\RcycleCoin\WebAPI\obj\Debug\net6.0\WebAPI.csproj.CopyComplete
 C:\Users\Alp\Desktop\Yeni klasör (2)\RcycleCoin-Net-Core\RcycleCoin\src\RcycleCoin\WebAPI\obj\Debug\net6.0\WebAPI.genruntimeconfig.cache
 C:\Users\Alp\Desktop\Yeni klasör (2)\RcycleCoin-Net-Core\RcycleCoin\src\RcycleCoin\WebAPI\obj\Debug\net6.0\ref\WebAPI.dll
+C:\Users\Alp\Desktop\RcycleCoin-Net-Core\RcycleCoin\src\RcycleCoin\WebAPI\bin\Debug\net6.0\MongoDB.Bson.dll

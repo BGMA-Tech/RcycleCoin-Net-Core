@@ -25,9 +25,9 @@ namespace WebAPI.Controllers
         } 
 
         [HttpGet("getbyid")]
-        public async Task<IActionResult> GetById([FromRoute] int id)
+        public async Task<IActionResult> GetById(string id)
         {
-            IJsonDataResult<ResultDataJson<CoinDto>> result = await _coinService.GetById(id.ToString(),_token);
+            IJsonDataResult<ResultDataJson<CoinDto>> result = await _coinService.GetById(id,_token);
             if (result.Data != null)
             {
                 return Ok(result);
@@ -36,9 +36,9 @@ namespace WebAPI.Controllers
         }
 
         [HttpDelete("delete")]
-        public async Task<IActionResult> Delete([FromRoute] int id)
+        public async Task<IActionResult> Delete(string id)
         {
-            IJsonDataResult<ResultDataJson<CoinDto>> result = await _coinService.Delete(id.ToString(),_token);
+            IJsonDataResult<ResultDataJson<CoinDto>> result = await _coinService.Delete(id,_token);
             if (result.Data != null)
             {
                 return Ok(result);

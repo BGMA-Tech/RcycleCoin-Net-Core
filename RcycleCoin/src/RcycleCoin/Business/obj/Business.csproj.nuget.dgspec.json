@@ -37,9 +37,6 @@
               },
               "C:\\Users\\Alp\\Desktop\\RcycleCoin-Net-Core\\RcycleCoin\\src\\corePackages\\Core.Security\\Core.Security.csproj": {
                 "projectPath": "C:\\Users\\Alp\\Desktop\\RcycleCoin-Net-Core\\RcycleCoin\\src\\corePackages\\Core.Security\\Core.Security.csproj"
-              },
-              "C:\\Users\\Alp\\Desktop\\RcycleCoin-Net-Core\\RcycleCoin\\src\\RcycleCoin\\Core\\Core.csproj": {
-                "projectPath": "C:\\Users\\Alp\\Desktop\\RcycleCoin-Net-Core\\RcycleCoin\\src\\RcycleCoin\\Core\\Core.csproj"
               }
             }
           }
@@ -416,9 +413,13 @@
               "target": "Package",
               "version": "[6.0.1, )"
             },
+            "MongoDB.Bson": {
+              "target": "Package",
+              "version": "[2.18.0, )"
+            },
             "System.IdentityModel.Tokens.Jwt": {
               "target": "Package",
-              "version": "[6.23.0, )"
+              "version": "[6.23.1, )"
             }
           },
           "imports": [
@@ -502,7 +503,7 @@
             },
             "FluentValidation": {
               "target": "Package",
-              "version": "[10.3.6, )"
+              "version": "[11.2.2, )"
             },
             "FluentValidation.DependencyInjectionExtensions": {
               "target": "Package",
@@ -534,7 +535,7 @@
             },
             "System.IdentityModel.Tokens.Jwt": {
               "target": "Package",
-              "version": "[6.23.0, )"
+              "version": "[6.23.1, )"
             },
             "System.Linq.Dynamic.Core": {
               "target": "Package",

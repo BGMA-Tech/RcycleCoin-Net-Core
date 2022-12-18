@@ -24,45 +24,45 @@ namespace WebAPI.Controllers
         [HttpPost("add")]
         public async Task<IActionResult> GetById([FromBody] CreatedTransactionDto createdTransactionDto)
         {
-            IJsonDataResult<ResultDataJson<CreatedTransactionDto>> result = await _transactionService.Add(createdTransactionDto,_token);
+            IJsonDataResult<ResultDataJson<TransactionDto>> result = await _transactionService.Add(createdTransactionDto,_token);
             if (result != null)
             {
-                return Ok(result);
+                return Ok(result.Data);
             }
-            return BadRequest(result);
+            return BadRequest(result.Data);
         }
 
         [HttpGet("getbyid")]
-        public async Task<IActionResult> GetById([FromRoute] int id)
+        public async Task<IActionResult> GetById(string id)
         {
-            IJsonDataResult<ResultDataJson<TransactionDto>> result = await _transactionService.GetById(id.ToString(),_token);
+            IJsonDataResult<ResultDataJson<TransactionDto>> result = await _transactionService.GetById(id,_token);
             if (result.Data != null)
             {
-                return Ok(result);
+                return Ok(result.Data);
             }
-            return BadRequest(result);
+            return BadRequest(result.Data);
         }
 
-        [HttpGet("/")]
+        [HttpGet("getall")]
         public async Task<IActionResult> GetAll()
         {
             IJsonDataResult<ResultDataJson<List<TransactionDto>>> result = await _transactionService.GetAll(_token);
             if (result.Data != null)
             {
-                return Ok(result);
+                return Ok(result.Data);
             }
-            return BadRequest(result);
+            return BadRequest(result.Data);
         }
 
         [HttpGet("getallbyid")]
-        public async Task<IActionResult> GetAll([FromRoute] int id)
+        public async Task<IActionResult> GetAllById(string id)
         {
-            IJsonDataResult<ResultDataJson<List<TransactionDto>>> result = await _transactionService.GetAllById(id.ToString(), _token);
+            IJsonDataResult<ResultDataJson<List<TransactionDto>>> result = await _transactionService.GetAllById(id, _token);
             if (result.Data != null)
             {
-                return Ok(result);
+                return Ok(result.Data);
             }
-            return BadRequest(result);
+            return BadRequest(result.Data);
         }
     }
 }

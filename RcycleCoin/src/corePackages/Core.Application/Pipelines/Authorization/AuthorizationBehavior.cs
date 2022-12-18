@@ -1,5 +1,4 @@
 ﻿using Core.CrossCuttingConcerns.Exceptions;
-using Core.Helper;
 using Core.Security.Extensions;
 using MediatR;
 using Microsoft.AspNetCore.Http;
@@ -21,10 +20,12 @@ public class AuthorizationBehavior<TRequest, TResponse> : IPipelineBehavior<TReq
     public async Task<TResponse> Handle(TRequest request, CancellationToken cancellationToken,
                                         RequestHandlerDelegate<TResponse> next)
     {
+        var a = _httpContextAccessor.HttpContext.Request.Headers["Authorization"];
+
         List<string>? roleClaims = _httpContextAccessor.HttpContext.User.ClaimRoles();
         string? personelId = _httpContextAccessor.HttpContext.User.ClaimPersonelId();
         string? userId = _httpContextAccessor.HttpContext.User.GetUserId();
-        var a = _httpContextAccessor.HttpContext.Request.Headers["Authorization"];
+        string? email = _httpContextAccessor.HttpContext.User.ClaimEmail();
 
         if (roleClaims == null) throw new AuthorizationException("Claims not found.");
 

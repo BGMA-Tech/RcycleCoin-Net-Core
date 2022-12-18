@@ -10,14 +10,14 @@ using static Entities.Constants.OperationClaims;
 
 namespace Business.Features.RecycleProducts.Commands.UpdateRecycleProduct
 {
-    public class UpdateRecycleProductCommand : IRequest<UpdatedRecycleProductDto>//, ISecuredRequest
+    public class UpdateRecycleProductCommand : IRequest<UpdatedRecycleProductDto>, ISecuredRequest
     {
         public int Id { get; set; }
         public string RecycleName { get; set; }
         public int RecyclePoint { get; set; }
         public int RecycleTypeId { get; set; }
 
-        public string[] Roles => new[] {Admin, RecycleProductUpdate};
+        public string[] Roles => new[] {Admin,Personel, RecycleProductUpdate};
 
         public class UpdateRecycleProductCommandHandler : IRequestHandler<UpdateRecycleProductCommand, UpdatedRecycleProductDto>
         {

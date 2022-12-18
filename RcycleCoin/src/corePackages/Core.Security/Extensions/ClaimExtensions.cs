@@ -7,7 +7,7 @@ public static class ClaimExtensions
 {
     public static void AddEmail(this ICollection<Claim> claims, string email)
     {
-        claims.Add(new Claim(JwtRegisteredClaimNames.Email, email));
+        claims.Add(new Claim(ClaimTypes.Email, email));
     }
 
     public static void AddName(this ICollection<Claim> claims, string name)
@@ -27,7 +27,7 @@ public static class ClaimExtensions
     {
         claims.Add(new Claim("personelId", personelId));
     }
-    public static void AddRoles(this ICollection<Claim> claims, string role)
+    public static void AddRole(this ICollection<Claim> claims, string role)
     {
         claims.Add(new Claim(ClaimTypes.Role, role));
     }

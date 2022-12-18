@@ -1,17 +1,20 @@
 ﻿using AutoMapper;
 using Business.Features.RecycleTypes.Models;
 using Business.Features.RecycleTypes.Rules;
+using Core.Application.Pipelines.Authorization;
 using Core.Application.Requests;
 using Core.DataAccess.EntityFramework.Paging;
 using DataAccess.Abstract;
 using Entities.Concrete;
 using MediatR;
+using static Entities.Constants.OperationClaims;
 
 namespace Business.Features.RecycleTypes.Queries.GetListRecycleType
 {
-    public class GetListRecycleTypeQuery:IRequest<RecycleTypeListModel>
+    public class GetListRecycleTypeQuery:IRequest<RecycleTypeListModel>,ISecuredRequest
     {
         public PageRequest PageRequest { get; set; }
+        public string[] Roles => new[] { Admin, Personel };
 
         public class GetListRecycleTypeQueryHandler : IRequestHandler<GetListRecycleTypeQuery, RecycleTypeListModel>
         {

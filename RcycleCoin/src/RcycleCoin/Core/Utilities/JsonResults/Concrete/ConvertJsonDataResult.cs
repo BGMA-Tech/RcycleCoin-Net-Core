@@ -12,7 +12,7 @@ namespace Core.Utilities.JsonResults.Concrete
         {
             JsonDataBeautify jsonDataBeautify = new JsonDataBeautify();
             ResultDataJson<T> result = JsonConvert.DeserializeObject<ResultDataJson<T>>(response);
-            if (result.Success)
+            if (result.Status)
             {
                 return new SuccessDataResult<ResultDataJson<T>>(result, JsonMessages.JsonDataFound);
             }

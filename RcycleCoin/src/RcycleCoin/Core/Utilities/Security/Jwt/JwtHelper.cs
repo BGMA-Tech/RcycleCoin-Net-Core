@@ -1,6 +1,7 @@
 ﻿using Core.Security.Extensions;
 using Core.Utilities.Security.Encyrption;
 using Entities.Concrete;
+using Entities.Constants;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using System;
@@ -11,13 +12,13 @@ namespace Core.Utilities.Security.Jwt
 {
     public class JwtHelper : ITokenHelper
     {
-        public IConfiguration Configuration { get; } //appsettings.json dosyasını okumamızı sağlar
-        private readonly TokenOptions _tokenOptions; //appsettins.json dan gelen bilgileri içeriyor
+        public IConfiguration Configuration { get; } 
+        private readonly TokenOptions _tokenOptions; 
         private DateTime _accessTokenExpiration;
         public JwtHelper(IConfiguration configuration)
         {
             Configuration = configuration;
-            _tokenOptions = Configuration.GetSection("TokenOptions").Get<TokenOptions>(); //appsettings içerisindeki tokenoptions'ı al yandaki class'a verileri ata
+            _tokenOptions = Configuration.GetSection("TokenOptions").Get<TokenOptions>(); 
         }
         public AccessToken CreateToken(User user)
         {
@@ -51,10 +52,11 @@ namespace Core.Utilities.Security.Jwt
         private IEnumerable<Claim> SetClaims(User user)
         {
             List<Claim> claims = new();
-            claims.AddNameIdentifier(user.Id.ToString());
-            //claims.AddEmail(user.Email);
-            claims.AddName($"{user.FirstName} {user.LastName}");
-            claims.AddRoles(user.Rol);
+            claims.AddNameIdentifier(user.UserId);
+            claims.AddPersonelId(user.PersonelId);
+            claims.AddEmail(user.Email);
+            //claims.AddName($"{user.FirstName} {user.LastName}");
+            claims.AddRole(user.Rol);
             return claims;
         }
     }

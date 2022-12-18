@@ -219,7 +219,7 @@
             },
             "FluentValidation": {
               "target": "Package",
-              "version": "[10.3.6, )"
+              "version": "[11.2.2, )"
             },
             "FluentValidation.DependencyInjectionExtensions": {
               "target": "Package",
@@ -251,7 +251,7 @@
             },
             "System.IdentityModel.Tokens.Jwt": {
               "target": "Package",
-              "version": "[6.23.0, )"
+              "version": "[6.23.1, )"
             },
             "System.Linq.Dynamic.Core": {
               "target": "Package",

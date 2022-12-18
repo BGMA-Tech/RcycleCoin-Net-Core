@@ -10,10 +10,10 @@ using static Entities.Constants.OperationClaims;
 
 namespace Business.Features.RecycleTypes.Commands.CreateRecycleType
 {
-    public class CreateRecycleTypeCommand:IRequest<CreatedRecycleTypeDto>//,ISecuredRequest
+    public class CreateRecycleTypeCommand:IRequest<CreatedRecycleTypeDto>,ISecuredRequest
     {
         public string RecycleTypeName { get; set; }
-        //public string[] Roles => new[] {Admin, RecycleTypeAdd};
+        public string[] Roles => new[] {Admin,Personel, RecycleTypeAdd};
 
         public class CreateRecycleTypeCommandHandler : IRequestHandler<CreateRecycleTypeCommand,CreatedRecycleTypeDto>
         {

@@ -10,7 +10,8 @@ namespace Core.Utilities.JsonResults.Abstract
 {
     public class JsonDataResult<T> : JsonResult, IJsonDataResult<T>
     {
-        public T Data { get; }
+        public T Data { get; set; }
+        public bool Status { get; set; }
 
         public JsonDataResult(T data, bool success) : base(success)
         {

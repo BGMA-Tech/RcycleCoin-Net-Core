@@ -17,7 +17,7 @@ namespace Business.Services.CoinServices
             using (HttpClient client = new HttpClient())
             {
                 client.DefaultRequestHeaders.Add("Authorization", token);
-                using (HttpResponseMessage res = await client.GetAsync(new BaseUrl().HostUrl + "Coin/getbyid?id=" + id))
+                using (HttpResponseMessage res = await client.GetAsync(new BaseUrl().HostUrl + "coin/" + id))
                 {
                     using (HttpContent content = res.Content)
                     {
@@ -46,7 +46,7 @@ namespace Business.Services.CoinServices
             using (HttpClient client = new HttpClient())
             {
                 client.DefaultRequestHeaders.Add("Authorization", token);
-                using (HttpResponseMessage res = await client.DeleteAsync(new BaseUrl().HostUrl + "Coin/delete?id=" + id))
+                using (HttpResponseMessage res = await client.DeleteAsync(new BaseUrl().HostUrl + "coin/" + id))
                 {
                     using (HttpContent content = res.Content)
                     {
@@ -75,7 +75,7 @@ namespace Business.Services.CoinServices
             using (HttpClient client = new HttpClient())
             {
                 client.DefaultRequestHeaders.Add("Authorization", token);
-                using (HttpResponseMessage res = await client.PostAsJsonAsync(new BaseUrl().HostUrl + "Coin/update", updatedCoinDto))
+                using (HttpResponseMessage res = await client.PostAsJsonAsync(new BaseUrl().HostUrl + "Coin/", updatedCoinDto._id))
                 {
                     using (HttpContent content = res.Content)
                     {

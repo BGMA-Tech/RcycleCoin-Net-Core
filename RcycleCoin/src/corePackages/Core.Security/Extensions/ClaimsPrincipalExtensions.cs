@@ -14,6 +14,10 @@ public static class ClaimsPrincipalExtensions
     {
         return claimsPrincipal?.Claims(ClaimTypes.Role);
     }
+    public static string? ClaimEmail(this ClaimsPrincipal claimsPrincipal)
+    {
+        return claimsPrincipal?.Claims(ClaimTypes.Email).FirstOrDefault();
+    }
 
     public static string? ClaimPersonelId(this ClaimsPrincipal claimsPrincipal)
     {

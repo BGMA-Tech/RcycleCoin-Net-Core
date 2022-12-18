@@ -10,5 +10,6 @@ namespace Business.Services.UserServices
         public Task<IJsonDataResult<ResultDataJson<AccessTokenDto>>> Login(UserForLoginDto userForLoginDto);
         public Task<IJsonDataResult<ResultDataJson<AccessTokenDto>>> Register(UserForRegisterDto userForRegisterDto);
         public Task<IJsonDataResult<ResultDataJson<UserDto>>> GetById(string userId,string token);
+        public Task<IJsonDataResult<GetVerifyIdJson>> GetVerifyId(GetVerifyIdDto getVerifyIdDto, string token);
     }
 }

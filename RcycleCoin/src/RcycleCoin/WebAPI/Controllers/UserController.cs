@@ -28,7 +28,7 @@ namespace WebAPI.Controllers
         }
 
         [HttpGet("getbyid")]
-        public async Task<IActionResult> GetById([FromRoute]int userId)
+        public async Task<IActionResult> GetById(string userId)
         {
             IJsonDataResult<ResultDataJson<UserDto>> resut = await _userService.GetById(userId.ToString(),_token);
             if(resut.Data != null)
@@ -50,12 +50,12 @@ namespace WebAPI.Controllers
             {
                 Email= userForLoginDto.Email,
                 Password= userForLoginDto.Password,
-                UserId = "asdasd",
+                UserId = "639e331d8f8868685db37e70",
                 FirstName = "Alp",
                 LastName = "Yanıkoğlu",
                 Id = 1,
-                PersonelId = "asedasdas",
-                Rol = "Admin"
+                PersonelId = "00e7f401eaf8cdd4a34238f4251b332370cd9fa26e4f788d90951e562a012817",
+                Rol = "Personel"
             });
             BaseHttpClient.Token = result.Data.Data.Token;
             return Ok(accessToken);
@@ -70,6 +70,13 @@ namespace WebAPI.Controllers
                 return Ok(result);
             }
             return BadRequest(result);
+        }
+
+        [HttpPost("getverifyid")]
+        public async Task<IActionResult> GetVerifyId([FromBody] GetVerifyIdDto getVerifyIdDto)
+        {
+            IJsonDataResult<GetVerifyIdJson> result = await _userService.GetVerifyId(getVerifyIdDto,_token);
+            return Ok(result.Data);
         }
     }
 }
