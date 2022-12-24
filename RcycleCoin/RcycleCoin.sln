@@ -19,19 +19,21 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Entities", "src\RcycleCoin\
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "corePackages", "corePackages", "{C682C519-934E-4157-82BE-7DBC9F221FCB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.Application", "src\corePackages\Core.Application\Core.Application.csproj", "{B85916CC-A519-4385-9954-052F8565DDB2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core.Application", "src\corePackages\Core.Application\Core.Application.csproj", "{B85916CC-A519-4385-9954-052F8565DDB2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.CrossCuttingConcerns", "src\corePackages\Core.CrossCuttingConcerns\Core.CrossCuttingConcerns.csproj", "{A8437623-3136-4E90-B60B-E757D67D8DD4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core.CrossCuttingConcerns", "src\corePackages\Core.CrossCuttingConcerns\Core.CrossCuttingConcerns.csproj", "{A8437623-3136-4E90-B60B-E757D67D8DD4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.ElasticSearch", "src\corePackages\Core.ElasticSearch\Core.ElasticSearch.csproj", "{8FCFB0FE-ED97-43B7-BCD3-A80C63B65A4E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core.ElasticSearch", "src\corePackages\Core.ElasticSearch\Core.ElasticSearch.csproj", "{8FCFB0FE-ED97-43B7-BCD3-A80C63B65A4E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.Mailing", "src\corePackages\Core.Mailing\Core.Mailing.csproj", "{732D916D-1EF6-422C-8087-2A6164930E65}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core.Mailing", "src\corePackages\Core.Mailing\Core.Mailing.csproj", "{732D916D-1EF6-422C-8087-2A6164930E65}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.Persistence", "src\corePackages\Core.Persistence\Core.Persistence.csproj", "{EEC3CD02-E3ED-4921-B6C7-B02B440C1D8B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core.Persistence", "src\corePackages\Core.Persistence\Core.Persistence.csproj", "{EEC3CD02-E3ED-4921-B6C7-B02B440C1D8B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.Security", "src\corePackages\Core.Security\Core.Security.csproj", "{93B81518-BCA3-4880-A884-4C27250C6EA4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core.Security", "src\corePackages\Core.Security\Core.Security.csproj", "{93B81518-BCA3-4880-A884-4C27250C6EA4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.Test", "src\corePackages\Core.Test\Core.Test.csproj", "{41149862-A1AC-40A8-A9CB-7608A16F0EA9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core.Test", "src\corePackages\Core.Test\Core.Test.csproj", "{41149862-A1AC-40A8-A9CB-7608A16F0EA9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application.Test", "src\RcycleCoin\Application.Test\Application.Test\Application.Test.csproj", "{385C4501-C1CF-4333-AA10-C82C4CA61696}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -87,6 +89,10 @@ Global
 		{41149862-A1AC-40A8-A9CB-7608A16F0EA9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{41149862-A1AC-40A8-A9CB-7608A16F0EA9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{41149862-A1AC-40A8-A9CB-7608A16F0EA9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{385C4501-C1CF-4333-AA10-C82C4CA61696}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{385C4501-C1CF-4333-AA10-C82C4CA61696}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{385C4501-C1CF-4333-AA10-C82C4CA61696}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{385C4501-C1CF-4333-AA10-C82C4CA61696}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -106,6 +112,7 @@ Global
 		{EEC3CD02-E3ED-4921-B6C7-B02B440C1D8B} = {C682C519-934E-4157-82BE-7DBC9F221FCB}
 		{93B81518-BCA3-4880-A884-4C27250C6EA4} = {C682C519-934E-4157-82BE-7DBC9F221FCB}
 		{41149862-A1AC-40A8-A9CB-7608A16F0EA9} = {C682C519-934E-4157-82BE-7DBC9F221FCB}
+		{385C4501-C1CF-4333-AA10-C82C4CA61696} = {E9CBC4ED-3FDD-4D5E-9AFA-6C5449D0410E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {FCDC48E6-84F1-4DD9-9195-2A63CDD423F0}
