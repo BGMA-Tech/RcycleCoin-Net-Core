@@ -6,6 +6,7 @@ using Core.Utilities.JsonResults.Abstract;
 using Core.Utilities.JsonResults.Concrete;
 using Core.Utilities.Security.Jwt;
 using Entities.Concrete;
+using Entities.Constants;
 using Newtonsoft.Json;
 using System.Net.Http.Headers;
 using System.Net.Http.Json;
@@ -47,6 +48,7 @@ namespace Business.Services.UserServices
                                     PersonelId = result.Data.User.PersonelId,
                                     Rol = result.Data.User.Info.Role
                                 });
+                                UserIdDto.UserId = result.Data.User._id;
                                 BaseHttpClient.Token = result.Data.Token;
                                 ResultDataJson<AccessToken> resultDataJson = new ResultDataJson<AccessToken>();
                                 resultDataJson.Data = accessToken;
