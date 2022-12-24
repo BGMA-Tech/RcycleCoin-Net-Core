@@ -36,3 +36,24 @@ C:\Users\Alp\Desktop\RcycleCoin-Net-Core\RcycleCoin\src\RcycleCoin\DataAccess\bi
 C:\Users\Alp\Desktop\RcycleCoin-Net-Core\RcycleCoin\src\RcycleCoin\DataAccess\bin\Debug\net6.0\Core.Security.dll
 C:\Users\Alp\Desktop\RcycleCoin-Net-Core\RcycleCoin\src\RcycleCoin\DataAccess\bin\Debug\net6.0\Core.Persistence.pdb
 C:\Users\Alp\Desktop\RcycleCoin-Net-Core\RcycleCoin\src\RcycleCoin\DataAccess\bin\Debug\net6.0\Core.Security.pdb
+C:\Users\Alp\Desktop\Yeni klasör\RcycleCoin-Net-Core\RcycleCoin\src\RcycleCoin\DataAccess\bin\Debug\net6.0\DataAccess.deps.json
+C:\Users\Alp\Desktop\Yeni klasör\RcycleCoin-Net-Core\RcycleCoin\src\RcycleCoin\DataAccess\bin\Debug\net6.0\DataAccess.dll
+C:\Users\Alp\Desktop\Yeni klasör\RcycleCoin-Net-Core\RcycleCoin\src\RcycleCoin\DataAccess\bin\Debug\net6.0\DataAccess.pdb
+C:\Users\Alp\Desktop\Yeni klasör\RcycleCoin-Net-Core\RcycleCoin\src\RcycleCoin\DataAccess\bin\Debug\net6.0\Core.dll
+C:\Users\Alp\Desktop\Yeni klasör\RcycleCoin-Net-Core\RcycleCoin\src\RcycleCoin\DataAccess\bin\Debug\net6.0\Core.Persistence.dll
+C:\Users\Alp\Desktop\Yeni klasör\RcycleCoin-Net-Core\RcycleCoin\src\RcycleCoin\DataAccess\bin\Debug\net6.0\Core.Security.dll
+C:\Users\Alp\Desktop\Yeni klasör\RcycleCoin-Net-Core\RcycleCoin\src\RcycleCoin\DataAccess\bin\Debug\net6.0\Entities.dll
+C:\Users\Alp\Desktop\Yeni klasör\RcycleCoin-Net-Core\RcycleCoin\src\RcycleCoin\DataAccess\bin\Debug\net6.0\Core.pdb
+C:\Users\Alp\Desktop\Yeni klasör\RcycleCoin-Net-Core\RcycleCoin\src\RcycleCoin\DataAccess\bin\Debug\net6.0\Entities.pdb
+C:\Users\Alp\Desktop\Yeni klasör\RcycleCoin-Net-Core\RcycleCoin\src\RcycleCoin\DataAccess\bin\Debug\net6.0\Core.Persistence.pdb
+C:\Users\Alp\Desktop\Yeni klasör\RcycleCoin-Net-Core\RcycleCoin\src\RcycleCoin\DataAccess\bin\Debug\net6.0\Core.Security.pdb
+C:\Users\Alp\Desktop\Yeni klasör\RcycleCoin-Net-Core\RcycleCoin\src\RcycleCoin\DataAccess\obj\Debug\net6.0\DataAccess.csproj.AssemblyReference.cache
+C:\Users\Alp\Desktop\Yeni klasör\RcycleCoin-Net-Core\RcycleCoin\src\RcycleCoin\DataAccess\obj\Debug\net6.0\DataAccess.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Alp\Desktop\Yeni klasör\RcycleCoin-Net-Core\RcycleCoin\src\RcycleCoin\DataAccess\obj\Debug\net6.0\DataAccess.AssemblyInfoInputs.cache
+C:\Users\Alp\Desktop\Yeni klasör\RcycleCoin-Net-Core\RcycleCoin\src\RcycleCoin\DataAccess\obj\Debug\net6.0\DataAccess.AssemblyInfo.cs
+C:\Users\Alp\Desktop\Yeni klasör\RcycleCoin-Net-Core\RcycleCoin\src\RcycleCoin\DataAccess\obj\Debug\net6.0\DataAccess.csproj.CoreCompileInputs.cache
+C:\Users\Alp\Desktop\Yeni klasör\RcycleCoin-Net-Core\RcycleCoin\src\RcycleCoin\DataAccess\obj\Debug\net6.0\DataAccess.csproj.CopyComplete
+C:\Users\Alp\Desktop\Yeni klasör\RcycleCoin-Net-Core\RcycleCoin\src\RcycleCoin\DataAccess\obj\Debug\net6.0\DataAccess.dll
+C:\Users\Alp\Desktop\Yeni klasör\RcycleCoin-Net-Core\RcycleCoin\src\RcycleCoin\DataAccess\obj\Debug\net6.0\refint\DataAccess.dll
+C:\Users\Alp\Desktop\Yeni klasör\RcycleCoin-Net-Core\RcycleCoin\src\RcycleCoin\DataAccess\obj\Debug\net6.0\DataAccess.pdb
+C:\Users\Alp\Desktop\Yeni klasör\RcycleCoin-Net-Core\RcycleCoin\src\RcycleCoin\DataAccess\obj\Debug\net6.0\ref\DataAccess.dll

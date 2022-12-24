@@ -36,3 +36,22 @@ C:\Users\Alp\Desktop\Yeni klasör (2)\RcycleCoin-Net-Core\RcycleCoin\src\corePac
 C:\Users\Alp\Desktop\Yeni klasör (2)\RcycleCoin-Net-Core\RcycleCoin\src\corePackages\Core.Application\obj\Debug\net6.0\refint\Core.Application.dll
 C:\Users\Alp\Desktop\Yeni klasör (2)\RcycleCoin-Net-Core\RcycleCoin\src\corePackages\Core.Application\obj\Debug\net6.0\Core.Application.pdb
 C:\Users\Alp\Desktop\Yeni klasör (2)\RcycleCoin-Net-Core\RcycleCoin\src\corePackages\Core.Application\obj\Debug\net6.0\ref\Core.Application.dll
+C:\Users\Alp\Desktop\Yeni klasör\RcycleCoin-Net-Core\RcycleCoin\src\corePackages\Core.Application\bin\Debug\net6.0\Core.Application.deps.json
+C:\Users\Alp\Desktop\Yeni klasör\RcycleCoin-Net-Core\RcycleCoin\src\corePackages\Core.Application\bin\Debug\net6.0\Core.Application.dll
+C:\Users\Alp\Desktop\Yeni klasör\RcycleCoin-Net-Core\RcycleCoin\src\corePackages\Core.Application\bin\Debug\net6.0\Core.Application.pdb
+C:\Users\Alp\Desktop\Yeni klasör\RcycleCoin-Net-Core\RcycleCoin\src\corePackages\Core.Application\bin\Debug\net6.0\Core.CrossCuttingConcerns.dll
+C:\Users\Alp\Desktop\Yeni klasör\RcycleCoin-Net-Core\RcycleCoin\src\corePackages\Core.Application\bin\Debug\net6.0\Core.Persistence.dll
+C:\Users\Alp\Desktop\Yeni klasör\RcycleCoin-Net-Core\RcycleCoin\src\corePackages\Core.Application\bin\Debug\net6.0\Core.Security.dll
+C:\Users\Alp\Desktop\Yeni klasör\RcycleCoin-Net-Core\RcycleCoin\src\corePackages\Core.Application\bin\Debug\net6.0\Core.CrossCuttingConcerns.pdb
+C:\Users\Alp\Desktop\Yeni klasör\RcycleCoin-Net-Core\RcycleCoin\src\corePackages\Core.Application\bin\Debug\net6.0\Core.Security.pdb
+C:\Users\Alp\Desktop\Yeni klasör\RcycleCoin-Net-Core\RcycleCoin\src\corePackages\Core.Application\bin\Debug\net6.0\Core.Persistence.pdb
+C:\Users\Alp\Desktop\Yeni klasör\RcycleCoin-Net-Core\RcycleCoin\src\corePackages\Core.Application\obj\Debug\net6.0\Core.Application.csproj.AssemblyReference.cache
+C:\Users\Alp\Desktop\Yeni klasör\RcycleCoin-Net-Core\RcycleCoin\src\corePackages\Core.Application\obj\Debug\net6.0\Core.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Alp\Desktop\Yeni klasör\RcycleCoin-Net-Core\RcycleCoin\src\corePackages\Core.Application\obj\Debug\net6.0\Core.Application.AssemblyInfoInputs.cache
+C:\Users\Alp\Desktop\Yeni klasör\RcycleCoin-Net-Core\RcycleCoin\src\corePackages\Core.Application\obj\Debug\net6.0\Core.Application.AssemblyInfo.cs
+C:\Users\Alp\Desktop\Yeni klasör\RcycleCoin-Net-Core\RcycleCoin\src\corePackages\Core.Application\obj\Debug\net6.0\Core.Application.csproj.CoreCompileInputs.cache
+C:\Users\Alp\Desktop\Yeni klasör\RcycleCoin-Net-Core\RcycleCoin\src\corePackages\Core.Application\obj\Debug\net6.0\Core.Application.csproj.CopyComplete
+C:\Users\Alp\Desktop\Yeni klasör\RcycleCoin-Net-Core\RcycleCoin\src\corePackages\Core.Application\obj\Debug\net6.0\Core.Application.dll
+C:\Users\Alp\Desktop\Yeni klasör\RcycleCoin-Net-Core\RcycleCoin\src\corePackages\Core.Application\obj\Debug\net6.0\refint\Core.Application.dll
+C:\Users\Alp\Desktop\Yeni klasör\RcycleCoin-Net-Core\RcycleCoin\src\corePackages\Core.Application\obj\Debug\net6.0\Core.Application.pdb
+C:\Users\Alp\Desktop\Yeni klasör\RcycleCoin-Net-Core\RcycleCoin\src\corePackages\Core.Application\obj\Debug\net6.0\ref\Core.Application.dll
