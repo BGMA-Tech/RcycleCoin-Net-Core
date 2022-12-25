@@ -15,6 +15,7 @@ namespace DataAccess.Concrete.EntityConfiguration
             builder.Property(u => u.UserId).HasColumnName("UserId").IsRequired();
             builder.Property(u => u.Quantity).HasColumnName("Quantity").IsRequired();
             builder.Property(u => u.CreatedAt).HasColumnName("CreatedAt").IsRequired();
+            builder.Property(u => u.Status).HasColumnName("Status").IsRequired();
 
             builder.HasOne(u => u.RecycleProduct);
             #endregion

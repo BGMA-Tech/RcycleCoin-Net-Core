@@ -13,7 +13,6 @@ namespace Business.Features.UserRecycleProducts.Commands.CreateUserRecycleProduc
 {
     public class CreateUserRecycleProductCommand : IRequest<CreatedUserRecycleProductDto>, ISecuredRequest
     {
-        public string UserId { get; set; }
         public int RecycleProductId { get; set; }
         public int Quantity { get; set; }
 
@@ -39,6 +38,7 @@ namespace Business.Features.UserRecycleProducts.Commands.CreateUserRecycleProduc
                 UserRecycleProduct mappedUserRecycleProduct = _mapper.Map<UserRecycleProduct>(request);
                 mappedUserRecycleProduct.CreatedAt = Convert.ToDateTime(DateTime.Now.ToString("F"));
                 mappedUserRecycleProduct.UserId = UserIdDto.UserId;
+                mappedUserRecycleProduct.Status = false;
                 UserRecycleProduct createdUserRecycleProduct = await _userRecycleProductDal.AddAsync(mappedUserRecycleProduct);
                 CreatedUserRecycleProductDto createdUserRecycleProductDto = _mapper.Map<CreatedUserRecycleProductDto>(createdUserRecycleProduct);
 
