@@ -6,8 +6,6 @@ namespace Business.Features.UserRecycleProducts.Commands.UpdateUserRecycleProduc
     {
         public UpdateUserRecycleProductCommandValidator()
         {
-            RuleFor(r => r.UserId)
-                .NotEmpty();
             RuleFor(r => r.Quantity)
                 .NotEmpty()
                 .GreaterThan(0)
@@ -16,7 +14,6 @@ namespace Business.Features.UserRecycleProducts.Commands.UpdateUserRecycleProduc
                 .NotEmpty()
                 .GreaterThan(0)
                 .WithMessage("Recycle product id must be greater than 0");
-            RuleFor(r => r.UserId).NotEmpty();
         }
     }
 }

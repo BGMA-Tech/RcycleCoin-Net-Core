@@ -7,6 +7,7 @@
         public int RecycleProductId { get; set; }
         public int Quantity { get; set; }
         public DateTime CreatedAt { get; set; }
+        public bool Status { get; set; }
 
 
         public string RecycleName { get; set; }
