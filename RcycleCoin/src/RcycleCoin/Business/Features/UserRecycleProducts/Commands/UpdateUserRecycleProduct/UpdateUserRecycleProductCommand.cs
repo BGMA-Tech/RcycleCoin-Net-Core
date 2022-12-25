@@ -3,7 +3,6 @@ using Business.Features.UserRecycleProducts.Dtos;
 using Business.Features.UserRecycleProducts.Rules;
 using Core.Application.Pipelines.Authorization;
 using DataAccess.Abstract;
-using DataAccess.Concrete.EntityFramework;
 using Entities.Concrete;
 using MediatR;
 using static Business.Features.UserRecycleProducts.Constants.OperationClaims;
@@ -14,9 +13,10 @@ namespace Business.Features.UserRecycleProducts.Commands.UpdateUserRecycleProduc
     public class UpdateUserRecycleProductCommand : IRequest<UpdatedUserRecycleProductDto>, ISecuredRequest
     {
         public int Id { get; set; }
-        public string? UserId { get; set; }
+        public string UserId { get; set; }
         public int RecycleProductId { get; set; }
         public int Quantity { get; set; }
+        public bool Status { get; set; }
 
         public string[] Roles => new[] {Admin, Personel, UserRecycleProductUpdate};
 
@@ -40,10 +40,6 @@ namespace Business.Features.UserRecycleProducts.Commands.UpdateUserRecycleProduc
                     await _userRecycleProductBusinessRules.RecycleProductIdMustBeAvailable(request.RecycleProductId);
 
                 UserRecycleProduct mappedUserRecycleProduct = _mapper.Map<UserRecycleProduct>(request);
-                if (request.UserId != null)
-                {
-                    mappedUserRecycleProduct.UserId = request.UserId;
-                }
                 UserRecycleProduct updatedUserRecycleProduct = await _userRecycleProductDal.UpdateAsync(mappedUserRecycleProduct);
                 UpdatedUserRecycleProductDto updatedUserRecycleProductDto = _mapper.Map<UpdatedUserRecycleProductDto>(updatedUserRecycleProduct);
 
