@@ -1,4 +1,5 @@
 ﻿using Business.Services.AuthServices;
+using Business.Services.TransactionServices.Dtos;
 using Business.Services.UserServices.Dtos;
 using Core.Entities;
 using Core.Helper;
@@ -149,5 +150,32 @@ namespace Business.Services.UserServices
             return new ErrorJsonDataResult<GetVerifyIdJson>();
         }
 
+        public async Task<IJsonDataResult<ResultDataJson<List<UserDto>>>> GetAll()
+        {
+            using (HttpClient client = BaseHttpClient.CreateHttpClient())
+            {
+                using (HttpResponseMessage res = await client.GetAsync(new BaseUrl().HostUrl + "user/"))
+                {
+                    using (HttpContent content = res.Content)
+                    {
+                        string data = await content.ReadAsStringAsync();
+                        if (data != null)
+                        {
+                            ResultDataJson<List<UserDto>>? result = JsonConvert.DeserializeObject<ResultDataJson<List<UserDto>>>(data);
+                            if (result?.Data != null)
+                            {
+                                return new SuccessJsonDataResult<ResultDataJson<List<UserDto>>>(result);
+                            }
+                            else
+                            {
+                                ResultJson? resultError = JsonConvert.DeserializeObject<ResultJson>(data);
+                                return new ErrorJsonDataResult<ResultDataJson<List<UserDto>>>(resultError.Error);
+                            }
+                        }
+                    }
+                }
+            }
+            return new ErrorJsonDataResult<ResultDataJson<List<UserDto>>>();
+        }
     }
 }

@@ -1,4 +1,5 @@
-﻿using Business.Services.UserServices.Dtos;
+﻿using Business.Services.TransactionServices.Dtos;
+using Business.Services.UserServices.Dtos;
 using Core.Utilities.Abstract;
 using Core.Utilities.JsonResults.Abstract;
 using Core.Utilities.JsonResults.Concrete;
@@ -12,5 +13,6 @@ namespace Business.Services.UserServices
         public Task<IJsonDataResult<ResultDataJson<UserDto>>> Register(UserForRegisterDto userForRegisterDto);
         public Task<IJsonDataResult<ResultDataJson<UserDto>>> GetById(string userId);
         public Task<IJsonDataResult<GetVerifyIdJson>> GetVerifyId(GetVerifyIdDto getVerifyIdDto);
+        public Task<IJsonDataResult<ResultDataJson<List<UserDto>>>> GetAll();
     }
 }

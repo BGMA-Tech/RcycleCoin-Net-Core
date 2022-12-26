@@ -1,4 +1,6 @@
 ﻿using Business.Services.AuthServices;
+using Business.Services.TransactionServices.Dtos;
+using Business.Services.TransactionServices;
 using Business.Services.UserServices;
 using Business.Services.UserServices.Dtos;
 using Core.Helper;
@@ -59,6 +61,17 @@ namespace WebAPI.Controllers
         {
             IJsonDataResult<GetVerifyIdJson> result = await _userService.GetVerifyId(getVerifyIdDto);
             return Ok(result.Data);
+        }
+
+        [HttpGet("getall")]
+        public async Task<IActionResult> GetAll()
+        {
+            IJsonDataResult<ResultDataJson<List<UserDto>>> result = await _userService.GetAll();
+            if (result.Data != null)
+            {
+                return Ok(result.Data);
+            }
+            return BadRequest(result.Data);
         }
     }
 }
