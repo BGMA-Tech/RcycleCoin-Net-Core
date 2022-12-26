@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "/iV1CLT2CiCk7tjvt5OV5x2skoOqz9gPudd2VSKM4PwQnNhp6ez/NetaJL+xKwiDkMazj4FdkKZ42P727KPwAg==",
+  "dgSpecHash": "sDszTtxATSG4YZDJetR6rCav8G4cOBF/HgvOL5Iu27wAqIYIf2g4+wEfdPw93GzjGJ6vyoutzDo9OsLU45QL4g==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Alp\\Desktop\\RcycleCoin-Net-Core\\RcycleCoin\\src\\RcycleCoin\\WebAPI\\WebAPI.csproj",
+  "projectFilePath": "C:\\Users\\Alp\\Desktop\\Yeni klasör (2)\\RcycleCoin-Net-Core\\RcycleCoin\\src\\RcycleCoin\\WebAPI\\WebAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Alp\\.nuget\\packages\\autofac\\6.4.0\\autofac.6.4.0.nupkg.sha512",
     "C:\\Users\\Alp\\.nuget\\packages\\autofac.extensions.dependencyinjection\\8.0.0\\autofac.extensions.dependencyinjection.8.0.0.nupkg.sha512",

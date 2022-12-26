@@ -1091,11 +1091,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Alp\\Desktop\\RcycleCoin-Net-Core\\RcycleCoin\\src\\corePackages\\Core.Security\\Core.Security.csproj",
+      "projectUniqueName": "C:\\Users\\Alp\\Desktop\\Yeni klasör (2)\\RcycleCoin-Net-Core\\RcycleCoin\\src\\corePackages\\Core.Security\\Core.Security.csproj",
       "projectName": "Core.Security",
-      "projectPath": "C:\\Users\\Alp\\Desktop\\RcycleCoin-Net-Core\\RcycleCoin\\src\\corePackages\\Core.Security\\Core.Security.csproj",
+      "projectPath": "C:\\Users\\Alp\\Desktop\\Yeni klasör (2)\\RcycleCoin-Net-Core\\RcycleCoin\\src\\corePackages\\Core.Security\\Core.Security.csproj",
       "packagesPath": "C:\\Users\\Alp\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Alp\\Desktop\\RcycleCoin-Net-Core\\RcycleCoin\\src\\corePackages\\Core.Security\\obj\\",
+      "outputPath": "C:\\Users\\Alp\\Desktop\\Yeni klasör (2)\\RcycleCoin-Net-Core\\RcycleCoin\\src\\corePackages\\Core.Security\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -1116,8 +1116,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\Alp\\Desktop\\RcycleCoin-Net-Core\\RcycleCoin\\src\\corePackages\\Core.Persistence\\Core.Persistence.csproj": {
-              "projectPath": "C:\\Users\\Alp\\Desktop\\RcycleCoin-Net-Core\\RcycleCoin\\src\\corePackages\\Core.Persistence\\Core.Persistence.csproj"
+            "C:\\Users\\Alp\\Desktop\\Yeni klasör (2)\\RcycleCoin-Net-Core\\RcycleCoin\\src\\corePackages\\Core.Persistence\\Core.Persistence.csproj": {
+              "projectPath": "C:\\Users\\Alp\\Desktop\\Yeni klasör (2)\\RcycleCoin-Net-Core\\RcycleCoin\\src\\corePackages\\Core.Persistence\\Core.Persistence.csproj"
             }
           }
         }

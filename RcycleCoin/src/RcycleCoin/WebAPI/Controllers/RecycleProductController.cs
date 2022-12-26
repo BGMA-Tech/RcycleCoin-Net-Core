@@ -49,7 +49,7 @@ namespace WebAPI.Controllers
             RecycleProductDto result = await Mediator.Send(getByIdRecycleProductQuery);
             return Ok(result);
         }
-        [HttpPost("GetList/ByDynamic")]
+        [HttpGet("GetList/ByDynamic")]
         public async Task<IActionResult> GetListByDynamic([FromQuery] PageRequest pageRequest,
                                                       [FromBody] Dynamic? dynamic = null)
         {
