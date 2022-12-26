@@ -18,7 +18,7 @@ namespace WebAPI.Controllers
         }
 
         [HttpPost("add")]
-        public async Task<IActionResult> GetById([FromBody] CreatedTransactionDto createdTransactionDto)
+        public async Task<IActionResult> Add([FromBody] CreatedTransactionDto createdTransactionDto)
         {
             IJsonDataResult<ResultDataJson<TransactionDto>> result = await _transactionService.Add(createdTransactionDto);
             if (result != null)
@@ -54,6 +54,28 @@ namespace WebAPI.Controllers
         public async Task<IActionResult> GetAllById(string id)
         {
             IJsonDataResult<ResultDataJson<List<TransactionDto>>> result = await _transactionService.GetAllById(id);
+            if (result.Data != null)
+            {
+                return Ok(result.Data);
+            }
+            return BadRequest(result.Data);
+        }
+
+        [HttpGet("getallbytopersonelid")]
+        public async Task<IActionResult> GetAllByToPersonelId(string toPersonelId)
+        {
+            IJsonDataResult<ResultDataJson<List<TransactionDto>>> result = await _transactionService.GetAllByToPersonelId(toPersonelId);
+            if (result.Data != null)
+            {
+                return Ok(result.Data);
+            }
+            return BadRequest(result.Data);
+        }
+
+        [HttpGet("getallbyfrompersonelid")]
+        public async Task<IActionResult> GetAllByFromPersonelId(string fromPersonelId)
+        {
+            IJsonDataResult<ResultDataJson<List<TransactionDto>>> result = await _transactionService.GetAllByFromPersonelId(fromPersonelId);
             if (result.Data != null)
             {
                 return Ok(result.Data);
