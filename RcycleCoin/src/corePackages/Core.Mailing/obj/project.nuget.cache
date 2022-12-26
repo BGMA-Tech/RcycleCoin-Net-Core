@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "e6/bXpbzDq6uyv2tcNu9PbLlgk5K5Yfcsp4j0O3g0QS9o4nyyyv5o6Hs+5owU+4l/uHZ8BFnm1HhiswK21exLg==",
+  "dgSpecHash": "PNwkTXwACaIS9oKA/7nGSPKca5fsmeacANv9QOQaIJoUe4iF0FVIyQ1XcTWb03X/YPwxHP/wzZAhCU5AbBEdxA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Alp\\Desktop\\RcycleCoin-Net-Core\\RcycleCoin\\src\\corePackages\\Core.Mailing\\Core.Mailing.csproj",
+  "projectFilePath": "C:\\Users\\Alp\\Desktop\\Yeni klasör (2)\\RcycleCoin-Net-Core\\RcycleCoin\\src\\corePackages\\Core.Mailing\\Core.Mailing.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Alp\\.nuget\\packages\\mailkit\\3.1.1\\mailkit.3.1.1.nupkg.sha512",
     "C:\\Users\\Alp\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\6.0.0\\microsoft.extensions.configuration.abstractions.6.0.0.nupkg.sha512",
