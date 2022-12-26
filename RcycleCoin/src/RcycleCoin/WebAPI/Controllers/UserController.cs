@@ -15,12 +15,10 @@ namespace WebAPI.Controllers
     public class UserController : BaseController
     {
         private readonly IUserService _userService;
-        private readonly IAuthService _authService;
 
-        public UserController(IUserService userService, IAuthService authService)
+        public UserController(IUserService userService)
         {
             _userService = userService;
-            _authService = authService;
         }
 
         [HttpGet("getbyid")]
@@ -29,9 +27,9 @@ namespace WebAPI.Controllers
             IJsonDataResult<ResultDataJson<UserDto>> resut = await _userService.GetById(userId.ToString());
             if(resut.Data != null)
             {
-                return Ok(resut);
+                return Ok(resut.Data);
             }
-            return BadRequest(resut);
+            return BadRequest(resut.Data);
         }
 
         [HttpPost("login")]
