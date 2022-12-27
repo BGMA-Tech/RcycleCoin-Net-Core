@@ -17,7 +17,6 @@ namespace Business.Features.RecycleProducts.Commands.CreateRecycleProduct
         public string RecycleName { get; set; }
         public int RecyclePoint { get; set; }
         public int RecycleTypeId { get; set; }
-        public int RecycleProductImageId { get; set; }
 
         public string[] Roles => new[] {Admin, RecycleProductAdd,"Personel"};
 
@@ -36,8 +35,8 @@ namespace Business.Features.RecycleProducts.Commands.CreateRecycleProduct
 
             public async Task<CreatedRecycleProductDto> Handle(CreateRecycleProductCommand request, CancellationToken cancellationToken)
             {
-                await _recycleProductBusinessRules.RecycleProductNameMustNotExist(request.RecycleName);
                 await _recycleProductBusinessRules.RecycleTypeIdMustBeAvailable(request.RecycleTypeId);
+                await _recycleProductBusinessRules.RecycleProductNameMustNotExist(request.RecycleName);
 
                 RecycleProduct mappedRecycleProduct = _mapper.Map<RecycleProduct>(request);
                 RecycleProduct createdRecycleProduct = await _recycleProductDal.AddAsync(mappedRecycleProduct);
