@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "V5XRh9GoqF5T6FrdBoOiu90Nf7D6oS9tqDS0rL7vnHQ4f0C91aA2GDzZXcjlPSc9hEmYmqJYTmfgjENTBTqXoA==",
+  "dgSpecHash": "CWwVFt65Pb1n9UR1u6YONx5pjIbpFMm7u7EYjBayxRSMBiTffRd2qSNfruw4lvbRPrETrKEGFxVO6rG1nmpuPA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Alp\\Desktop\\Yeni klasör (2)\\RcycleCoin-Net-Core\\RcycleCoin\\src\\corePackages\\Core.Persistence\\Core.Persistence.csproj",
+  "projectFilePath": "C:\\Users\\Alp\\Desktop\\RcycleCoin-Net-Core\\RcycleCoin\\src\\corePackages\\Core.Persistence\\Core.Persistence.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Alp\\.nuget\\packages\\microsoft.entityframeworkcore\\6.0.1\\microsoft.entityframeworkcore.6.0.1.nupkg.sha512",
     "C:\\Users\\Alp\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\6.0.1\\microsoft.entityframeworkcore.abstractions.6.0.1.nupkg.sha512",
