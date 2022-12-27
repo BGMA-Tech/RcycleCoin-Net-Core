@@ -2,6 +2,7 @@
 using Business.Features.RecycleProducts.Dtos;
 using Business.Features.RecycleProducts.Rules;
 using Core.Application.Pipelines.Authorization;
+using Core.Helper.FileHelpers;
 using DataAccess.Abstract;
 using Entities.Concrete;
 using MediatR;
@@ -16,6 +17,7 @@ namespace Business.Features.RecycleProducts.Commands.CreateRecycleProduct
         public string RecycleName { get; set; }
         public int RecyclePoint { get; set; }
         public int RecycleTypeId { get; set; }
+        public int RecycleProductImageId { get; set; }
 
         public string[] Roles => new[] {Admin, RecycleProductAdd,"Personel"};
 

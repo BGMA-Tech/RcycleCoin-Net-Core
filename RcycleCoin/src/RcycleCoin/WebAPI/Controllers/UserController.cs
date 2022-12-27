@@ -38,7 +38,11 @@ namespace WebAPI.Controllers
         public async Task<IActionResult> Login([FromBody] UserForLoginDto userForLoginDto)
         {
             IJsonDataResult<ResultDataJson<AccessToken>> result = await _userService.Login(userForLoginDto);
-            if(result.Data.Data.Token == null)
+            if(result.Data == null)
+            {
+                return BadRequest(result);
+            }
+            if(result.Data.Data.Token == null ) 
             {
                 return BadRequest(result.Data.Data);
             }

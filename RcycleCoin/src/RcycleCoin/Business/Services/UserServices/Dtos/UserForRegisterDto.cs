@@ -1,4 +1,6 @@
-﻿namespace Business.Services.UserServices.Dtos
+﻿using Microsoft.AspNetCore.Http;
+
+namespace Business.Services.UserServices.Dtos
 {
     public class UserForRegisterDto
     {

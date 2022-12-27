@@ -20,6 +20,7 @@ namespace DataAccess
             services.AddScoped<IRecycleProductDal, EfRecycleProductDal>();
             services.AddScoped<IRecycleTypeDal, EfRecycleTypeDal>();
             services.AddScoped<IUserRecycleProductDal, EfUserRecycleProductDal>();
+            services.AddScoped<IRecycleProductImageDal, EfRecycleProductImageDal>();
 
             return services;
         }
