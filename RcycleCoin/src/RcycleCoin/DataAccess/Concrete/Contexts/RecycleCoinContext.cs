@@ -11,6 +11,7 @@ namespace DataAccess.Concrete.Contexts
         public DbSet<RecycleProduct> RecycleProducts { get; set; }
         public DbSet<RecycleType> RecycleTypes { get; set; }
         public DbSet<UserRecycleProduct> UserRecycleProducts { get; set; }
+        public DbSet<RecycleProductImage> RecycleProductImages { get; set; }
 
 
         public RecycleCoinContext(DbContextOptions dbContextOptions, IConfiguration configuration):base(dbContextOptions)

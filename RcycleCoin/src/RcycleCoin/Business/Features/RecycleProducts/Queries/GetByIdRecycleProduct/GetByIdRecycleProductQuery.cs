@@ -35,7 +35,7 @@ namespace Business.Features.RecycleProducts.Queries.GetByIdRecycleProduct
                 RecycleProduct? recycleProduct = await _recycleProductDal.GetAsync
                     (
                         r => r.Id == request.Id,
-                        include: r => r.Include(r => r.RecycleType)
+                        include: r => r.Include(r => r.RecycleType).Include(r => r.RecycleProductImage)
                     );
                 RecycleProductDto recycleProductDto = _mapper.Map<RecycleProductDto>(recycleProduct);
 

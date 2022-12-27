@@ -6,7 +6,11 @@
         public string RecycleName { get; set; }
         public int RecyclePoint { get; set; }
         public int RecycleTypeId { get; set; }
+        public int RecycleProductImageId { get; set; }
 
         public string RecycleTypeName { get; set; }
+
+        public string ImagePath { get; set; }
+
     }
 }
