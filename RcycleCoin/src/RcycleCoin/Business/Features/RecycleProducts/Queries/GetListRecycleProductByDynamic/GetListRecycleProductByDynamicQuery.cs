@@ -34,7 +34,7 @@ namespace Business.Features.RecycleProducts.Queries.GetListRecycleProductByDynam
                 IPaginate<RecycleProduct> recycleProducts = await _recycleProductDal.GetListByDynamicAsync
                     (
                         request.Dynamic,
-                        include: d => d.Include(d => d.RecycleType).Include(d => d.RecycleProductImage),
+                        include: d => d.Include(d => d.RecycleType),
                         request.PageRequest.Page,
                         request.PageRequest.PageSize
                     );

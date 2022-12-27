@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "4erXSIX2MdEv60x09yxhdsP7tbGErB8Zz4EkCgmKSCU=",
+  "Hash": "iFaiu1jWHKLbeVWU/hMs0RU6cs3QiDpb/YxAUSW701c=",
   "Source": "WebAPI",
   "BasePath": "_content/WebAPI",
   "Mode": "Default",
@@ -15,5 +15,23 @@
       "Pattern": "**"
     }
   ],
-  "Assets": []
+  "Assets": [
+    {
+      "Identity": "C:\\Users\\Alp\\Desktop\\RcycleCoin-Net-Core\\RcycleCoin\\src\\RcycleCoin\\WebAPI\\wwwroot\\Images\\c65ade93-c4ad-45df-8b9a-2f13d473a2c2.jpg",
+      "SourceId": "WebAPI",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Alp\\Desktop\\RcycleCoin-Net-Core\\RcycleCoin\\src\\RcycleCoin\\WebAPI\\wwwroot\\",
+      "BasePath": "_content/WebAPI",
+      "RelativePath": "Images/c65ade93-c4ad-45df-8b9a-2f13d473a2c2.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\c65ade93-c4ad-45df-8b9a-2f13d473a2c2.jpg"
+    }
+  ]
 }

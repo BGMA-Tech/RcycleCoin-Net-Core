@@ -8,6 +8,7 @@ namespace Business.Features.RecycleTypes.Commands.CreateRecycleType
         {
             RuleFor(r => r.RecycleTypeName)
                 .NotEmpty()
+                .NotNull()
                 .WithMessage("Recycle type name cannot be empty");
         }
     }

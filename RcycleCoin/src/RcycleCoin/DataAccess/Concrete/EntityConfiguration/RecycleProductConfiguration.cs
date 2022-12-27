@@ -16,7 +16,6 @@ namespace DataAccess.Concrete.EntityConfiguration
             builder.Property(u => u.RecyclePoint).HasColumnName("RecyclePoint").IsRequired();
 
             builder.HasOne(u => u.RecycleType).WithMany().HasForeignKey(x=> x.RecycleTypeId);
-            builder.HasOne(u => u.RecycleProductImage).WithMany().HasForeignKey(x => x.RecycleProductImageId);
             #endregion
         }
     }
