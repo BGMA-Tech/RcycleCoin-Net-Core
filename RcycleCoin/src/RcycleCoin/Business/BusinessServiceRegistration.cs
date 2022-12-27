@@ -1,11 +1,13 @@
 ﻿using Business.Services.AuthServices;
 using Business.Services.CoinServices;
 using Business.Services.InfoServices;
+using Business.Services.RecycleProductImageService;
 using Business.Services.TransactionServices;
 using Business.Services.UserServices;
 using Core.Application.Pipelines.Authorization;
 using Core.Application.Pipelines.Validation;
 using Core.Application.Rules;
+using Core.Helper.FileHelpers;
 using Core.Utilities.Security.Jwt;
 using FluentValidation;
 using MediatR;
@@ -31,6 +33,8 @@ namespace Business
             services.AddScoped<IInfoService, InfoManager>();
             services.AddScoped<IAuthService, AuthManager>();
             services.AddScoped<ITokenHelper, JwtHelper>();
+            services.AddScoped<IRecycleProductImageService, RecycleProductImageManager>();
+            services.AddScoped<IFileHelper, FileHelper>();
 
 
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(AuthorizationBehavior<,>));

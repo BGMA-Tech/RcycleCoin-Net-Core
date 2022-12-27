@@ -5,10 +5,23 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace DataAccess.Migrations
 {
-    public partial class Create_DB : Migration
+    public partial class Create_Db : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.CreateTable(
+                name: "RecycleProductImage",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    ImagePath = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_RecycleProductImage", x => x.Id);
+                });
+
             migrationBuilder.CreateTable(
                 name: "RecycleType",
                 columns: table => new
@@ -30,11 +43,18 @@ namespace DataAccess.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     RecycleName = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     RecyclePoint = table.Column<int>(type: "int", nullable: false),
-                    RecycleTypeId = table.Column<int>(type: "int", nullable: false)
+                    RecycleTypeId = table.Column<int>(type: "int", nullable: false),
+                    RecycleProductImageId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_RecycleProduct", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_RecycleProduct_RecycleProductImage_RecycleProductImageId",
+                        column: x => x.RecycleProductImageId,
+                        principalTable: "RecycleProductImage",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_RecycleProduct_RecycleType_RecycleTypeId",
                         column: x => x.RecycleTypeId,
@@ -49,10 +69,11 @@ namespace DataAccess.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    UserId = table.Column<int>(type: "int", nullable: false),
+                    UserId = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     RecycleProductId = table.Column<int>(type: "int", nullable: false),
                     Quantity = table.Column<int>(type: "int", nullable: false),
-                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2022, 12, 3, 0, 0, 0, 0, DateTimeKind.Unspecified))
+                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Status = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -64,6 +85,11 @@ namespace DataAccess.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_RecycleProduct_RecycleProductImageId",
+                table: "RecycleProduct",
+                column: "RecycleProductImageId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_RecycleProduct_RecycleTypeId",
@@ -83,6 +109,9 @@ namespace DataAccess.Migrations
 
             migrationBuilder.DropTable(
                 name: "RecycleProduct");
+
+            migrationBuilder.DropTable(
+                name: "RecycleProductImage");
 
             migrationBuilder.DropTable(
                 name: "RecycleType");

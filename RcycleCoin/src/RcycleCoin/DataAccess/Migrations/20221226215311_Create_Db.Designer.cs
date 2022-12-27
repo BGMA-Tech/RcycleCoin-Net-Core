@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataAccess.Migrations
 {
     [DbContext(typeof(RecycleCoinContext))]
-    [Migration("20221225232600_Updated-UerRecycleProduct2")]
-    partial class UpdatedUerRecycleProduct2
+    [Migration("20221226215311_Create_Db")]
+    partial class Create_Db
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -43,15 +43,39 @@ namespace DataAccess.Migrations
                         .HasColumnType("int")
                         .HasColumnName("RecyclePoint");
 
+                    b.Property<int>("RecycleProductImageId")
+                        .HasColumnType("int");
+
                     b.Property<int>("RecycleTypeId")
                         .HasColumnType("int")
                         .HasColumnName("RecycleTypeId");
 
                     b.HasKey("Id");
 
+                    b.HasIndex("RecycleProductImageId");
+
                     b.HasIndex("RecycleTypeId");
 
                     b.ToTable("RecycleProduct", (string)null);
+                });
+
+            modelBuilder.Entity("Entities.Concrete.RecycleProductImage", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnName("Id");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("ImagePath")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("ImagePath");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("RecycleProductImage", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Concrete.RecycleType", b =>
@@ -113,11 +137,19 @@ namespace DataAccess.Migrations
 
             modelBuilder.Entity("Entities.Concrete.RecycleProduct", b =>
                 {
+                    b.HasOne("Entities.Concrete.RecycleProductImage", "RecycleProductImage")
+                        .WithMany()
+                        .HasForeignKey("RecycleProductImageId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("Entities.Concrete.RecycleType", "RecycleType")
                         .WithMany()
                         .HasForeignKey("RecycleTypeId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("RecycleProductImage");
 
                     b.Navigation("RecycleType");
                 });

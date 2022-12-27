@@ -1,22 +1,17 @@
-﻿using Core.Utilities.Abstract;
+﻿using Core.Helper.GuidHelpers;
+using Core.Utilities.Abstract;
 using Core.Utilities.Business;
 using Core.Utilities.Concrete;
 using Microsoft.AspNetCore.Http;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Core.Utilities.Helpers.FileHelper
+namespace Core.Helper.FileHelpers
 {
     public class FileHelper : IFileHelper
     {
         public IResult Delete(string filePath)
         {
             var result = CheckIfFileExists(filePath);
-            if(!result.Success)
+            if (!result.Success)
             {
                 return result;
             }
@@ -27,13 +22,13 @@ namespace Core.Utilities.Helpers.FileHelper
         public IResult Update(IFormFile file, string filePath, string root)
         {
             var resultOfDelete = Delete(filePath);
-            if(!resultOfDelete.Success)
+            if (!resultOfDelete.Success)
             {
                 return resultOfDelete;
             }
 
             var resultOfUpload = Upload(file, root);
-            if(!resultOfUpload.Success)
+            if (!resultOfUpload.Success)
             {
                 return resultOfUpload;
             }
@@ -45,11 +40,11 @@ namespace Core.Utilities.Helpers.FileHelper
         {
             var result = BusinessRules.Run(CheckIfFileEnter(file),
                     CheckIfFileExtensionValid(Path.GetExtension(file.FileName)));
-            if(result!=null)
+            if (result != null)
             {
                 return result;
             }
-            string fileName = GuidHelper.GuidHelper.CreateGuid() + Path.GetExtension(file.FileName);
+            string fileName = GuidHelper.CreateGuid() + Path.GetExtension(file.FileName);
 
             CheckIfDirectoryExists(root);
             Console.WriteLine(root + fileName);
@@ -60,7 +55,7 @@ namespace Core.Utilities.Helpers.FileHelper
 
         private IResult CheckIfFileExists(string filePath)
         {
-            if(File.Exists(filePath))
+            if (File.Exists(filePath))
             {
                 return new SuccessResult();
             }
@@ -69,7 +64,7 @@ namespace Core.Utilities.Helpers.FileHelper
 
         private IResult CheckIfFileEnter(IFormFile file)
         {
-            if(file.Length < 0)
+            if (file.Length < 0)
             {
                 return new ErrorResult("Dosya girilmedi");
             }
@@ -78,7 +73,7 @@ namespace Core.Utilities.Helpers.FileHelper
 
         private IResult CheckIfFileExtensionValid(string extension)
         {
-            if(extension == ".jpg" || extension == ".png" || extension == ".jpeg" || extension == ".webp")
+            if (extension == ".jpg" || extension == ".png" || extension == ".jpeg" || extension == ".webp")
             {
                 return new SuccessResult();
             }
@@ -88,13 +83,13 @@ namespace Core.Utilities.Helpers.FileHelper
 
         private void CheckIfDirectoryExists(string root)
         {
-            if(!Directory.Exists(root))
+            if (!Directory.Exists(root))
             {
                 Directory.CreateDirectory(root);
             }
         }
-        
-        private void CreateFile(string directory,IFormFile file)
+
+        private void CreateFile(string directory, IFormFile file)
         {
             using (FileStream fileStream = File.Create(directory))
             {

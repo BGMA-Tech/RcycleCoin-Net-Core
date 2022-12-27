@@ -77,6 +77,6 @@ app.UseHttpsRedirection();
 
 app.MapControllers();
 
-app.UseCors(builder => builder.WithOrigins("http://localhost:8080").AllowAnyHeader());
+app.UseCors(builder => builder.WithOrigins("*").AllowAnyHeader());
 
 app.Run();
