@@ -42,10 +42,6 @@ namespace WebAPI.Controllers
             {
                 return BadRequest(result);
             }
-            if(result.Data.Data.Token == null ) 
-            {
-                return BadRequest(result.Data.Data);
-            }
             return Ok(result.Data.Data);
         }
 
