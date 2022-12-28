@@ -15,7 +15,7 @@ namespace DataAccess
             {
                 options.UseSqlServer(configuration.GetConnectionString("RecycleCoinConnectionString")); 
                 options.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
-            });
+            }); 
 
             services.AddScoped<IRecycleProductDal, EfRecycleProductDal>();
             services.AddScoped<IRecycleTypeDal, EfRecycleTypeDal>();
