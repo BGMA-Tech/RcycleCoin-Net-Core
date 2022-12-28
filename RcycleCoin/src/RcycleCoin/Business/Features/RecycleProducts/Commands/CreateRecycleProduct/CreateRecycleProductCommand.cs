@@ -2,7 +2,6 @@
 using Business.Features.RecycleProducts.Dtos;
 using Business.Features.RecycleProducts.Rules;
 using Core.Application.Pipelines.Authorization;
-using Core.Helper.FileHelpers;
 using DataAccess.Abstract;
 using Entities.Concrete;
 using MediatR;
