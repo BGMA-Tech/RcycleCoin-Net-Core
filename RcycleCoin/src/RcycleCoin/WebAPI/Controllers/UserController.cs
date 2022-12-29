@@ -7,9 +7,7 @@ using Core.Helper;
 using Core.Utilities.JsonResults.Abstract;
 using Core.Utilities.JsonResults.Concrete;
 using Core.Utilities.Security.Jwt;
-using Entities.Concrete;
 using Microsoft.AspNetCore.Mvc;
-using Core.Utilities.Concrete;
 
 namespace WebAPI.Controllers
 {
@@ -28,11 +26,11 @@ namespace WebAPI.Controllers
         public async Task<IActionResult> GetById(string userId)
         {
             IJsonDataResult<ResultDataJson<UserDto>> result = await _userService.GetById(userId.ToString());
-            if (result.Data.ErrorMessage.Message == "Auth Failed")
+            if (result.Data.ErrorMessage != null && result.Data.ErrorMessage.Message == "Auth Failed")
             {
                 return Unauthorized(result.Data);
             }
-            else if (result.Data.Data != null)
+            else if (result.Data != null && result.Data.Data != null)
             {
                 return Ok(result.Data);
             }
@@ -43,11 +41,11 @@ namespace WebAPI.Controllers
         public async Task<IActionResult> Login([FromBody] UserForLoginDto userForLoginDto)
         {
             IJsonDataResult<ResultDataJson<AccessToken>> result = await _userService.Login(userForLoginDto);
-            if (result.Data.ErrorMessage.Message == "Auth Failed")
+            if (result.Data != null && result.Data.Data == null)
             {
-                return Unauthorized(result.Data);
+                return BadRequest(result.Data);
             }
-            return Ok(result.Data);
+            return Ok(result.Data.Data);
         }
 
         [HttpPost("register")]
@@ -58,7 +56,7 @@ namespace WebAPI.Controllers
             {
                 return Ok(result.Data);
             }
-            else if (result.Data.ErrorMessage.Message == "Mail exists")
+            else if (result.Data.ErrorMessage != null && result.Data.ErrorMessage.Message == "Mail exists")
             {
                 return Conflict(result.Data);
             }
@@ -84,7 +82,7 @@ namespace WebAPI.Controllers
             {
                 return Ok(result.Data);
             }
-            else if (result.Data.ErrorMessage.Message == "Auth Failed")
+            else if (result.Data.ErrorMessage != null && result.Data.ErrorMessage.Message == "Auth Failed")
             {
                 return Unauthorized(result.Data);
             }
