@@ -21,11 +21,11 @@ namespace WebAPI.Controllers
         public async Task<IActionResult> GetById(string id)
         {
             IJsonDataResult<ResultDataJson<CoinDto>> result = await _coinService.GetById(id);
-            if (result.Data.ErrorMessage.Message == "Auth Failed")
+            if (result.Data.ErrorMessage != null && result.Data.ErrorMessage.Message == "Auth Failed")
             {
                 return Unauthorized(result.Data);
             }
-            else if (result.Data.Data != null)
+            else if (result.Data != null && result.Data.Data != null)
             {
                 return Ok(result.Data);
             }
@@ -36,11 +36,11 @@ namespace WebAPI.Controllers
         public async Task<IActionResult> Delete(string id)
         {
             IJsonDataResult<ResultDataJson<CoinDto>> result = await _coinService.Delete(id);
-            if (result.Data.ErrorMessage.Message == "Auth Failed")
+            if (result.Data.ErrorMessage != null && result.Data.ErrorMessage.Message == "Auth Failed")
             {
                 return Unauthorized(result.Data);
             }
-            else if (result.Data.Data != null)
+            else if (result.Data != null && result.Data.Data != null)
             {
                 return Ok(result.Data);
             }
@@ -51,11 +51,11 @@ namespace WebAPI.Controllers
         public async Task<IActionResult> Update([FromBody] UpdatedCoinDto updatedCoinDto,string id)
         {
             IJsonDataResult<ResultDataJson<CoinDto>> result = await _coinService.Update(id,updatedCoinDto);
-            if (result.Data.ErrorMessage.Message == "Auth Failed")
+            if (result.Data.ErrorMessage != null && result.Data.ErrorMessage.Message == "Auth Failed")
             {
                 return Unauthorized(result.Data);
             }
-            else if (result.Data.Data != null)
+            else if (result.Data != null && result.Data.Data != null)
             {
                 return Ok(result.Data);
             }

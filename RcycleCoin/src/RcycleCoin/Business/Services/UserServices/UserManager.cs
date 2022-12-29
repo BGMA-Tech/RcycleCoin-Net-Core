@@ -58,6 +58,9 @@ namespace Business.Services.UserServices
                         else
                         {
                             ResultJson? resultError = JsonConvert.DeserializeObject<ResultJson>(data);
+                            ResultDataJson<UserDto> resultDataJson = new ResultDataJson<UserDto>();
+                            resultDataJson.ErrorMessage = resultError.Error;
+                            resultDataJson.Status = resultError.Success;
                             return new ErrorJsonDataResult<ResultDataJson<AccessToken>>(resultError.Error);
                         }
                     }

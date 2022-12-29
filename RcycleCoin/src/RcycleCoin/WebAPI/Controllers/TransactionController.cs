@@ -21,11 +21,11 @@ namespace WebAPI.Controllers
         public async Task<IActionResult> Add([FromBody] CreatedTransactionDto createdTransactionDto)
         {
             IJsonDataResult<ResultDataJson<TransactionDto>> result = await _transactionService.Add(createdTransactionDto);
-            if(result.Data.ErrorMessage.Message == "Auth Failed")
+            if (result.Data.ErrorMessage != null && result.Data.ErrorMessage.Message == "Auth Failed")
             {
                 return Unauthorized(result.Data);
             }
-            else if (result.Data.Data != null)
+            else if (result.Data != null && result.Data.Data != null)
             {
                 return Ok(result.Data);
             }
@@ -36,15 +36,15 @@ namespace WebAPI.Controllers
         public async Task<IActionResult> GetById(string id)
         {
             IJsonDataResult<ResultDataJson<TransactionDto>> result = await _transactionService.GetById(id);
-            if (result.Data.ErrorMessage.Message == "Auth Failed")
+            if (result.Data.ErrorMessage != null && result.Data.ErrorMessage.Message == "Auth Failed")
             {
                 return Unauthorized(result.Data);
             }
-            else if (result.Data.Data != null)
+            else if (result.Data != null && result.Data.Data != null)
             {
-                return Ok(result.Data);
+                return Ok(result.Data.Data);
             }
-            return NotFound(result);
+            return NotFound(result.Data);
         }
 
         [HttpGet("getall")]
@@ -55,7 +55,7 @@ namespace WebAPI.Controllers
             {
                 return Ok(result.Data);
             }
-            else if (result.Data.ErrorMessage.Message == "Auth Failed")
+            else if (result.Data.ErrorMessage != null && result.Data.ErrorMessage.Message == "Auth Failed")
             {
                 return Unauthorized(result.Data);
             }
@@ -70,7 +70,7 @@ namespace WebAPI.Controllers
             {
                 return Ok(result.Data);
             }
-            else if(result.Data.ErrorMessage.Message == "Auth Failed")
+            else if (result.Data.ErrorMessage != null && result.Data.ErrorMessage.Message == "Auth Failed")
             {
                 return Unauthorized(result.Data);
             }
@@ -85,7 +85,7 @@ namespace WebAPI.Controllers
             {
                 return Ok(result.Data);
             }
-            else if (result.Data.ErrorMessage.Message == "Auth Failed")
+            else if (result.Data.ErrorMessage != null && result.Data.ErrorMessage.Message == "Auth Failed")
             {
                 return Unauthorized(result.Data);
             }
@@ -98,9 +98,9 @@ namespace WebAPI.Controllers
             IJsonDataResult<ResultDataJson<List<TransactionDto>>> result = await _transactionService.GetAllByFromPersonelId(fromPersonelId);
             if (result.Data.Status)
             {
-                return Ok(result.Data);
+                return Ok(result.Data.Data);
             }
-            else if (result.Data.ErrorMessage.Message == "Auth Failed")
+            else if (result.Data.ErrorMessage != null && result.Data.ErrorMessage.Message == "Auth Failed")
             {
                 return Unauthorized(result.Data);
             }

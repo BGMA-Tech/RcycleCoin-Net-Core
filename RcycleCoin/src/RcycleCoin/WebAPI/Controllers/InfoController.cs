@@ -21,11 +21,11 @@ namespace WebAPI.Controllers
         public async Task<IActionResult> GetById(string id)
         {
             IJsonDataResult<ResultDataJson<InfoDto>> result = await _ınfoService.GetById(id.ToString());
-            if (result.Data.ErrorMessage.Message == "Auth Failed")
+            if (result.Data.ErrorMessage != null && result.Data.ErrorMessage.Message == "Auth Failed")
             {
                 return Unauthorized(result.Data);
             }
-            else if (result.Data.Data != null)
+            else if (result.Data != null && result.Data.Data != null)
             {
                 return Ok(result.Data);
             }
@@ -36,11 +36,11 @@ namespace WebAPI.Controllers
         public async Task<IActionResult> Update([FromBody] UpdateInfoDto updateInfoDto,string id)
         {
             IJsonDataResult<ResultDataJson<InfoDto>> result = await _ınfoService.Update(id,updateInfoDto);
-            if (result.Data.ErrorMessage.Message == "Auth Failed")
+            if (result.Data.ErrorMessage != null && result.Data.ErrorMessage.Message == "Auth Failed")
             {
                 return Unauthorized(result.Data);
             }
-            else if (result.Data.Data != null)
+            else if (result.Data != null && result.Data.Data != null)
             {
                 return Ok(result.Data);
             }
@@ -51,11 +51,11 @@ namespace WebAPI.Controllers
         public async Task<IActionResult> Add([FromBody] CreatedInfoDto createdInfoDto)
         {
             IJsonDataResult<ResultDataJson<InfoDto>> result = await _ınfoService.Add(createdInfoDto);
-            if (result.Data.ErrorMessage.Message == "Auth Failed")
+            if (result.Data.ErrorMessage != null && result.Data.ErrorMessage.Message == "Auth Failed")
             {
                 return Unauthorized(result.Data);
             }
-            else if (result.Data.Data != null)
+            else if (result.Data != null && result.Data.Data != null)
             {
                 return Ok(result.Data);
             }
