@@ -1,6 +1,4 @@
-﻿using Business.Services.InfoServices.Dtos;
-using Business.Services.TransactionServices.Dtos;
-using Core.Utilities.Abstract;
+﻿using Business.Services.TransactionServices.Dtos;
 using Core.Utilities.JsonResults.Abstract;
 using Core.Utilities.JsonResults.Concrete;
 

@@ -9,6 +9,7 @@ using Core.Utilities.JsonResults.Concrete;
 using Core.Utilities.Security.Jwt;
 using Entities.Concrete;
 using Microsoft.AspNetCore.Mvc;
+using Core.Utilities.Concrete;
 
 namespace WebAPI.Controllers
 {
@@ -26,50 +27,66 @@ namespace WebAPI.Controllers
         [HttpGet("getbyid")]
         public async Task<IActionResult> GetById(string userId)
         {
-            IJsonDataResult<ResultDataJson<UserDto>> resut = await _userService.GetById(userId.ToString());
-            if(resut.Data != null)
+            IJsonDataResult<ResultDataJson<UserDto>> result = await _userService.GetById(userId.ToString());
+            if (result.Data.ErrorMessage.Message == "Auth Failed")
             {
-                return Ok(resut.Data);
+                return Unauthorized(result.Data);
             }
-            return BadRequest(resut.Data);
+            else if (result.Data.Data != null)
+            {
+                return Ok(result.Data);
+            }
+            return NotFound(result);
         }
 
         [HttpPost("login")]
         public async Task<IActionResult> Login([FromBody] UserForLoginDto userForLoginDto)
         {
             IJsonDataResult<ResultDataJson<AccessToken>> result = await _userService.Login(userForLoginDto);
-            if(result.Data == null)
+            if (result.Data.ErrorMessage.Message == "Auth Failed")
             {
-                return BadRequest(result);
+                return Unauthorized(result.Data);
             }
-            return Ok(result.Data.Data);
+            return Ok(result.Data);
         }
 
         [HttpPost("register")]
         public async Task<IActionResult> Register([FromBody] UserForRegisterDto userForRegisterDto)
         {
             IJsonDataResult<ResultDataJson<UserDto>> result = await _userService.Register(userForRegisterDto);
-            if (result.Data != null)
+            if (result.Data.Status)
             {
-                return Ok(result.Data.Data);
+                return Ok(result.Data);
             }
-            return BadRequest(result.Data.Data);
+            else if (result.Data.ErrorMessage.Message == "Mail exists")
+            {
+                return Conflict(result.Data);
+            }
+            return BadRequest(result.Data);
         }
 
         [HttpPost("getverifyid")]
         public async Task<IActionResult> GetVerifyId([FromBody] GetVerifyIdDto getVerifyIdDto)
         {
             IJsonDataResult<GetVerifyIdJson> result = await _userService.GetVerifyId(getVerifyIdDto);
-            return Ok(result.Data);
+            if (result.Data.Status)
+            {
+                return Ok(result.Data);
+            }
+            return BadRequest(result.Data);
         }
 
         [HttpGet("getall")]
         public async Task<IActionResult> GetAll()
         {
             IJsonDataResult<ResultDataJson<List<UserDto>>> result = await _userService.GetAll();
-            if (result.Data != null)
+            if (result.Data.Status)
             {
                 return Ok(result.Data);
+            }
+            else if (result.Data.ErrorMessage.Message == "Auth Failed")
+            {
+                return Unauthorized(result.Data);
             }
             return BadRequest(result.Data);
         }

@@ -1,12 +1,10 @@
-﻿using Business.Services.CoinServices.Dtos;
-using Business.Services.InfoServices.Dtos;
+﻿using Business.Services.InfoServices.Dtos;
 using Core.Entities;
 using Core.Helper;
-using Core.Utilities.Abstract;
-using Core.Utilities.Concrete;
 using Core.Utilities.JsonResults.Abstract;
 using Core.Utilities.JsonResults.Concrete;
 using Newtonsoft.Json;
+using System.Net;
 using System.Net.Http.Headers;
 using System.Net.Http.Json;
 
@@ -25,23 +23,22 @@ namespace Business.Services.InfoServices
                     using (HttpContent content = res.Content)
                     {
                         string data = await content.ReadAsStringAsync();
-                        if (data != null)
+                        if (res.StatusCode != HttpStatusCode.Unauthorized && res.StatusCode != HttpStatusCode.InternalServerError)
                         {
                             ResultDataJson<InfoDto>? result = JsonConvert.DeserializeObject<ResultDataJson<InfoDto>>(data);
-                            if (result?.Data != null)
-                            {
-                                return new SuccessJsonDataResult<ResultDataJson<InfoDto>>(result);
-                            }
-                            else
-                            {
-                                ResultJson? resultError = JsonConvert.DeserializeObject<ResultJson>(data);
-                                return new ErrorJsonDataResult<ResultDataJson<InfoDto>>(resultError.Error);
-                            }
+                            return new SuccessJsonDataResult<ResultDataJson<InfoDto>>(result);
+                        }
+                        else
+                        {
+                            ResultJson? resultError = JsonConvert.DeserializeObject<ResultJson>(data);
+                            ResultDataJson<InfoDto> resultDataJson = new ResultDataJson<InfoDto>();
+                            resultDataJson.ErrorMessage = resultError.Error;
+                            resultDataJson.Status = resultError.Success;
+                            return new ErrorJsonDataResult<ResultDataJson<InfoDto>>(resultDataJson);
                         }
                     }
                 }
             }
-            return new ErrorJsonDataResult<ResultDataJson<InfoDto>>();
         }
 
         public async Task<IJsonDataResult<ResultDataJson<InfoDto>>> GetById(string id)
@@ -53,23 +50,22 @@ namespace Business.Services.InfoServices
                     using (HttpContent content = res.Content)
                     {
                         string data = await content.ReadAsStringAsync();
-                        if (data != null)
+                        if (res.StatusCode != HttpStatusCode.Unauthorized && res.StatusCode != HttpStatusCode.InternalServerError && res.StatusCode != HttpStatusCode.NotFound)
                         {
                             ResultDataJson<InfoDto>? result = JsonConvert.DeserializeObject<ResultDataJson<InfoDto>>(data);
-                            if (result?.Data != null)
-                            {
-                                return new SuccessJsonDataResult<ResultDataJson<InfoDto>>(result);
-                            }
-                            else
-                            {
-                                ResultJson? resultError = JsonConvert.DeserializeObject<ResultJson>(data);
-                                return new ErrorJsonDataResult<ResultDataJson<InfoDto>>(resultError.Error);
-                            }
+                            return new SuccessJsonDataResult<ResultDataJson<InfoDto>>(result);
+                        }
+                        else
+                        {
+                            ResultJson? resultError = JsonConvert.DeserializeObject<ResultJson>(data);
+                            ResultDataJson<InfoDto> resultDataJson = new ResultDataJson<InfoDto>();
+                            resultDataJson.ErrorMessage = resultError.Error;
+                            resultDataJson.Status = resultError.Success;
+                            return new ErrorJsonDataResult<ResultDataJson<InfoDto>>(resultDataJson);
                         }
                     }
                 }
             }
-            return new ErrorJsonDataResult<ResultDataJson<InfoDto>>();
         }
 
         public async Task<IJsonDataResult<ResultDataJson<InfoDto>>> Update(string id, UpdateInfoDto updateInfoDto)
@@ -81,23 +77,22 @@ namespace Business.Services.InfoServices
                     using (HttpContent content = res.Content)
                     {
                         string data = await content.ReadAsStringAsync();
-                        if (data != null)
+                        if (res.StatusCode != HttpStatusCode.Unauthorized && res.StatusCode != HttpStatusCode.InternalServerError && res.StatusCode != HttpStatusCode.NotFound)
                         {
                             ResultDataJson<InfoDto>? result = JsonConvert.DeserializeObject<ResultDataJson<InfoDto>>(data);
-                            if (result?.Data != null)
-                            {
-                                return new SuccessJsonDataResult<ResultDataJson<InfoDto>>(result);
-                            }
-                            else
-                            {
-                                ResultJson? resultError = JsonConvert.DeserializeObject<ResultJson>(data);
-                                return new ErrorJsonDataResult<ResultDataJson<InfoDto>>(resultError.Error);
-                            }
+                            return new SuccessJsonDataResult<ResultDataJson<InfoDto>>(result);
+                        }
+                        else
+                        {
+                            ResultJson? resultError = JsonConvert.DeserializeObject<ResultJson>(data);
+                            ResultDataJson<InfoDto> resultDataJson = new ResultDataJson<InfoDto>();
+                            resultDataJson.ErrorMessage = resultError.Error;
+                            resultDataJson.Status = resultError.Success;
+                            return new ErrorJsonDataResult<ResultDataJson<InfoDto>>(resultDataJson);
                         }
                     }
                 }
             }
-            return new ErrorJsonDataResult<ResultDataJson<InfoDto>>();
         }
     }
 }
