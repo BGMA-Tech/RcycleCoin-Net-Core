@@ -1,9 +1,11 @@
 ﻿using Business.Services.CoinServices.Dtos;
+using Business.Services.TransactionServices.Dtos;
 using Core.Entities;
 using Core.Helper;
 using Core.Utilities.JsonResults.Abstract;
 using Core.Utilities.JsonResults.Concrete;
 using Newtonsoft.Json;
+using System.Net;
 using System.Net.Http.Json;
 
 namespace Business.Services.CoinServices
@@ -19,23 +21,22 @@ namespace Business.Services.CoinServices
                     using (HttpContent content = res.Content)
                     {
                         string data = await content.ReadAsStringAsync();
-                        if (data != null)
+                        if (res.StatusCode != HttpStatusCode.Unauthorized && res.StatusCode != HttpStatusCode.InternalServerError && res.StatusCode != HttpStatusCode.NotFound)
                         {
                             ResultDataJson<CoinDto>? result = JsonConvert.DeserializeObject<ResultDataJson<CoinDto>>(data);
-                            if (result?.Data != null)
-                            {
-                                return new SuccessJsonDataResult<ResultDataJson<CoinDto>>(result);
-                            }
-                            else
-                            {
-                                ResultJson? resultError = JsonConvert.DeserializeObject<ResultJson>(data);
-                                return new ErrorJsonDataResult<ResultDataJson<CoinDto>>(resultError.Error);
-                            }
+                            return new SuccessJsonDataResult<ResultDataJson<CoinDto>>(result);
+                        }
+                        else
+                        {
+                            ResultJson? resultError = JsonConvert.DeserializeObject<ResultJson>(data);
+                            ResultDataJson<CoinDto> resultDataJson = new ResultDataJson<CoinDto>();
+                            resultDataJson.ErrorMessage = resultError.Error;
+                            resultDataJson.Status = resultError.Success;
+                            return new ErrorJsonDataResult<ResultDataJson<CoinDto>>(resultDataJson);
                         }
                     }
                 }
             }
-            return new ErrorJsonDataResult<ResultDataJson<CoinDto>>();
         }
 
         public async Task<IJsonDataResult<ResultDataJson<CoinDto>>> Delete(string id)
@@ -47,23 +48,22 @@ namespace Business.Services.CoinServices
                     using (HttpContent content = res.Content)
                     {
                         string data = await content.ReadAsStringAsync();
-                        if (data != null)
+                        if (res.StatusCode != HttpStatusCode.Unauthorized && res.StatusCode != HttpStatusCode.InternalServerError)
                         {
                             ResultDataJson<CoinDto>? result = JsonConvert.DeserializeObject<ResultDataJson<CoinDto>>(data);
-                            if (result?.Data != null)
-                            {
-                                return new SuccessJsonDataResult<ResultDataJson<CoinDto>>(result);
-                            }
-                            else
-                            {
-                                ResultJson? resultError = JsonConvert.DeserializeObject<ResultJson>(data);
-                                return new ErrorJsonDataResult<ResultDataJson<CoinDto>>(resultError.Error);
-                            }
+                            return new SuccessJsonDataResult<ResultDataJson<CoinDto>>(result);
+                        }
+                        else
+                        {
+                            ResultJson? resultError = JsonConvert.DeserializeObject<ResultJson>(data);
+                            ResultDataJson<CoinDto> resultDataJson = new ResultDataJson<CoinDto>();
+                            resultDataJson.ErrorMessage = resultError.Error;
+                            resultDataJson.Status = resultError.Success;
+                            return new ErrorJsonDataResult<ResultDataJson<CoinDto>>(resultDataJson);
                         }
                     }
                 }
             }
-            return new ErrorJsonDataResult<ResultDataJson<CoinDto>>();
         }
 
         public async Task<IJsonDataResult<ResultDataJson<CoinDto>>> Update(string id,UpdatedCoinDto updatedCoinDto)
@@ -75,23 +75,22 @@ namespace Business.Services.CoinServices
                     using (HttpContent content = res.Content)
                     {
                         string data = await content.ReadAsStringAsync();
-                        if (data != null)
+                        if (res.StatusCode != HttpStatusCode.Unauthorized && res.StatusCode != HttpStatusCode.InternalServerError && res.StatusCode != HttpStatusCode.NotFound)
                         {
                             ResultDataJson<CoinDto>? result = JsonConvert.DeserializeObject<ResultDataJson<CoinDto>>(data);
-                            if (result?.Data != null)
-                            {
-                                return new SuccessJsonDataResult<ResultDataJson<CoinDto>>(result);
-                            }
-                            else
-                            {
-                                ResultJson? resultError = JsonConvert.DeserializeObject<ResultJson>(data);
-                                return new ErrorJsonDataResult<ResultDataJson<CoinDto>>(resultError.Error);
-                            }
+                            return new SuccessJsonDataResult<ResultDataJson<CoinDto>>(result);
+                        }
+                        else
+                        {
+                            ResultJson? resultError = JsonConvert.DeserializeObject<ResultJson>(data);
+                            ResultDataJson<CoinDto> resultDataJson = new ResultDataJson<CoinDto>();
+                            resultDataJson.ErrorMessage = resultError.Error;
+                            resultDataJson.Status = resultError.Success;
+                            return new ErrorJsonDataResult<ResultDataJson<CoinDto>>(resultDataJson);
                         }
                     }
                 }
             }
-            return new ErrorJsonDataResult<ResultDataJson<CoinDto>>();
         }
     }
 }
